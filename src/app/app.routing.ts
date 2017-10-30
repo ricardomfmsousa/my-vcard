@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutViewComponent, data: { animation: 'about' } },
   { path: 'contact', component: ContactViewComponent, data: { animation: 'contact' } },
   { path: 'not-found', component: NotFoundViewComponent, data: { animation: 'not-found' } },
-  { path: '', redirectTo: '/not-found', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundViewComponent }
 ];
 
