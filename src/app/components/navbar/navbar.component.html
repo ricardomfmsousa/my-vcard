@@ -14,9 +14,7 @@
         <ng-template [ngIf]="true" *ngFor="let route of appRoutes">
           <li *ngIf="route.data?.navVisible">
             <a routerLink="{{route.path}}" (click)="routerLinkClicked($event)">
-              <span style="margin:0 5px;">
-                          {{route.data.name}}
-        </span>
+              <span>{{route.data.name}}</span>
               <div class="underline-fade" [ngClass]="{'active': isInRoute(route)}"></div>
             </a>
           </li>
