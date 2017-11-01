@@ -1,0 +1,96 @@
+$backgroundURL: "../../../assets/img/home-bg.jpg";
+$patternURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAABX3VL4AAAADklEQV‌​QI12P4/5/hPwMACvsC/t‌​mfKMUAAAAASUVORK5CYI‌​I=";
+.fullscreen-video-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+.view-wrapper {
+  height: 100%; // background: url($backgroundURL) no-repeat center center fixed;
+  // background-size: cover;
+  .fullscreen-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .view-wrapper-inner {
+    display: table;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient( 45deg, rgba(0, 0, 0, 0), rgba(79, 146, 109, 0.6));
+    background-size: 2px 2px;
+    .intro-content {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      h5 {
+        color: white;
+      }
+      h1 {
+        font-size: 50px;
+        text-transform: uppercase;
+        color: white;
+      }
+      .intro-position {
+        font-family: "Open Sans", "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+        font-weight: 300;
+        font-size: 1.7rem;
+        line-height: 2.4rem;
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        color: #FFFFFF;
+        text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        animation: 1s animate-intro-position;
+        span {
+          &:before,
+          &:after {
+            content: "|";
+            text-align: center;
+            display: inline-block;
+            padding: 0 14px 0 8px;
+            color: rgba(255, 255, 255, 0.3);
+          }
+        }
+      }
+      .intro-social {
+        a,
+        a:active,
+        a:visited {
+          color: white;
+          margin: auto 5px;
+          transition: color 1s;
+          &:hover,
+          &:focus {
+            color: grey;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes animate-intro-position {
+  0% {
+    font-size: 0;
+  }
+  100% {
+    font-size: 1.7rem;
+  }
+}

@@ -4,17 +4,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routedComponents } from './app.routing';
 import { AlertModule } from 'ngx-bootstrap';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    routedComponents
+    routedComponents,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-tranparent navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" (click)="menuButtonClicked($event)" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" [ngClass]="{'in': collapsedIn}"></span>
+            <span class="icon-bar" [ngClass]="{'in': collapsedIn}"></span>
+            <span class="icon-bar" [ngClass]="{'in': collapsedIn}"></span>
+          </button>
+      <a class="navbar-brand" routerLink="{{appRoutes[0].path}}">RS</a>
+    </div>
+    <div class="navbar-collapse collapse" [ngClass]="{'in': collapsedIn}">
+      <ul class="nav navbar-nav pull-right">
+        <ng-template [ngIf]="true" *ngFor="let route of appRoutes">
+          <li *ngIf="route.data?.navVisible">
+            <a routerLink="{{route.path}}" (click)="routerLinkClicked($event)">
+              <span>{{route.data.name}}</span>
+              <div class="underline-fade" [ngClass]="{'active': isInRoute(route)}"></div>
+            </a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

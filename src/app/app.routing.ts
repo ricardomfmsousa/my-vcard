@@ -12,13 +12,48 @@ export const routedComponents = [
   NotFoundViewComponent
 ];
 
-const appRoutes: Routes = [
-  { path: 'home', component: HomeViewComponent, data: { animation: 'home' } },
-  { path: 'about', component: AboutViewComponent, data: { animation: 'about' } },
-  { path: 'contact', component: ContactViewComponent, data: { animation: 'contact' } },
-  { path: 'not-found', component: NotFoundViewComponent, data: { animation: 'not-found' } },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: NotFoundViewComponent }
+export const appRoutes: Routes = [
+  {
+    path: 'home',
+    component: HomeViewComponent,
+    data: {
+      name: 'Home',
+      navVisible: true
+    }
+  },
+  {
+    path: 'about',
+    component: AboutViewComponent,
+    data: {
+      name: 'About',
+      navVisible: true
+    }
+  },
+  {
+    path: 'contact',
+    component: ContactViewComponent,
+    data: {
+      name: 'Contact',
+      navVisible: true
+    }
+  },
+  {
+    path: 'not-found',
+    component: NotFoundViewComponent,
+    data: {
+      name: 'Not Found',
+      navVisible: false
+    }
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: NotFoundViewComponent
+  }
 ];
 
 @NgModule({

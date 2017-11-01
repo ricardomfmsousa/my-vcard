@@ -1,0 +1,76 @@
+.navbar-tranparent {
+  background: transparent;
+  border: none;
+  .navbar-toggle {
+    border: none;
+    &:active,
+    &:focus,
+    &:hover {
+      background: transparent;
+    }
+    .icon-bar {
+      transition: all 1s;
+      &:nth-child(3) {
+        width: 16px;
+        margin: 4px auto;
+      }
+    }
+    .icon-bar.in {
+      background: white;
+      &:nth-child(3) {
+        width: 18px;
+      }
+    }
+  }
+  .navbar-brand {
+    color: grey;
+  }
+  .navbar-collapse.collapse {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(168, 168, 168, 0) 34%, rgba(0, 0, 0, 0.9) 100%);
+    transition: opacity 1s, visibility 1s;
+    &.in {
+      visibility: visible;
+      opacity: 1;
+    }
+    .nav>li>a {
+      font-family: "Open Sans", "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
+      color: white;
+      text-align: center;
+      transition: color 1s;
+      &:hover {
+        color: gray;
+      }
+      span {
+        margin: 0 5px;
+      }
+    }
+    .navbar-nav>.active>a,
+    .navbar-nav>.active>a:focus,
+    .navbar-nav>.active>a:hover {
+      background: transparent;
+    }
+  }
+  @media (min-width: 768px) {
+    .navbar-collapse.collapse {
+      visibility: visible;
+      opacity: 1;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+}
+
+.underline-fade {
+  height: 1px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 10%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  &.active {
+    opacity: 1;
+  }
+}
