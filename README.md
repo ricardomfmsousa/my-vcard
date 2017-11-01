@@ -1,5 +1,7 @@
 # MyResume
 
+[![Coverage Status](https://coveralls.io/repos/github/ricardomfmsousa/my-resume/badge.svg?branch=master)](https://coveralls.io/github/ricardomfmsousa/my-resume?branch=master)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
 ## Development server
