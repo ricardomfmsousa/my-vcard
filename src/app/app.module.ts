@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -7,7 +7,6 @@ import { AlertModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +14,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awes
     NavbarComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     AlertModule.forRoot(),
     AngularFontAwesomeModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]

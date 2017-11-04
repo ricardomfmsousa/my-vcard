@@ -1,5 +1,6 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { fadeAnimation } from '../../animations/fade-in.animation';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home-view',
