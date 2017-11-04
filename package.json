@@ -8,10 +8,13 @@
     "build": "ng build",
     "deploy": "ng build --prod --build-optimizer --base-href '/my-resume/' && ngh —-message='Update build'",
     "test": "ng test",
+    "test-cover": "rm -rf ./coverage && ng test --no-watch --code-coverage",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
+  "author": "Ricardo Sousa",
   "dependencies": {
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
@@ -42,18 +45,18 @@
     "coveralls": "^3.0.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~1.7.0",
-    "karma-chrome-launcher": "~2.2.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "~1.0.1",
     "karma-coverage": "^1.1.1",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-coverage-istanbul-reporter": "^1.3.0",
     "karma-coveralls": "^1.1.2",
-    "karma-jasmine": "~1.1.0",
+    "karma-jasmine": "^1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.4",
-    "protractor": "~5.1.2",
-    "ts-node": "~3.2.0",
-    "tslint": "~5.7.0",
-    "typescript": "~2.3.3"
+    "protractor": "^5.2.0",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
   }
 }

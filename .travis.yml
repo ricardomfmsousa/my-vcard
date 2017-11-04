@@ -1,13 +1,23 @@
 language: node_js
 
 node_js:
-   - node # will use latest node
+   - "8" # currently is the highest version supported by yarn
 
-before_script: # commands to run before the build step
-   - npm install -g --silent @angular/cli
+install:
+  - npm install -g yarn
+  - yarn global add @angular/cli
+  - yarn global add karma
+  - yarn install # make use of yarn.lock
 
-script: # the build step
-   - ng build --prod
+before_script:
+  - ng -v
+
+script:
+  - yarn lint
+  - yarn test-cover
+
+after_success:
+  - yarn coveralls
 
 notifications:
   email: # only receive email when the build status changes (someone broke the build!)
