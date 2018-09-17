@@ -1,7 +1,12 @@
+sudo: required
+dist: trusty
+addons:
+  chrome: stable
+
 language: node_js
 
 node_js:
-   - "8" # currently is the highest version supported by yarn
+  - '8' # currently is the highest version supported by yarn
 
 install:
   - npm install -g yarn
@@ -11,6 +16,8 @@ install:
 
 before_script:
   - ng -v
+  - 'sudo chown root /opt/google/chrome/chrome-sandbox'
+  - 'sudo chmod 4755 /opt/google/chrome/chrome-sandbox'
 
 script:
   - yarn lint
