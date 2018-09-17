@@ -10,7 +10,8 @@ export const routedComponents = [
   HomeViewComponent,
   AboutViewComponent,
   ContactViewComponent,
-  NotFoundViewComponent
+  NotFoundViewComponent,
+  UnderConstructionComponent
 ];
 
 export const appRoutes: Routes = [
