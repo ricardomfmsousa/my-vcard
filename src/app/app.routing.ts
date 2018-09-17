@@ -1,3 +1,4 @@
+import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeViewComponent } from './components/home-view/home-view.component';
@@ -23,7 +24,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'about',
-    component: AboutViewComponent,
+    component: UnderConstructionComponent,
     data: {
       name: 'About',
       navVisible: true
@@ -31,7 +32,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactViewComponent,
+    component: UnderConstructionComponent,
     data: {
       name: 'Contact',
       navVisible: true
@@ -60,5 +61,4 @@ export const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}
