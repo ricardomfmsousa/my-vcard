@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { fadeAnimation } from '../../animations/fade-in.animation';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home-view',
@@ -8,11 +7,4 @@ import { RouterLink } from '@angular/router';
   animations: [fadeAnimation],
   styleUrls: ['./home-view.component.scss']
 })
-export class HomeViewComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class HomeViewComponent {}
