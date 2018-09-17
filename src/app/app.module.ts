@@ -5,25 +5,23 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, routedComponents } from './app.routing';
 import { AlertModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routedComponents,
-    NavbarComponent
+    NavbarComponent,
+    UnderConstructionComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AlertModule.forRoot(),
-    AngularFontAwesomeModule
+    AlertModule.forRoot()
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
