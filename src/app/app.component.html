@@ -1,6 +1,6 @@
 <div style="height:100%" *ngIf="appLoaded">
 
-  <app-navbar></app-navbar>
+  <app-navbar *ngIf="implemented"></app-navbar>
   <!-- Fade in/out between route changes -->
   <main [@fadeAnimation]="getRouterOutletState(outlet)">
     <router-outlet #outlet="outlet"></router-outlet>
