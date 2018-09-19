@@ -318,6 +318,10 @@ angular-font-awesome@^2.3.7:
   dependencies:
     font-awesome "^4.7.0"
 
+angular-typing-animation@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/angular-typing-animation/-/angular-typing-animation-0.5.4.tgz#a2eb8b99fca1959926ec665d9a62767717420327"
+
 ansi-html@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"

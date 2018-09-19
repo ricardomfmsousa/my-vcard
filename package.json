@@ -28,6 +28,7 @@
     "@fortawesome/fontawesome-free": "^5.3.1",
     "add": "^2.0.6",
     "angular-font-awesome": "^2.3.7",
+    "angular-typing-animation": "^0.5.4",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "ngx-bootstrap": "^1.9.3",
