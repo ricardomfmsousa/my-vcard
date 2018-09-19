@@ -1,34 +1,24 @@
-<div class="fullscreen-video-bg">
-  <video loop muted autoplay poster="assets/img/home-bg.jpg">
-    <source src="assets/vid/home-bg.mp4" type="video/mp4">
-  </video>
-</div>
-<div class="view-wrapper">
-  <div class="view-wrapper-inner">
-    <div class="container intro-content">
-      <div class="row">
+<div class="image-bg"><i></i></div>
 
-        <div class="col-xs-12">
-
-          <h1>I'm Ricardo Sousa.</h1>
-
-          <p class="intro-position">
-            <span>Front-end Developer</span>
-          </p>
-
-          <div class="intro-social">
-            <a href="https://github.com/ricardomfmsousa/" target="_blank">
-              <i class="fab fa-github fa-lg"></i>
-            </a>
-            <a href="https://linkedin.com/ricardomfmsousa/" target="_blank">
-              <i class="fab fa-linkedin fa-lg"></i>
-            </a>
-            <a href="https://www.strava.com/athletes/28394701">
-              <i class="fab fa-strava fa-lg"></i>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
+<div class="intro-content">
+  <h1 typingAnimation [typeSpeed]="70" [startDelay]="500" (complete)="handleNameTypingComplete()"
+    [hideCursorOnComplete]="true">
+    I'm Ricardo Sousa.
+  </h1>
+  <h2 *ngIf="isPositionVisible" typingAnimation [typeSpeed]="100" [startDelay]="0"
+    (complete)="handlePositionTypingComplete()"
+    [hideCursorOnComplete]="true">
+    Front-end Developer
+  </h2>
+  <div [class.visible]="isSocialVisible" class="intro-social">
+    <a href="https://github.com/ricardomfmsousa/" target="_blank">
+      <i class="fab fa-github fa-2x"></i>
+    </a>
+    <a href="https://linkedin.com/ricardomfmsousa/" target="_blank">
+      <i class="fab fa-linkedin fa-2x"></i>
+    </a>
+    <a href="https://www.strava.com/athletes/28394701" target="_blank">
+      <i class="fab fa-strava fa-2x"></i>
+    </a>
   </div>
+</div>
