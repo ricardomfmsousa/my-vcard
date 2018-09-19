@@ -8,12 +8,14 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertModule } from 'ngx-bootstrap';
+import { TypingAnimationModule } from 'angular-typing-animation';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent, NavbarComponent, routedComponents],
       imports: [
+        TypingAnimationModule,
         RouterTestingModule.withRoutes(appRoutes),
         BrowserModule,
         BrowserAnimationsModule,

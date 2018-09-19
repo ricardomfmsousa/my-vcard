@@ -1,3 +1,4 @@
+import { TypingAnimationModule } from 'angular-typing-animation';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeViewComponent } from './home-view.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
@@ -11,11 +12,11 @@ describe('HomeViewComponent', () => {
     TestBed.configureTestingModule({
       declarations: [HomeViewComponent],
       imports: [
+        TypingAnimationModule,
         RouterTestingModule,
         AngularFontAwesomeModule
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
