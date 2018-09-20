@@ -1,10 +1,10 @@
 import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeViewComponent } from './components/home-view/home-view.component';
-import { AboutViewComponent } from './components/about-view/about-view.component';
-import { ContactViewComponent } from './components/contact-view/contact-view.component';
-import { NotFoundViewComponent } from './components/not-found-view/not-found-view.component';
+import { HomeViewComponent } from './views/home/home.component';
+import { AboutViewComponent } from './views/about/about.component';
+import { ContactViewComponent } from './views/contact/contact.component';
+import { NotFoundViewComponent } from './views/not-found/not-found.component';
 
 export const routedComponents = [
   HomeViewComponent,

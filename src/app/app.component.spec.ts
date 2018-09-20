@@ -1,9 +1,9 @@
 import { TestBed, async } from '@angular/core/testing';
-import { fadeAnimation } from './animations/fade-in.animation';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { fadeAnimation } from './shared/animations/fade-in.animation';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { routedComponents, appRoutes } from './app.routing';
+import { routedComponents, appRoutes } from './app-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
