@@ -1,12 +1,12 @@
 {
-  "name": "my-resume",
+  "name": "my-vcard",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build --prod --build-optimizer --base-href '/my-resume/' && ngh —-message='Update build'",
+    "deploy": "ng build --prod --build-optimizer --base-href '/my-vcard/' && ngh —-message='Update build'",
     "test": "ng test",
     "test-cover": "rm -rf ./coverage && ng test --no-watch --code-coverage",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
