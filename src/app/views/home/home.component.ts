@@ -1,12 +1,12 @@
-import { UtilService } from './../../services/util.service';
+import { UtilService } from '../../shared/services/util/util.service';
 import { Component } from '@angular/core';
-import { fadeAnimation } from '../../animations/fade-in.animation';
+import { fadeAnimation } from '../../shared/animations/fade-in.animation';
 
 @Component({
-  selector: 'app-home-view',
-  templateUrl: './home-view.component.html',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
   animations: [fadeAnimation],
-  styleUrls: ['./home-view.component.scss']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeViewComponent {
   public hasNameTypingEndend: boolean;

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { fadeAnimation } from './animations/fade-in.animation';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { Router, RouterModule } from '@angular/router';
+import { fadeAnimation } from './shared/animations/fade-in.animation';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +8,6 @@ import { Router, RouterModule } from '@angular/router';
   animations: [fadeAnimation]
 })
 export class AppComponent {
-
   public appLoaded = false;
 
   constructor() {
@@ -21,5 +18,4 @@ export class AppComponent {
   public getRouterOutletState(outlet) {
     return outlet.activatedRouteData.name;
   }
-
 }
