@@ -1,9 +1,9 @@
 # Ricardo Sousa's vCard SPA implemented in Angular 6
 
-[![Build Status](https://travis-ci.org/ricardomfmsousa/my-resume.svg?branch=master)](https://travis-ci.org/ricardomfmsousa/my-resume)
-[![Coverage Status](https://coveralls.io/repos/github/ricardomfmsousa/my-resume/badge.svg?branch=master)](https://coveralls.io/github/ricardomfmsousa/my-resume?branch=master)
-[![dependencies Status](https://david-dm.org/ricardomfmsousa/my-resume/status.svg)](https://david-dm.org/ricardomfmsousa/my-resume)
-[![devDependencies Status](https://david-dm.org/ricardomfmsousa/my-resume/dev-status.svg)](https://david-dm.org/ricardomfmsousa/my-resume?type=dev)
+[![Build Status](https://travis-ci.org/ricardomfmsousa/my-vcard.svg?branch=master)](https://travis-ci.org/ricardomfmsousa/my-vcard)
+[![Coverage Status](https://coveralls.io/repos/github/ricardomfmsousa/my-vcard/badge.svg?branch=master)](https://coveralls.io/github/ricardomfmsousa/my-vcard?branch=master)
+[![dependencies Status](https://david-dm.org/ricardomfmsousa/my-vcard/status.svg)](https://david-dm.org/ricardomfmsousa/my-vcard)
+[![devDependencies Status](https://david-dm.org/ricardomfmsousa/my-vcard/dev-status.svg)](https://david-dm.org/ricardomfmsousa/my-vcard?type=dev)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9 and updated to 6.2.3.
 
