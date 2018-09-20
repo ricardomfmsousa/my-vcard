@@ -1,4 +1,4 @@
-# MyResume
+# Ricardo Sousa's vCard SPA implemented in Angular 4
 
 [![Build Status](https://travis-ci.org/ricardomfmsousa/my-resume.svg?branch=master)](https://travis-ci.org/ricardomfmsousa/my-resume)
 [![Coverage Status](https://coveralls.io/repos/github/ricardomfmsousa/my-resume/badge.svg?branch=master)](https://coveralls.io/github/ricardomfmsousa/my-resume?branch=master)
@@ -20,6 +20,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Deploy
+
 Run `yarn deploy` to automatically deploy the project to github pages.
 
 ## Running unit tests
