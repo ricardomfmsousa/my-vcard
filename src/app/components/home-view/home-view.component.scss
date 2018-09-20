@@ -1,42 +1,28 @@
-$backgroundURL: '../../../assets/img/home-bg.jpg';
-$backgroundURL2: '../../../assets/img/home-bg-2.jpg';
+$backgroundURL: '../../../assets/img/home-bg.gif';
 $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAABX3VL4AAAADklEQV‌​QI12P4/5/hPwMACvsC/t‌​mfKMUAAAAASUVORK5CYI‌​I=';
 .image-bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  z-index: -1;
+  transform: rotateZ(360deg);
+  will-change: animation;
+  background: url($backgroundURL) no-repeat center center fixed;
   background-size: cover;
-  filter: grayscale(85%) brightness(120%) sepia(60%) contrast(70%);
-  transition: background 1s ease-in-out;
-  animation-duration: 1s;
-  animation-name: traffic;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
   i {
     display: block;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(35, 35, 35, 0.75);
     width: 100%;
     height: 100%;
   }
 }
 
-@keyframes traffic {
-  from {
-    background: url($backgroundURL) no-repeat center center fixed;
-  }
-  to {
-    background: url($backgroundURL2) no-repeat center center fixed;
-  }
-}
-
 .intro-content {
-  height: 100%;
-  width: 100%;
   display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -48,6 +34,7 @@ $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAA
     text-transform: uppercase;
     color: white;
     font-weight: bold;
+    text-shadow: 0 -6px 15px #383835;
     span {
       color: #828282;
     }
