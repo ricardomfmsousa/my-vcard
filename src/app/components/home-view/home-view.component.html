@@ -1,10 +1,13 @@
 <div class="image-bg"><i></i></div>
 
 <div class="intro-content">
-  <h1 typingAnimation [typeSpeed]="70" [startDelay]="500" (complete)="handleNameTypingComplete()"
+  <h1 *ngIf="!hasNameTypingEndend" typingAnimation [typeSpeed]="70" [startDelay]="500"
+    (complete)="handleNameTypingComplete()"
     [hideCursorOnComplete]="true">
     I'm Ricardo Sousa.
   </h1>
+  <h1 *ngIf="hasNameTypingEndend">I'm <span>Ricardo</span> Sousa.</h1>
+
   <h2 *ngIf="isPositionVisible" typingAnimation [typeSpeed]="100" [startDelay]="0"
     (complete)="handlePositionTypingComplete()"
     [hideCursorOnComplete]="true">
@@ -16,6 +19,9 @@
     </a>
     <a href="https://linkedin.com/ricardomfmsousa/" target="_blank">
       <i class="fab fa-linkedin fa-2x"></i>
+    </a>
+    <a [href]="utils.getMailtTo()">
+      <i class="fas fa-envelope fa-2x"></i>
     </a>
     <a href="https://www.strava.com/athletes/28394701" target="_blank">
       <i class="fab fa-strava fa-2x"></i>

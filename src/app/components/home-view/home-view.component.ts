@@ -1,3 +1,4 @@
+import { UtilService } from './../../services/util.service';
 import { Component } from '@angular/core';
 import { fadeAnimation } from '../../animations/fade-in.animation';
 
@@ -8,12 +9,15 @@ import { fadeAnimation } from '../../animations/fade-in.animation';
   styleUrls: ['./home-view.component.scss']
 })
 export class HomeViewComponent {
+  public hasNameTypingEndend: boolean;
   public isPositionVisible: boolean;
   public isSocialVisible: boolean;
 
+  constructor(public utils: UtilService) {}
+
   public handleNameTypingComplete(): void {
     window.setTimeout(() => {
-      this.isPositionVisible = true;
+      this.hasNameTypingEndend = this.isPositionVisible = true;
     }, 1500);
   }
 

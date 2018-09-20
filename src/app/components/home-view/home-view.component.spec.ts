@@ -1,3 +1,4 @@
+import { UtilService } from './../../services/util.service';
 import { TypingAnimationModule } from 'angular-typing-animation';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeViewComponent } from './home-view.component';
@@ -15,7 +16,8 @@ describe('HomeViewComponent', () => {
         TypingAnimationModule,
         RouterTestingModule,
         AngularFontAwesomeModule
-      ]
+      ],
+      providers: [UtilService]
     }).compileComponents();
   }));
 
