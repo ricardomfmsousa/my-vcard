@@ -1,4 +1,5 @@
 $backgroundURL: '../../../assets/img/home-bg.jpg';
+$backgroundURL2: '../../../assets/img/home-bg-2.jpg';
 $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAABX3VL4AAAADklEQV‌​QI12P4/5/hPwMACvsC/t‌​mfKMUAAAAASUVORK5CYI‌​I=';
 .image-bg {
   position: fixed;
@@ -8,14 +9,27 @@ $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAA
   left: 0;
   overflow: hidden;
   z-index: -1;
-  background: url($backgroundURL) no-repeat center center fixed;
   background-size: cover;
   filter: grayscale(85%) brightness(120%) sepia(60%) contrast(70%);
+  transition: background 1s ease-in-out;
+  animation-duration: 1s;
+  animation-name: traffic;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   i {
     display: block;
     background: rgba(0, 0, 0, 0.75);
     width: 100%;
     height: 100%;
+  }
+}
+
+@keyframes traffic {
+  from {
+    background: url($backgroundURL) no-repeat center center fixed;
+  }
+  to {
+    background: url($backgroundURL2) no-repeat center center fixed;
   }
 }
 
@@ -34,6 +48,9 @@ $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAA
     text-transform: uppercase;
     color: white;
     font-weight: bold;
+    span {
+      color: #828282;
+    }
   }
   h2 {
     font-family: 'Open Sans', 'Montserrat', 'Helvetica Neue', Helvetica,
