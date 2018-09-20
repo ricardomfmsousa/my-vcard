@@ -29,37 +29,9 @@ $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAA
   text-align: center;
   background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.6));
   background-size: 2px 2px;
-  h1 {
-    font-size: 55px;
-    text-transform: uppercase;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0 -6px 15px #383835;
-    span {
-      color: #828282;
-    }
-  }
-  h2 {
-    font-family: 'Open Sans', 'Montserrat', 'Helvetica Neue', Helvetica,
-      sans-serif;
-    font-weight: 300;
-    font-size: 1.7rem;
-    line-height: 2.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    color: #ffffff;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    // animation: 1s animate-intro-position;
-    &:before,
-    &:after {
-      content: '|';
-      text-align: center;
-      display: inline-block;
-      padding: 0 14px 0 8px;
-      color: rgba(255, 255, 255, 0.3);
-    }
-  }
-  div {
+  div.intro-social {
+    position: absolute;
+    bottom: 30px;
     opacity: 0;
     transition: opacity 600ms ease-in;
     a,
@@ -78,14 +50,5 @@ $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAA
     &.visible {
       opacity: 1;
     }
-  }
-}
-
-@keyframes animate-intro-position {
-  0% {
-    font-size: 0;
-  }
-  100% {
-    font-size: 1.7rem;
   }
 }
