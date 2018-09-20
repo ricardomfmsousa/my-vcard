@@ -1,18 +1,10 @@
 <div class="image-bg"><i></i></div>
 
 <div class="intro-content">
-  <h1 *ngIf="!hasNameTypingEndend" typingAnimation [typeSpeed]="70" [startDelay]="500"
-    (complete)="handleNameTypingComplete()"
-    [hideCursorOnComplete]="true">
-    I'm Ricardo Sousa.
-  </h1>
-  <h1 *ngIf="hasNameTypingEndend">I'm <span>Ricardo</span> Sousa.</h1>
-
-  <h2 *ngIf="isPositionVisible" typingAnimation [typeSpeed]="100" [startDelay]="0"
-    (complete)="handlePositionTypingComplete()"
-    [hideCursorOnComplete]="true">
-    Front-end Developer
-  </h2>
+  <div class="presentation">
+    <h1 class="name"><span>&nbsp;</span></h1>
+    <h2 class="position"><span>&nbsp;</span></h2>
+  </div>
   <div [class.visible]="isSocialVisible" class="intro-social">
     <a href="https://github.com/ricardomfmsousa/" target="_blank">
       <i class="fab fa-github fa-2x"></i>

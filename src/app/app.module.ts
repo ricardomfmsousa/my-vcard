@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routedComponents } from './app-routing.module';
-import { AlertModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
-import { TypingAnimationModule } from 'angular-typing-animation';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,11 +16,10 @@ import { TypingAnimationModule } from 'angular-typing-animation';
     UnderConstructionComponent
   ],
   imports: [
+    FontAwesomeModule,
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
-    TypingAnimationModule,
-    AlertModule.forRoot()
+    BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [UtilService],
