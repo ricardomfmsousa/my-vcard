@@ -1,39 +1,28 @@
 /* Set default font family as Ubuntu font family */
 
 @import 'layout';
-
 div.presentation {
-  h1.name {
+  h1 {
     margin: 5px 0;
-    > span {
-      font-size: 55px;
-      text-transform: uppercase;
-      color: white;
-      font-weight: bold;
-      text-shadow: 0 -6px 15px #383835;
-      margin: 0;
-      span {
-        color: #828282;
-      }
-    }
+    font-size: 55px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 -6px 15px #383835;
+    margin: 0;
   }
-  h2.position {
+  h2 {
     margin: 10px 0 5px 0;
-    > span {
-      font-family: 'Open Sans', 'Montserrat', 'Helvetica Neue', Helvetica,
-        sans-serif;
-      font-weight: 300;
-      font-size: 1.1rem;
-      line-height: 2.4rem;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      color: #ffffff;
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .typed-cursor {
-      color: white;
+    font-weight: 300;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  h1,
+  h2 {
+    span {
+      color: #828282;
     }
   }
 }

@@ -7868,15 +7868,15 @@ type-is@~1.6.16:
     media-typer "0.3.0"
     mime-types "~2.1.18"
 
-typed.js@^2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.9.tgz#2e4e590466938ecb2ef5ec966a79b2d9381495ff"
-  integrity sha512-RTv7MvbsJ0ajz3PW/o325kXo0+gZAGW9xoZQ9eXrdvTg9prvH5JgAVeAITYuh7OoGStl1yuJgcR07IO10l3Q3g==
-
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typer-js@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/typer-js/-/typer-js-5.0.0.tgz#d7c77e8ccbfe1300b73f864e63f02620eab31677"
+  integrity sha512-WW03k+KpaPv12a8K6x0Iix4h8wVMrxjgKTCCNxtgiqQfCgEJV8vCo++Hth4VGkPHoHwWy4HXEv+lBuNYE2jpTg==
 
 "typescript@>=2.6.2 <2.10", typescript@^2.9.2, typescript@~2.9.2:
   version "2.9.2"

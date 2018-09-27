@@ -19,6 +19,7 @@
             "assets": ["src/assets", "src/favicon.ico"],
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/typer-js/typer.css",
               "src/styles/styles.scss"
             ],
             "scripts": []

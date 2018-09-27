@@ -1,7 +1,8 @@
 import { UtilService } from '../../shared/services/util/util.service';
 import { Component, AfterViewInit } from '@angular/core';
 import { fadeAnimation } from '../../shared/animations/fade-in.animation';
-import Typed from 'typed.js';
+import * as typer from 'typer-js';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,36 +15,17 @@ export class HomeViewComponent implements AfterViewInit {
   constructor(public utils: UtilService) {}
 
   public ngAfterViewInit(): void {
-    this.typeName();
-  }
-
-  private typeName(): void {
-    const typed = new Typed('h1.name span', {
-      strings: [`I'm <span>Ricardo</span> Sousa.`],
-      typeSpeed: 70,
-      backSpeed: 0,
-      fadeOut: true,
-      loop: false,
-      onComplete: self => {
-        window.setTimeout(() => {
-          document.querySelectorAll('.typed-cursor')[0].remove();
-          this.typePosition();
-        }, 2000);
-      }
-    });
-  }
-
-  private typePosition(): void {
-    const typed = new Typed('h2.position span', {
-      strings: [`Frontend Developer`],
-      typeSpeed: 70,
-      backSpeed: 0,
-      fadeOut: true,
-      loop: false,
-      onComplete: () =>
-        window.setTimeout(() => {
-          this.isSocialVisible = true;
-        }, 2000)
-    });
+    const cursor = { color: 'white', blink: 'soft' };
+    typer('.presentation h1', 90)
+      .cursor(cursor)
+      .line(`I'm <span>Ricardo</span> Sousa.`)
+      .pause(2000)
+      .end(true, () => {
+        typer('.presentation h2', 90)
+          .cursor(cursor)
+          .line(`Frontend <span>Web</span> Developer`)
+          .pause(2000)
+          .run(() => (this.isSocialVisible = true));
+      });
   }
 }
