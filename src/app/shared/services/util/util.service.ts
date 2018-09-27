@@ -5,7 +5,10 @@ export class UtilService {
   public getEmailAddress(): string {
     return atob('cmljYXJkb21mbXNvdXNhQGdtYWlsLmNvbQ==');
   }
-  public getMailtTo(): string {
+  public getMailTo(): string {
     return `mailTo:${this.getEmailAddress()}?subject=Contact from vCard`;
+  }
+  public openMailTo(): void {
+    window.location.href = this.getMailTo();
   }
 }
