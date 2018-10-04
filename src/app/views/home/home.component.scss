@@ -29,27 +29,8 @@ $patternURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCA‌​AAAA
   text-align: center;
   background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.6));
   background-size: 2px 2px;
-
-  div.intro-social {
+  app-social-drawer {
     position: absolute;
-    bottom: 30px;
-    opacity: 0;
-    transition: opacity 600ms ease-in;
-    a,
-    a:active,
-    a:visited {
-      color: white;
-      margin: auto;
-      padding: 10px;
-      transition: color 1s;
-      &:hover,
-      &:focus {
-        color: grey;
-        text-decoration: none;
-      }
-    }
-    &.visible {
-      opacity: 1;
-    }
+    bottom: 20px;
   }
 }

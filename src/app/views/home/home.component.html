@@ -2,18 +2,5 @@
 
 <div class="intro-content">
   <div class="presentation"><h1></h1><h2></h2></div>
-  <div [class.visible]="isSocialVisible" class="intro-social">
-    <a href="https://github.com/ricardomfmsousa/" target="_blank">
-      <i class="fab fa-github fa-2x"></i>
-    </a>
-    <a href="https://linkedin.com/ricardomfmsousa/" target="_blank">
-      <i class="fab fa-linkedin fa-2x"></i>
-    </a>
-    <a (click)="utils.openMailTo()">
-      <i class="fas fa-envelope fa-2x"></i>
-    </a>
-    <a href="https://www.strava.com/athletes/28394701" target="_blank">
-      <i class="fab fa-strava fa-2x"></i>
-    </a>
-  </div>
+  <app-social-drawer [items]="socialDrawerItems"></app-social-drawer>
 </div>

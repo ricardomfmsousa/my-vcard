@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  a {
+    margin: auto;
+    padding: 10px;
+    i {
+      color: white;
+      transition: color 0.2s;
+    }
+  }
+  a.drawer-trigger {
+    &:hover {
+      text-decoration: none;
+      div.drawer-content {
+        opacity: 1;
+        transition: opacity 2s ease-out 0s;
+        a:hover i {
+          transform: scale(1.1);
+          color: grey;
+        }
+      }
+      i.drawer-icon {
+        color: white;
+        opacity: 0.3;
+        transition: opacity 1s ease-out 0s;
+      }
+    }
+    i.drawer-icon {
+      padding: 10px;
+      transition: opacity 1s ease-out 1s;
+    }
+    div.drawer-content {
+      opacity: 0;
+      transition: opacity 0.8s ease-out 1s;
+    }
+  }
+}

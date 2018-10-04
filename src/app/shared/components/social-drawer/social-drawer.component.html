@@ -1,0 +1,14 @@
+
+<a class="drawer-trigger" href="javascript:void(0)">
+  <div class="drawer-content">
+    <ng-container *ngFor="let item of items">
+      <a *ngIf="isLink(item.action)" [href]="item.action" target="_blank" [title]="item.title">
+        <i class="{{ item.icon }} fa-2x"></i>
+      </a>
+      <a *ngIf="!isLink(item.action)" href="javascript:;" (click)="handleClickAction(item.action)" [title]="item.title">
+        <i class="{{ item.icon }} fa-2x"></i>
+      </a>
+    </ng-container>
+  </div>
+  <i class="drawer-icon fas fa-ellipsis-h fa-2x"></i>
+</a>
