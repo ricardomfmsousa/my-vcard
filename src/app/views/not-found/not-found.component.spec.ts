@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotFoundViewComponent } from './not-found.component';
@@ -8,7 +9,8 @@ describe('NotFoundViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NotFoundViewComponent]
+      declarations: [NotFoundViewComponent],
+      imports: [RouterTestingModule]
     }).compileComponents();
   }));
 
