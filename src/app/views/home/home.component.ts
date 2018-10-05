@@ -29,7 +29,7 @@ export class HomeViewComponent implements AfterViewInit {
       {
         title: 'Strava',
         icon: 'fab fa-strava',
-        action: 'https://www.strava.com/athletes/28394701'
+        action: 'https://www.strava.com/athletes/ricardomfmsousa/'
       },
       {
         title: 'Send E-mail...',
@@ -54,7 +54,7 @@ export class HomeViewComponent implements AfterViewInit {
       .cursor(this.cursor)
       .line(`<span>Software</span> Developer`)
       .pause(2000)
-      .continue(`<span><strong> > </strong></span>`)
+      .continue(`<span><strong> &sdot; </strong></span>`)
       .continue(`<strong>Javascript <span>/</span> Typescript</strong>`)
       .pause(1500)
       .back('empty', -21)
