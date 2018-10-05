@@ -2,6 +2,11 @@
 
 @import 'layout';
 div.presentation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 20px;
+  height: 260px;
   h1 {
     margin: 5px 0;
     font-size: 55px;
@@ -19,6 +24,13 @@ div.presentation {
     color: #ffffff;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     text-align: left;
+  }
+  @media (max-width: 640px) and (min-height: 361px) {
+    top: 40%;
+    h2 {
+      text-align: center;
+      margin-top: 60px;
+    }
   }
   h1,
   h2 {
