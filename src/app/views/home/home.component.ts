@@ -1,6 +1,11 @@
 import { SocialDrawerItem } from '../../shared/components/social-drawer/social-drawer-item.model';
 import { UtilService } from '../../shared/services/util/util.service';
-import { Component, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ViewEncapsulation,
+  ChangeDetectorRef
+} from '@angular/core';
 import { fadeAnimation } from '../../shared/animations/fade-in.animation';
 import * as typer from 'typer-js';
 
@@ -8,13 +13,17 @@ import * as typer from 'typer-js';
   selector: 'app-home',
   templateUrl: './home.component.html',
   animations: [fadeAnimation],
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  // Must be used due to typer
+  // TODO: Write an angular version of typer
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeViewComponent implements AfterViewInit {
   public readonly socialDrawerItems: SocialDrawerItem[];
   private readonly cursor: any;
+  public showTechnologies: boolean;
 
-  constructor(private utils: UtilService) {
+  constructor(private utils: UtilService, private cdr: ChangeDetectorRef) {
     this.socialDrawerItems = [
       {
         title: 'Github',
@@ -37,53 +46,51 @@ export class HomeViewComponent implements AfterViewInit {
         action: () => this.utils.openMailTo()
       }
     ].map(s => new SocialDrawerItem(s.title, s.icon, s.action));
-
     this.cursor = { color: 'white', blink: 'soft' };
   }
 
   public ngAfterViewInit(): void {
     typer('.presentation h1', 90)
       .cursor(this.cursor)
-      .line(`I'm <span>Ricardo</span> Sousa.`)
+      .line({ container: '.name' })
       .pause(2000)
       .end(() => this.writeTitleAndTechnologies());
   }
 
   private writeTitleAndTechnologies(): void {
+    // Force the re-render of the technologies heading because typer
+    // messes with the DOM, erasing (not just hiding) the spans
+    this.showTechnologies = false;
+    this.cdr.detectChanges();
+    this.showTechnologies = true;
+    this.cdr.detectChanges();
     typer('.presentation h2', 90)
       .cursor(this.cursor)
-      .line(`<span>Software</span> Developer`)
+      .line({ container: '.title' })
       .pause(2000)
-      .continue(`<span><strong> &sdot; </strong></span>`)
-      .continue(`<strong>Javascript <span>/</span> Typescript</strong>`)
+      .continue({ container: '.dot' })
+      .continue({ container: '.jscript' })
       .pause(1500)
       .back('empty', -21)
-      .continue(`<strong>LESS <span>/</span> SCSS <span>/</span> CSS</strong>`)
+      .continue({ container: '.style' })
       .pause(1500)
       .back('empty', -21)
-      .continue(
-        `<strong>Angular <span>/</span> React <span>/</span> Vue</strong>`
-      )
+      .continue({ container: '.framework' })
       .pause(1500)
       .back('empty', -21)
-      .continue(
-        `<strong>HTML <span>/</span> XML <span>/</span>` +
-          ` YML <span>/</span> Markdown</strong>`
-      )
+      .continue({ container: '.markup' })
       .pause(2000)
       .back('empty', -21)
-      .continue(
-        `<strong>NodeJS <span>/</span> PHP <span>/</span> Java</strong>`
-      )
+      .continue({ container: '.backend' })
       .pause(1500)
       .back('empty', -21)
-      .continue(`<strong>MySQL <span>/</span> MongoDB</strong>`)
+      .continue({ container: '.db' })
       .pause(1500)
       .back('empty', -21)
-      .continue(`<strong>Shell script <span>/</span> Docker</strong>`)
+      .continue({ container: '.devops' })
       .pause(2000)
       .back('empty', -21)
-      .continue(`<strong><span>WEB</span> technologies passionate!</strong>`)
+      .continue({ container: '.obs' })
       .pause(5000)
       .back('empty', -21)
       .empty()
