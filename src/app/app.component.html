@@ -1,9 +1,0 @@
-<ng-container *ngIf="appLoaded">
-
-  <app-navbar *ngIf="developmentDone"></app-navbar>
-  <!-- Fade in/out between route changes -->
-  <main [@fadeAnimation]="getRouterOutletState(outlet)">
-    <router-outlet #outlet="outlet"></router-outlet>
-  </main>
-
-</ng-container>
