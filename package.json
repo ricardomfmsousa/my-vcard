@@ -1,9 +1,21 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "my-vcard",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Simple presentation website with a subtle display of my development skills.",
+  "version": "2.0.0-SNAPSHOT",
+  "author": "Ricardo Sousa <ricardomfmsousa@gmail.com>",
+  "scripts": {
+    "clean": "gatsby clean",
+    "build": "gatsby build",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "serve": "gatsby serve",
+    "start": "gatsby develop",
+    "start:prod": "yarn clean && yarn build && yarn serve -H 0.0.0.0",
+    "info": "gatsby info",
+    "lint": "eslint --ignore-path .gitignore . --ext ts,tsx,js,jsx",
+    "format": "npx prettier --write .",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
     "gatsby": "^4.0.2",
     "gatsby-plugin-gatsby-cloud": "^4.0.0",
@@ -22,21 +34,24 @@
     "sass": "^1.43.4"
   },
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
