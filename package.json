@@ -7,9 +7,8 @@
   "scripts": {
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
-    "start": "gatsby develop",
+    "start": "gatsby develop -H 0.0.0.0",
     "start:prod": "yarn clean && yarn build && yarn serve -H 0.0.0.0",
     "info": "gatsby info",
     "lint": "eslint --ignore-path .gitignore . --ext ts,tsx,js,jsx",
@@ -17,6 +16,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@babylonjs/core": "^4.2.0",
+    "babylonjs-hook": "^0.1.0",
     "browser-monads": "^1.0.0",
     "classnames": "^2.3.1",
     "gatsby": "^4.0.2",
