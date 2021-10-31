@@ -7,7 +7,7 @@ import { createEarth, createEarthAxis, createStarField } from "./SceneHelper";
 
 let earth: Mesh;
 let earthAxis: Vector3;
-const cameraRadius = { start: 200, end: 2 };
+const cameraRadius = { start: 2, end: 2 };
 let camera: ArcRotateCamera;
 
 const onSceneReady = (scene: Scene) => {
@@ -30,7 +30,7 @@ const onSceneReady = (scene: Scene) => {
   // Meshes
   earth = createEarth(scene);
   earthAxis = createEarthAxis(scene);
-  createStarField(scene, 500);
+  createStarField(scene, 1600);
 };
 
 /**
@@ -41,11 +41,12 @@ const onRender = (scene: Scene) => {
     const angle = 0.001;
     earth.rotate(earthAxis, angle, Space.WORLD);
   }
-  if (camera) {
-    if (camera.radius > cameraRadius.end) {
-      camera.radius -= 0.7;
-    }
-  }
+  // Simulate warp speed
+  // if (camera) {
+  //   if (camera.radius > cameraRadius.end) {
+  //     camera.radius -= 0.7;
+  //   }
+  // }
 };
 
 type Earth3DProps = {

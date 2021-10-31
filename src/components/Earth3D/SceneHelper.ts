@@ -1,4 +1,14 @@
-import { Color3, Mesh, MeshBuilder, Scene, SolidParticleSystem, StandardMaterial, Texture, Vector3 } from "@babylonjs/core";
+import {
+  Color3,
+  HighlightLayer,
+  Mesh,
+  MeshBuilder,
+  Scene,
+  SolidParticleSystem,
+  StandardMaterial,
+  Texture,
+  Vector3,
+} from "@babylonjs/core";
 
 import earthTexture from "../../images/textures/earth.jpg";
 
@@ -17,11 +27,14 @@ export const createStarField = (scene: Scene, starsCount: number): Mesh => {
       -50 + Math.random() * 100
     );
   };
-  const star = MeshBuilder.CreateSphere("star", { diameter: 0.05 }, scene);
+  const star = MeshBuilder.CreateSphere("star", { diameter: 0.1 }, scene);
   star.position = new Vector3(20, 0, 10);
   star.material = starMaterial;
   starsSPS.addShape(star, starsCount, { positionFunction: setParticles });
-  return starsSPS.buildMesh();
+  const stars = starsSPS.buildMesh();
+  const hl = new HighlightLayer("shl", scene);
+  hl.addMesh(stars, new Color3(1, 1, 1));
+  return stars;
 };
 
 export const createEarth = (scene: Scene): Mesh => {
@@ -35,6 +48,9 @@ export const createEarth = (scene: Scene): Mesh => {
   // Invert texture axis
   earthMaterial.diffuseTexture["wAng"] = Math.PI;
   earth.material = earthMaterial;
+  // Add a glowing effect
+  const hl = new HighlightLayer("ehl", scene);
+  hl.addMesh(earth, new Color3(0.25, 0.74, 0.78));
   return earth;
 };
 
