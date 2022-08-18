@@ -1,43 +1,22 @@
 module.exports = {
-  parser: "@typescript-eslint/parser", // Specifies the ESLint parser
-  extends: [
-    "airbnb",
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-  ],
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
   env: {
     browser: true,
-    node: true,
-    es6: true,
+    es2021: true,
   },
-  plugins: ["@typescript-eslint", "react"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: "module", // Allows for the use of imports
-    project: "./tsconfig.json",
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  rules: {
-    "react/prop-types": "off", // Disable prop-types as we use TypeScript for type checking
-    "@typescript-eslint/explicit-function-return-type": "off",
-  },
-  overrides: [
-    // Override some TypeScript rules just for .js files
-    {
-      files: ["*.js"],
-      rules: {
-        "@typescript-eslint/no-var-requires": "off", //
-      },
-    },
-  ],
+  plugins: ["react", "@typescript-eslint"],
+  rules: {},
 };
