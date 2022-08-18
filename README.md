@@ -6,11 +6,3 @@
 <h1 align="center">
   Gatsby minimal TypeScript starter
 </h1>
-
-## 🚀 Commands used to bootstrap this project
-
-```sh
-npm init gatsby
-yarn add prettier eslint
-yarn add -D eslint-config-prettier
-```
