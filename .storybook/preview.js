@@ -1,4 +1,7 @@
+import { ThemeProvider } from "@emotion/react";
 import { action } from "@storybook/addon-actions";
+
+import theme from "../src/gatsby-theme-material-ui-top-layout/theme";
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
@@ -25,3 +28,11 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <Story />
+    </ThemeProvider>
+  ),
+];
