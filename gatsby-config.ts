@@ -4,6 +4,14 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: "Ricardo Sousa's vCard",
     siteUrl: "https://ricardomfmsousa.github.io/my-vcard/",
+    license:
+      "https://raw.githubusercontent.com/ricardomfmsousa/my-vcard/master/LICENSE",
+    author: {
+      name: "Ricardo Sousa",
+      github: "https://github.com/ricardomfmsousa",
+      strava: "https://strava.com/athletes/ricardomfmsousa",
+      linkedIn: "https://www.linkedin.com/in/ricardomfmsousa",
+    },
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
