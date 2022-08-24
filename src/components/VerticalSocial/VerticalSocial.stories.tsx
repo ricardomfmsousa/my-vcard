@@ -13,5 +13,6 @@ export const VerticalSocial: ComponentStory<typeof VerticalSocialComponent> = (
 ) => <VerticalSocialComponent {...args} />;
 
 VerticalSocial.args = {
-  sx: { marginLeft: "100px" },
+  tooltipPlacement: "right",
+  sx: undefined,
 };
