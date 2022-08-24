@@ -1,4 +1,26 @@
+:root {
+  color-scheme: dark;
+  --scrollbarBG: #121212;
+  --thumbBG: rgba(255, 255, 255, 0.16);
+}
+
 body {
-  font-family: "Poppins", sans-serif;
-  background: black;
+  background: #121212;
+  color: #fff;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
 }
