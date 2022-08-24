@@ -1,11 +1,18 @@
+const {
+  languages,
+  defaultLanguage,
+  translationPath,
+} = require("./i18n-config");
+
 import type { GatsbyConfig } from "gatsby";
+const siteUrl = "https://ricardomfmsousa.github.io/my-vcard/";
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "Ricardo Sousa's vCard",
-    siteUrl: "https://ricardomfmsousa.github.io/my-vcard/",
+    siteUrl,
     license:
-      "https://raw.githubusercontent.com/ricardomfmsousa/my-vcard/master/LICENSE",
+      "https://raw.githubusercontent.com/ricardomfmsousa/my-vcard/main/LICENSE",
     author: {
       name: "Ricardo Sousa",
       github: "https://github.com/ricardomfmsousa",
@@ -58,6 +65,40 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: translationPath,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
+        languages,
+        defaultLanguage,
+        // if you are using Helmet, you must include siteUrl, and make sure you add http:https
+        siteUrl,
+        // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
+        trailingSlash: "always",
+        // you can pass any i18next options
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: false,
+          nsSeparator: false,
+          fallbackLng: false,
+        },
+        pages: [
+          {
+            matchPath: "/preview",
+            languages: ["en"],
+          },
+        ],
+      },
     },
   ],
 };

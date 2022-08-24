@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src/",
     "format": "npx prettier --write .",
-    "trans:extract": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp",
+    "trans:extract": "yarn run babel --config-file ./babel-extract-config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp",
     "prestorybook": "cp -r ./public/page-data/sq/d ./public/static",
     "storybook": "NODE_ENV=test start-storybook -p 6006  --no-dll -s public",
     "storybook:build": "build-storybook -c .storybook -o ./public/storybook"
