@@ -1,7 +1,7 @@
 import "@fontsource/over-the-rainbow";
 import "@fontsource/poppins";
 
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { action } from "@storybook/addon-actions";
 
 import theme from "../src/gatsby-theme-material-ui-top-layout/theme";
@@ -38,6 +38,7 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Story />
     </ThemeProvider>
   ),
