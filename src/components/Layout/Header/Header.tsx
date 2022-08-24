@@ -1,28 +1,26 @@
 import { Box, Menu, MenuItem, SxProps } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
+import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { IconButton, Link } from "gatsby-theme-material-ui";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { IconButton } from "gatsby-theme-material-ui";
 import React from "react";
 
 import { BurgerMenu } from "../../Icons/BurgerMenu/BurgerMenu";
+import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
+import { NavLink } from "../../NavLink/NavLink";
 
 export interface HeaderProps {
-  links: { name: string; href: string }[];
-  currentRoute: string | undefined;
   introPadding: string;
   sx?: SxProps;
 }
 
-export const Header: React.FC<HeaderProps> = ({
-  links,
-  currentRoute,
-  sx,
-  introPadding,
-}) => {
+export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+  const { t, i18n } = useI18next();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -31,6 +29,13 @@ export const Header: React.FC<HeaderProps> = ({
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const links = [
+    { name: t("Intro"), href: `/` },
+    { name: t("About"), href: `/#about` },
+    { name: t("Resume"), href: `/#resume` },
+    { name: t("Contact"), href: `/#contact` },
+  ];
 
   const headerLogo = {
     icon: null, // <NavIcon sx={{ mr: 1, fontSize: { md: "1.3em" } }} />,
@@ -47,44 +52,37 @@ export const Header: React.FC<HeaderProps> = ({
     },
   };
 
-  const CustomLink: React.FC<{ name: string; href: string }> = ({
-    name,
-    href,
-  }) => (
-    <Link
-      key={name}
-      to={href}
-      onClick={handleCloseNavMenu}
-      sx={{
-        textDecoration: "none",
-        color: "inherit",
-        ...(href === currentRoute && {
-          borderBottom: "1px solid rgb(255 255 255 / 50%)",
-          borderRadius: "2px",
-          boxShadow: "0 7px 7px -7px rgb(255 255 255 / 50%)",
-        }),
-      }}
-    >
-      {name}
-    </Link>
-  );
-
   const lowResLinks = React.useMemo(
     () =>
-      links.map((link) => (
-        <MenuItem key={link.name} onClick={handleCloseNavMenu}>
-          <Typography>{CustomLink(link)}</Typography>
-        </MenuItem>
+      links.map(({ name, href }) => (
+        <NavLink
+          to={href}
+          language={i18n.language}
+          onClick={handleCloseNavMenu}
+        >
+          <MenuItem key={name}>
+            <Typography>{name}</Typography>
+          </MenuItem>
+        </NavLink>
       )),
-    [links, currentRoute]
+    []
   );
 
   const highResLinks = React.useMemo(
     () =>
-      links.map((link) => (
-        <Typography sx={{ ml: 4 }}>{CustomLink(link)} </Typography>
+      links.map(({ name, href }) => (
+        <Typography key={name} sx={{ ml: 4 }}>
+          <NavLink
+            to={href}
+            language={i18n.language}
+            onClick={handleCloseNavMenu}
+            style={{ height: "100%", display: "flex", alignItems: "center" }}
+          >
+            {name}
+          </NavLink>
+        </Typography>
       )),
-    [links, currentRoute]
+    []
   );
 
   return (
@@ -128,7 +126,6 @@ export const Header: React.FC<HeaderProps> = ({
             <BurgerMenu fontSize="large" />
           </IconButton>
           <Menu
-            id="menu-appbar"
             anchorEl={anchorElNav}
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
             keepMounted
@@ -138,10 +135,16 @@ export const Header: React.FC<HeaderProps> = ({
             sx={{ display: { xs: "block", md: "none" } }}
           >
             {lowResLinks}
+            <Divider />
+            <MenuItem onClick={handleCloseNavMenu}>
+              <LanguageSwitcher tooltipPlacement="bottom" />
+            </MenuItem>
           </Menu>
         </Box>
 
-        <Box sx={{ display: { xs: "none", md: "flex" } }}>{highResLinks}</Box>
+        <Box sx={{ display: { xs: "none", md: "flex" }, alignSelf: "stretch" }}>
+          {highResLinks}
+        </Box>
       </Toolbar>
     </AppBar>
   );
