@@ -1,12 +1,13 @@
 {
   "name": "my-vcard",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Ricardo Sousa's vCard",
   "author": "Ricardo Sousa",
   "keywords": [
     "gatsby"
   ],
+  "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -16,9 +17,10 @@
     "typecheck": "tsc --noEmit",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src/",
     "format": "npx prettier --write .",
+    "trans:extract": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp",
     "prestorybook": "cp -r ./public/page-data/sq/d ./public/static",
     "storybook": "NODE_ENV=test start-storybook -p 6006  --no-dll -s public",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook -c .storybook -o ./public/storybook"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -29,23 +31,30 @@
     "@mui/material": "^5.10.1",
     "eslint": "^8.22.0",
     "gatsby": "^4.21.0",
+    "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-emotion": "^7.21.0",
     "gatsby-plugin-google-analytics": "^4.21.0",
     "gatsby-plugin-image": "^2.21.0",
     "gatsby-plugin-manifest": "^4.21.0",
+    "gatsby-plugin-react-i18next": "^2.0.4",
     "gatsby-plugin-sharp": "^4.21.0",
     "gatsby-plugin-sitemap": "^5.21.0",
-    "gatsby-source-filesystem": "^4.21.0",
+    "gatsby-source-filesystem": "^4.21.1",
     "gatsby-theme-material-ui": "^5.3.0",
     "gatsby-transformer-remark": "^5.21.0",
     "gatsby-transformer-sharp": "^4.21.0",
+    "i18next": "^21.9.1",
     "prettier": "^2.7.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-i18next": "^11.18.4",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
+    "@a110/storybook-expand-all": "^1.1.1",
+    "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
+    "@babel/plugin-transform-typescript": "^7.18.12",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
@@ -57,16 +66,23 @@
     "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
+    "@types/gatsbyjs__reach-router": "^1.3.0",
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "babel-loader": "^8.2.5",
+    "babel-plugin-i18next-extract": "^0.9.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-storybook": "^0.6.4",
     "storybook-addon-gatsby": "^0.0.5",
+    "storybook-dark-mode": "^1.1.0",
     "typescript": "^4.7.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricardomfmsousa/my-vcard"
   }
 }
