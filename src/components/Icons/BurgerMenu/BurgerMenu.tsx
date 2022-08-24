@@ -13,3 +13,5 @@ export const BurgerMenu = React.forwardRef(
     </SvgIcon>
   )
 );
+
+BurgerMenu.displayName = "BurgerMenu";

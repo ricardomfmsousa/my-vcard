@@ -8,6 +8,12 @@ export default {
   component: BurgerMenuComponent,
 } as ComponentMeta<typeof BurgerMenuComponent>;
 
-export const BurgerMenu: ComponentStory<typeof BurgerMenuComponent> = () => (
-  <BurgerMenuComponent fontSize="large" />
-);
+export const BurgerMenu: ComponentStory<typeof BurgerMenuComponent> = (
+  args
+) => <BurgerMenuComponent {...args} />;
+
+BurgerMenu.args = {
+  style: {
+    fontSize: "4em",
+  },
+};
