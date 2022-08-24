@@ -12,4 +12,9 @@ export default {
 
 export const LanguageSwitcher: ComponentStory<
   typeof LanguageSwitcherComponent
-> = () => <LanguageSwitcherComponent />;
+> = (args) => <LanguageSwitcherComponent {...args} />;
+
+LanguageSwitcher.args = {
+  tooltipPlacement: "bottom",
+  sx: undefined,
+};

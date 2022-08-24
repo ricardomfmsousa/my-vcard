@@ -1,37 +1,37 @@
-import { Box, SxProps, Tooltip } from "@mui/material";
-import { Link } from "gatsby-theme-material-ui";
+import { Box, SxProps, Tooltip, TooltipProps } from "@mui/material";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 
-interface LanguageSwitcherProps {
+import { languageMetaData } from "../../../i18n-config";
+import { NavLink } from "../NavLink/NavLink";
+
+export interface LanguageSwitcherProps {
   sx?: SxProps;
+  tooltipPlacement: TooltipProps["placement"];
 }
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   sx,
+  tooltipPlacement,
 }): JSX.Element => {
-  const languageData = [
-    { name: "English", locale: "en", selected: true },
-    { name: "Portuguese", locale: "pt", selected: false },
-  ];
+  const { originalPath, i18n } = useI18next();
 
   const languages = React.useMemo(
     () =>
-      languageData.map(({ name, locale, selected }) => (
-        <Tooltip key={name} title={name} placement="right">
-          <Link
-            sx={{
-              color: "inherit",
-              mr: 3,
-              textDecoration: "none",
-              cursor: "pointer",
-              fontWeight: selected ? "bold" : "light",
-            }}
-          >
-            {name.substring(0, 3).toUpperCase()}
-          </Link>
+      languageMetaData.map(({ name, locale, abbreviation }) => (
+        <Tooltip key={name} title={name} placement={tooltipPlacement}>
+          <Box sx={{ mr: 3 }}>
+            <NavLink
+              to={originalPath}
+              language={locale}
+              isActive={i18n.language === locale}
+            >
+              {abbreviation.toUpperCase()}
+            </NavLink>
+          </Box>
         </Tooltip>
       )),
-    [languageData]
+    [i18n.language]
   );
 
-  return <Box sx={{ ...sx }}>{languages}</Box>;
+  return <Box sx={{ display: "flex", ...sx }}>{languages}</Box>;
 };
