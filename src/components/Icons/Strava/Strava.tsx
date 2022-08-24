@@ -15,3 +15,5 @@ export const Strava = React.forwardRef(
     </SvgIcon>
   )
 );
+
+Strava.displayName = "Strava";

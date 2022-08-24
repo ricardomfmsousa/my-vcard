@@ -8,6 +8,12 @@ export default {
   component: StravaComponent,
 } as ComponentMeta<typeof StravaComponent>;
 
-export const Strava: ComponentStory<typeof StravaComponent> = () => (
-  <StravaComponent fontSize="large" />
+export const Strava: ComponentStory<typeof StravaComponent> = (args) => (
+  <StravaComponent {...args} />
 );
+
+Strava.args = {
+  style: {
+    fontSize: "4em",
+  },
+};
