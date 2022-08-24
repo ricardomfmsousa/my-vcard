@@ -56,11 +56,12 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
     () =>
       links.map(({ name, href }) => (
         <NavLink
+          key={name}
           to={href}
           language={i18n.language}
           onClick={handleCloseNavMenu}
         >
-          <MenuItem key={name}>
+          <MenuItem>
             <Typography>{name}</Typography>
           </MenuItem>
         </NavLink>
