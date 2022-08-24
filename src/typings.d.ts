@@ -3,27 +3,26 @@ declare module "*.css" {
   export default content;
 }
 
-interface SvgrComponent
-  extends React.StatelessComponent<React.SVGAttributes<SVGElement>> {}
-
 declare module "*.svg" {
-  const svgUrl: string;
-  const svgComponent: SvgrComponent;
-  export default svgUrl;
-  export { svgComponent as ReactComponent };
+  import React = require("react");
+  export const ReactComponent: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement>
+  >;
+  const src: string;
+  export default src;
 }
 
 declare module "*.png" {
-  const value: any;
+  const value: unknown;
   export = value;
 }
 
 declare module "*.jpg" {
-  const value: any;
+  const value: unknown;
   export = value;
 }
 
 declare module "*.pdf" {
-  const value: any;
+  const value: unknown;
   export = value;
 }
