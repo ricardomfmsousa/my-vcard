@@ -5,7 +5,7 @@ import { Footer } from "../components/Layout/Footer/Footer";
 import { Header } from "../components/Layout/Header/Header";
 import { Intro } from "../components/Sections/Intro/Intro";
 
-const IndexPage: React.FC<PageProps> = (): JSX.Element => {
+export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
   const introPadding = "50px";
 
   return (

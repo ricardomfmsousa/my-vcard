@@ -13,7 +13,7 @@ import * as React from "react";
 
 import { NavLink } from "../components/NavLink/NavLink";
 
-const NotFoundPage: React.FC<PageProps> = ({ data }): JSX.Element => {
+export const NotFoundPage: React.FC<PageProps> = ({ data }): JSX.Element => {
   const theme = useTheme();
   const { i18n } = useI18next();
 

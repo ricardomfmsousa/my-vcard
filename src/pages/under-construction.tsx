@@ -13,7 +13,9 @@ import * as React from "react";
 
 import { NavLink } from "../components/NavLink/NavLink";
 
-const UnderConstructionPage: React.FC<PageProps> = ({ data }): JSX.Element => {
+export const UnderConstructionPage: React.FC<PageProps> = ({
+  data,
+}): JSX.Element => {
   const theme = useTheme();
   const { i18n } = useI18next();
 
