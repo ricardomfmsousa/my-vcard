@@ -1,4 +1,7 @@
-import { ThemeProvider } from "@emotion/react";
+import "@fontsource/over-the-rainbow";
+import "@fontsource/poppins";
+
+import { ThemeProvider } from "@mui/material";
 import { action } from "@storybook/addon-actions";
 
 import theme from "../src/gatsby-theme-material-ui-top-layout/theme";
@@ -26,6 +29,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  darkMode: {
+    current: "dark",
   },
 };
 
