@@ -13,10 +13,6 @@ export const Header: ComponentStory<typeof HeaderComponent> = (args) => {
 };
 
 Header.args = {
-  links: Array(5)
-    .fill(0)
-    .map((_, i) => ({ name: `Link${i}`, href: `/link${i}` })),
-  currentRoute: "/link3",
   sx: {},
-  introPadding: "0px",
+  introPadding: "30px",
 };
