@@ -16,7 +16,7 @@ NavLink.args = {
   children: "Hello, I'm an internal navigation link!",
   to: "/#hello",
   language: "pt",
-  style: undefined,
   onClick: undefined,
-  isActive: false,
+  isActive: undefined,
+  sx: undefined,
 };
