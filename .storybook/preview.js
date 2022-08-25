@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { action } from "@storybook/addon-actions";
 
 import theme from "../src/gatsby-theme-material-ui-top-layout/theme";
+import { DocsContainer } from "./DocsContainer";
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
@@ -32,6 +33,9 @@ export const parameters = {
   },
   darkMode: {
     current: "dark",
+  },
+  docs: {
+    container: DocsContainer,
   },
 };
 
