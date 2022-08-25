@@ -9,11 +9,13 @@ import { VerticalSocial } from "../../VerticalSocial/VerticalSocial";
 export interface IntroProps {
   introPadding?: string;
   sx?: SxProps;
+  [rest: string]: unknown;
 }
 
 export const Intro: React.FC<IntroProps> = ({
   introPadding,
   sx,
+  ...rest
 }): JSX.Element => {
   const { t } = useI18next();
 
@@ -38,6 +40,7 @@ export const Intro: React.FC<IntroProps> = ({
         textAlign: "center",
         ...sx,
       }}
+      {...rest}
     >
       <Typography variant="h1" fontWeight="700" mb={4} mx={4}>
         Ricardo Sousa
@@ -57,19 +60,19 @@ export const Intro: React.FC<IntroProps> = ({
               .pauseFor(pause.long)
               .deleteAll()
               .pauseFor(pause.short)
-              .typeString(
-                t(
-                  "I love <strong>Trail Running</strong> and <strong>Calisthenics</strong>"
-                )
-              )
-              .pauseFor(pause.long)
-              .deleteAll()
-              .pauseFor(pause.short)
               .typeString(t("I'm a <strong>Software Developer</strong>"))
               .pauseFor(pause.long)
               .deleteAll()
               .pauseFor(pause.short)
               .typeString(t("I've specialized on <strong>Front-End</strong>"))
+              .pauseFor(pause.long)
+              .deleteAll()
+              .pauseFor(pause.short)
+              .typeString(
+                t(
+                  "I love <strong>Trail Running</strong> and <strong>Calisthenics</strong>"
+                )
+              )
               .pauseFor(pause.last)
               .deleteAll()
               .start();
