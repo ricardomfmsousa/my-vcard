@@ -1,4 +1,11 @@
-import { Box, Menu, MenuItem, SxProps } from "@mui/material";
+import {
+  Box,
+  Menu,
+  MenuItem,
+  Slide,
+  SxProps,
+  useScrollTrigger,
+} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,16 +18,24 @@ import { BurgerMenu } from "../../Icons/BurgerMenu/BurgerMenu";
 import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
 import { NavLink } from "../../NavLink/NavLink";
 
+const HideOnScroll: React.FC<{ children: JSX.Element }> = ({ children }) => {
+  const trigger = useScrollTrigger();
+  return (
+    <Slide appear={false} direction="down" in={!trigger} timeout={200}>
+      {children}
+    </Slide>
+  );
+};
 export interface HeaderProps {
   introPadding: string;
   sx?: SxProps;
 }
 
 export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
+  const { t } = useI18next();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const { t, i18n } = useI18next();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -55,12 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   const lowResLinks = React.useMemo(
     () =>
       links.map(({ name, href }) => (
-        <NavLink
-          key={name}
-          to={href}
-          language={i18n.language}
-          onClick={handleCloseNavMenu}
-        >
+        <NavLink key={name} to={href} onClick={handleCloseNavMenu}>
           <MenuItem>
             <Typography>{name}</Typography>
           </MenuItem>
@@ -75,9 +85,8 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
         <Typography key={name} sx={{ ml: 4 }}>
           <NavLink
             to={href}
-            language={i18n.language}
             onClick={handleCloseNavMenu}
-            style={{ height: "100%", display: "flex", alignItems: "center" }}
+            sx={{ height: "100%", display: "flex", alignItems: "center" }}
           >
             {name}
           </NavLink>
@@ -87,66 +96,79 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   );
 
   return (
-    <AppBar
-      elevation={0}
-      position="fixed"
-      color="transparent"
-      sx={{
-        backdropFilter: "blur(20px)",
-        paddingTop: `calc(${introPadding} - 20px)`,
-        paddingLeft: introPadding,
-        paddingRight: introPadding,
-        ...sx,
-      }}
-    >
-      <Toolbar disableGutters>
-        {headerLogo.icon}
-
-        <Typography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/"
-          sx={{ ...headerLogo.sx, display: { xs: "none", md: "flex" } }}
-        >
-          {headerLogo.text}
-        </Typography>
-
-        <Typography
-          variant="h5"
-          noWrap
-          component="a"
-          href=""
-          sx={{ ...headerLogo.sx, display: { xs: "flex", md: "none" } }}
-        >
-          {headerLogo.text}
-        </Typography>
-
-        <Box sx={{ display: { xs: "flex", md: "none" }, marginRight: "-12px" }}>
-          <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
-            <BurgerMenu fontSize="large" />
-          </IconButton>
-          <Menu
-            anchorEl={anchorElNav}
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            keepMounted
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{ display: { xs: "block", md: "none" } }}
+    <HideOnScroll>
+      <AppBar
+        elevation={0}
+        position="fixed"
+        color="transparent"
+        sx={{
+          backdropFilter: "blur(10px)",
+          paddingTop: `calc(${introPadding} - 20px)`,
+          paddingLeft: introPadding,
+          paddingRight: introPadding,
+          ...sx,
+        }}
+      >
+        <Toolbar disableGutters>
+          {headerLogo.icon}
+          <Typography
+            variant="h6"
+            noWrap
+            sx={{ ...headerLogo.sx, display: { xs: "none", md: "flex" } }}
           >
-            {lowResLinks}
-            <Divider />
-            <MenuItem onClick={handleCloseNavMenu}>
-              <LanguageSwitcher tooltipPlacement="bottom" />
-            </MenuItem>
-          </Menu>
-        </Box>
+            <NavLink
+              to="/"
+              isActive={false}
+              sx={{ height: "100%", display: "flex", alignItems: "center" }}
+            >
+              {headerLogo.text}
+            </NavLink>
+          </Typography>
 
-        <Box sx={{ display: { xs: "none", md: "flex" }, alignSelf: "stretch" }}>
-          {highResLinks}
-        </Box>
-      </Toolbar>
-    </AppBar>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{ ...headerLogo.sx, display: { xs: "flex", md: "none" } }}
+          >
+            {headerLogo.text}
+          </Typography>
+
+          <Box
+            sx={{ display: { xs: "flex", md: "none" }, marginRight: "-12px" }}
+          >
+            <IconButton
+              size="large"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <BurgerMenu fontSize="large" />
+            </IconButton>
+            <Menu
+              anchorEl={anchorElNav}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              keepMounted
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
+            >
+              {lowResLinks}
+              <Divider />
+              <MenuItem onClick={handleCloseNavMenu}>
+                <LanguageSwitcher tooltipPlacement="bottom" />
+              </MenuItem>
+            </Menu>
+          </Box>
+
+          <Box
+            sx={{ display: { xs: "none", md: "flex" }, alignSelf: "stretch" }}
+          >
+            {highResLinks}
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
   );
 };
