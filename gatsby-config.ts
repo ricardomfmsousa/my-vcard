@@ -1,13 +1,10 @@
-const {
-  languages,
-  defaultLanguage,
-  translationPath,
-} = require("./i18n-config");
+import { defaultLanguage, languages, translationPath } from "./i18n-config";
 
 import type { GatsbyConfig } from "gatsby";
 const siteUrl = "https://ricardomfmsousa.github.io/my-vcard/";
 
 const config: GatsbyConfig = {
+  pathPrefix: "/my-vcard",
   siteMetadata: {
     title: "Ricardo Sousa's vCard",
     siteUrl,
@@ -91,6 +88,7 @@ const config: GatsbyConfig = {
           keySeparator: false,
           nsSeparator: false,
           fallbackLng: false,
+          generateDefaultLanguagePage: true,
         },
         pages: [
           {
