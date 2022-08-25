@@ -8,14 +8,13 @@ import {
 } from "@mui/material";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Trans, useI18next } from "gatsby-plugin-react-i18next";
+import { Trans } from "gatsby-plugin-react-i18next";
 import * as React from "react";
 
 import { NavLink } from "../components/NavLink/NavLink";
 
 export const NotFoundPage: React.FC<PageProps> = ({ data }): JSX.Element => {
   const theme = useTheme();
-  const { i18n } = useI18next();
 
   return (
     <BackgroundImage
@@ -75,7 +74,7 @@ export const NotFoundPage: React.FC<PageProps> = ({ data }): JSX.Element => {
             <br />
             <Divider sx={{ my: 3 }} />
             <Typography>
-              <NavLink to="/" language={i18n.language}>
+              <NavLink to="/">
                 {"> "}
                 <Trans>Go to the Home Page...</Trans>
               </NavLink>
