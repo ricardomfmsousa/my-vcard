@@ -56,7 +56,7 @@ export const Intro: React.FC<IntroProps> = ({
               .pauseFor(pause.long)
               .deleteAll()
               .pauseFor(pause.short)
-              .typeString(t("I'm a <strong>Proud</strong> Father"))
+              .typeString(t("I'm a Proud <strong>Father</strong>"))
               .pauseFor(pause.long)
               .deleteAll()
               .pauseFor(pause.short)

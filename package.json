@@ -13,7 +13,7 @@
     "ci": "yarn install --immutable --immutable-cache --check-cache",
     "prestorybook": "cp -r ./public/page-data/sq/d ./public/static",
     "storybook": "NODE_ENV=test start-storybook -p 6006 --no-dll -s public",
-    "start": "gatsby develop",
+    "start": "gatsby develop -H 0.0.0.0",
     "clean": "gatsby clean",
     "build:gatsby": "gatsby build --prefix-paths",
     "prebuild:storybook": "yarn prestorybook",
@@ -33,6 +33,8 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.1",
     "eslint": "^8.22.0",
+    "fetch-jsonp": "^1.2.2",
+    "formik": "^2.2.9",
     "gatsby": "^4.21.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-emotion": "^7.21.0",
@@ -51,7 +53,9 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-i18next": "^11.18.4",
-    "typewriter-effect": "^2.19.0"
+    "react-use": "^17.4.0",
+    "typewriter-effect": "^2.19.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@a110/storybook-expand-all": "^1.1.1",

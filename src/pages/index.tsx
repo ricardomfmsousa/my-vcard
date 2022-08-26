@@ -3,6 +3,7 @@ import * as React from "react";
 
 import { Footer } from "../components/Layout/Footer/Footer";
 import { Header } from "../components/Layout/Header/Header";
+import { Contact } from "../components/Sections/Contact/Contact";
 import { Intro } from "../components/Sections/Intro/Intro";
 
 export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
@@ -12,6 +13,7 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
     <>
       <Header introPadding={introPadding} />
       <Intro introPadding={introPadding} />
+      <Contact variant="darker" />
       <Footer />
     </>
   );
