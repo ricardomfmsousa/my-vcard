@@ -26,6 +26,7 @@ const HideOnScroll: React.FC<{ children: JSX.Element }> = ({ children }) => {
     </Slide>
   );
 };
+
 export interface HeaderProps {
   introPadding: string;
   sx?: SxProps;
@@ -33,6 +34,7 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   const { t } = useI18next();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
