@@ -1,21 +1,23 @@
+import { Close } from "@mui/icons-material";
 import {
   Box,
-  Menu,
   MenuItem,
   Slide,
   SxProps,
+  useMediaQuery,
   useScrollTrigger,
+  useTheme,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { IconButton } from "gatsby-theme-material-ui";
 import React from "react";
 
+import { useScrollBlock } from "../../../hooks/useBlockScroll";
+import { FullScreenMenu } from "../../FullScreenMenu/FullScreenMenu";
 import { BurgerMenu } from "../../Icons/BurgerMenu/BurgerMenu";
-import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
 import { NavLink } from "../../NavLink/NavLink";
 
 const HideOnScroll: React.FC<{ children: JSX.Element }> = ({ children }) => {
@@ -34,18 +36,34 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   const { t } = useI18next();
+  const [blockScroll, allowScroll] = useScrollBlock();
+  const [isMenuOpen, setMenuOpen] = React.useState(false);
+  const theme = useTheme();
+  const hasMediumResolution = useMediaQuery(theme.breakpoints.up("md"));
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = () => {
+    setMenuOpen(true);
+    blockScroll();
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    allowScroll();
+    setMenuOpen(false);
   };
+
+  const handleToggleNavMenu = () => {
+    if (isMenuOpen) {
+      handleCloseNavMenu();
+      return;
+    }
+    handleOpenNavMenu();
+  };
+
+  React.useEffect(() => {
+    if (hasMediumResolution) {
+      handleCloseNavMenu();
+    }
+  }, [hasMediumResolution]);
 
   const links = [
     { name: t("Intro"), href: `/` },
@@ -98,79 +116,74 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   );
 
   return (
-    <HideOnScroll>
-      <AppBar
-        elevation={0}
-        position="fixed"
-        color="transparent"
-        sx={{
-          backdropFilter: "blur(10px)",
-          paddingTop: `calc(${introPadding} - 20px)`,
-          paddingLeft: introPadding,
-          paddingRight: introPadding,
-          ...sx,
-        }}
-      >
-        <Toolbar disableGutters>
-          {headerLogo.icon}
-          <Typography
-            variant="h6"
-            noWrap
-            sx={{ ...headerLogo.sx, display: { xs: "none", md: "flex" } }}
-          >
-            <NavLink
-              to="/"
-              isActive={false}
-              sx={{ height: "100%", display: "flex", alignItems: "center" }}
+    <>
+      <HideOnScroll>
+        <AppBar
+          elevation={0}
+          position="fixed"
+          color="transparent"
+          sx={{
+            p: 1,
+            zIndex: 1500,
+            ...(!isMenuOpen && { backdropFilter: "blur(20px)" }),
+            ...(hasMediumResolution && {
+              pt: `calc(${introPadding} - 20px)`,
+              px: introPadding,
+              pb: "initial",
+            }),
+            ...sx,
+          }}
+        >
+          <Toolbar disableGutters={hasMediumResolution}>
+            {headerLogo.icon}
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{ ...headerLogo.sx, display: { xs: "none", md: "flex" } }}
+            >
+              <NavLink
+                to="/"
+                isActive={false}
+                sx={{ height: "100%", display: "flex", alignItems: "center" }}
+              >
+                {headerLogo.text}
+              </NavLink>
+            </Typography>
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{ ...headerLogo.sx, display: { xs: "flex", md: "none" } }}
             >
               {headerLogo.text}
-            </NavLink>
-          </Typography>
-
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{ ...headerLogo.sx, display: { xs: "flex", md: "none" } }}
-          >
-            {headerLogo.text}
-          </Typography>
-
-          <Box
-            sx={{ display: { xs: "flex", md: "none" }, marginRight: "-12px" }}
-          >
-            <IconButton
-              size="large"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+            </Typography>
+            <Box
+              sx={{ display: { xs: "flex", md: "none" }, marginRight: "-12px" }}
             >
-              <BurgerMenu fontSize="large" />
-            </IconButton>
-            <Menu
-              anchorEl={anchorElNav}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              keepMounted
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              <IconButton
+                size="large"
+                onClick={handleToggleNavMenu}
+                color="inherit"
+              >
+                {isMenuOpen ? (
+                  <Close fontSize="large" />
+                ) : (
+                  <BurgerMenu fontSize="large" />
+                )}
+              </IconButton>
+            </Box>
+            <Box
+              sx={{ display: { xs: "none", md: "flex" }, alignSelf: "stretch" }}
             >
-              {lowResLinks}
-              <Divider />
-              <MenuItem onClick={handleCloseNavMenu}>
-                <LanguageSwitcher tooltipPlacement="bottom" />
-              </MenuItem>
-            </Menu>
-          </Box>
-
-          <Box
-            sx={{ display: { xs: "none", md: "flex" }, alignSelf: "stretch" }}
-          >
-            {highResLinks}
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </HideOnScroll>
+              {highResLinks}
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      {isMenuOpen && (
+        <FullScreenMenu links={links} onInternalNav={handleCloseNavMenu} />
+      )}
+    </>
   );
 };
