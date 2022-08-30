@@ -61,7 +61,7 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
           </Stack>
         )}
       </Container>
-      <Container maxWidth="lg" sx={{ mt: 10 }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: 8, md: 10 } }}>
         {children}
       </Container>
     </Box>
