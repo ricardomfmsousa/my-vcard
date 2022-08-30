@@ -100,6 +100,8 @@ export const Contact: React.FC<ContactProps> = ({
         component="fieldset"
         disabled={isFormSubmitting}
         direction={{ sm: "column", md: "row" }}
+        spacing={8}
+        sx={{ mx: 0, border: "none" }}
         divider={
           <Divider
             orientation="vertical"
@@ -107,8 +109,6 @@ export const Contact: React.FC<ContactProps> = ({
             sx={{ display: { xs: "none", md: "flex" } }}
           />
         }
-        spacing={8}
-        sx={{ mx: 0, border: "none" }}
       >
         <Typography
           sx={{ textAlign: "justify", flex: 0.5, my: 1, mb: { xs: 5, md: 0 } }}
@@ -192,7 +192,7 @@ export const Contact: React.FC<ContactProps> = ({
               type="submit"
               variant="outlined"
               disabled={isFormSubmitting}
-              sx={{ flex: { xs: 0.4, sm: 0.25, md: 0.1 } }}
+              sx={{ flex: { xs: 0.4, sm: 0.15, md: 0.1 } }}
             >
               <Trans>Send</Trans>
             </Button>
