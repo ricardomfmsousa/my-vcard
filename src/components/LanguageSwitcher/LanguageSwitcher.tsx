@@ -1,4 +1,4 @@
-import { Box, SxProps, Tooltip, TooltipProps } from "@mui/material";
+import { Box, Stack, SxProps, Tooltip, TooltipProps } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 
@@ -7,10 +7,12 @@ import { NavLink } from "../NavLink/NavLink";
 
 export interface LanguageSwitcherProps {
   sx?: SxProps;
-  tooltipPlacement: TooltipProps["placement"];
+  spacing?: string | number;
+  tooltipPlacement?: TooltipProps["placement"];
 }
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   sx,
+  spacing = "1.25em",
   tooltipPlacement,
 }): JSX.Element => {
   const { originalPath, i18n } = useI18next();
@@ -18,8 +20,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const languages = React.useMemo(
     () =>
       languageMetaData.map(({ name, locale, abbreviation }) => (
-        <Tooltip key={name} title={name} placement={tooltipPlacement}>
-          <Box sx={{ mr: 3 }}>
+        <Tooltip
+          key={name}
+          title={tooltipPlacement ? name : ""}
+          placement={tooltipPlacement}
+        >
+          <Box>
             <NavLink
               to={originalPath}
               language={locale}
@@ -33,5 +39,9 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     [i18n.language]
   );
 
-  return <Box sx={{ display: "flex", ...sx }}>{languages}</Box>;
+  return (
+    <Stack spacing={spacing} direction={"row"} sx={{ ...sx }}>
+      {languages}
+    </Stack>
+  );
 };
