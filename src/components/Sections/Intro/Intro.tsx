@@ -4,7 +4,7 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 
 import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
-import { VerticalSocial } from "../../VerticalSocial/VerticalSocial";
+import { Social } from "../../Social/Social";
 
 export interface IntroProps {
   introPadding?: string;
@@ -90,7 +90,9 @@ export const Intro: React.FC<IntroProps> = ({
           display: { xs: "none", md: "flex" },
         }}
       />
-      <VerticalSocial
+      <Social
+        size="medium"
+        direction="column"
         tooltipPlacement="left"
         sx={{
           position: "absolute",
