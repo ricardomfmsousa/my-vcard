@@ -55,37 +55,31 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
         height: "100vh",
         width: "100vw",
         backdropFilter: "blur(30px)",
-        zIndex: 1000,
+        zIndex: 1500,
         overflow: "auto",
       }}
     >
-      <Container
-        maxWidth="sm"
-        sx={{
-          display: "flex",
-          height: "inherit",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          ...sx,
-        }}
-        {...rest}
-      >
-        <Box sx={{ pt: 8 }}>{links}</Box>
-
+      <Container maxWidth="sm" sx={{ height: "inherit", ...sx }} {...rest}>
         <Stack
-          spacing={2}
-          sx={{ alignSelf: "center", alignItems: "center" }}
-          divider={<Divider orientation="horizontal" flexItem />}
+          spacing={1}
+          sx={{ height: "inherit", justifyContent: "space-around" }}
         >
-          <Typography variant="h4" component="div">
-            <LanguageSwitcher spacing={"1em"} />
-          </Typography>
-          <Social
-            size="large"
-            direction="row"
-            spacing={3}
-            sx={{ color: "text.secondary", px: 4 }}
-          />
+          <Box>{links}</Box>
+          <Stack
+            spacing={2}
+            sx={{ alignSelf: "center", alignItems: "center" }}
+            divider={<Divider orientation="horizontal" flexItem />}
+          >
+            <Typography variant="h4" component="div">
+              <LanguageSwitcher spacing={"1em"} />
+            </Typography>
+            <Social
+              size="large"
+              direction="row"
+              spacing={3}
+              sx={{ color: "text.secondary", px: 4 }}
+            />
+          </Stack>
         </Stack>
       </Container>
     </Box>
