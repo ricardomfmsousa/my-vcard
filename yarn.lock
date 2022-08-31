@@ -6970,7 +6970,7 @@ cross-fetch@3.1.4:
   dependencies:
     node-fetch "2.6.1"
 
-cross-fetch@^3.1.5:
+cross-fetch@3.1.5, cross-fetch@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
   integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
@@ -7247,6 +7247,11 @@ date-fns@^2.25.0:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.1.tgz#9667c2615525e552b5135a3116b95b1961456e60"
   integrity sha512-dlLD5rKaKxpFdnjrs+5azHDFOPEu4ANy/LTh04A1DTzMM7qoajmKCBc8pkKRFT41CNzw+4gQh79X5C+Jq27HAw==
+
+date-fns@^2.29.2:
+  version "2.29.2"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.2.tgz#0d4b3d0f3dff0f920820a070920f0d9662c51931"
+  integrity sha512-0VNbwmWJDS/G3ySwFSJA3ayhbURMTJLtwM2DTxf9CWondCnh6DTNlO9JgRSq6ibf4eD0lfMJNBxUdEAHHix+bA==
 
 debug@2, debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -10468,6 +10473,20 @@ hyphenate-style-name@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
+
+i18next-browser-languagedetector@^6.1.5:
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.5.tgz#ed8c9319a8d246995d8ec8fccb5bf5f4248d0fb1"
+  integrity sha512-11t7b39oKeZe4uyMxLSPnfw28BCPNLZgUk7zyufex0zKXZ+Bv+JnmJgoB+IfQLZwDt1d71PM8vwBX1NCgliY3g==
+  dependencies:
+    "@babel/runtime" "^7.18.9"
+
+i18next-http-backend@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/i18next-http-backend/-/i18next-http-backend-1.4.1.tgz#d8d308e7d8c5b89988446d0b83f469361e051bc0"
+  integrity sha512-s4Q9hK2jS29iyhniMP82z+yYY8riGTrWbnyvsSzi5TaF7Le4E7b5deTmtuaRuab9fdDcYXtcwdBgawZG+JCEjA==
+  dependencies:
+    cross-fetch "3.1.5"
 
 i18next@^21.8.14, i18next@^21.9.1:
   version "21.9.1"
@@ -14485,10 +14504,10 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-i18next@^11.18.4:
-  version "11.18.4"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.18.4.tgz#b3c35ac4c4657b05d599b036536d7b2c0331e248"
-  integrity sha512-gK/AylAQC5DvCD5YLNCHW4PNzpCfrWIyVAXbSMl+/5QXzlDP8VdBoqE2s2niGHB+zIXwBV9hRXbDrVuupbgHcg==
+react-i18next@^11.18.5:
+  version "11.18.5"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.18.5.tgz#985e87bc66ed1316381b464a4ecfd35a2c951357"
+  integrity sha512-cKcyuuzIv0YUZ4l9WORflVNuhISPAqQShOAsxwFyYuJoCA7HlLmHm7XnvO6hfAGmGpDNRhJHoBX8hG49Cb2xZQ==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
@@ -15854,6 +15873,18 @@ storybook-dark-mode@^1.1.0:
   dependencies:
     fast-deep-equal "^3.0.0"
     memoizerific "^1.11.3"
+
+storybook-i18n@^1.1.2:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/storybook-i18n/-/storybook-i18n-1.1.4.tgz#f463287fa7d8c79c8283c4e7157c8557ebaf408f"
+  integrity sha512-0xD005aEBWhuDFU9oO5Yf+33MZQa/NWa2CWjkBODhcqC+N5WJhEPGUSQs8o9AqzQoRpIBOMQ3CS0cbRGbBuTxQ==
+
+storybook-react-i18next@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/storybook-react-i18next/-/storybook-react-i18next-1.1.2.tgz#991a6cad525e4e811da44037d64f485a3c0899d5"
+  integrity sha512-7KT/wIpV0C5IfExMZ/vfEpPVdXaHNPYhl3XkaGtLfQjmqS+EsNLbR4LyKcQaB8oKtMWMdEbg9mQ4aBJWPBdK/w==
+  dependencies:
+    storybook-i18n "^1.1.2"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
