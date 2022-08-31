@@ -7,6 +7,7 @@ module.exports = {
     "storybook-addon-gatsby",
     "storybook-dark-mode",
     "@a110/storybook-expand-all",
+    "storybook-react-i18next",
   ],
   framework: "@storybook/react",
   core: {
