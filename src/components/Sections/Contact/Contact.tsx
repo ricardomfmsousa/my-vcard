@@ -1,6 +1,6 @@
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import {
   Alert,
-  Box,
   Button,
   CircularProgress,
   Divider,
@@ -17,6 +17,8 @@ import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 import * as yup from "yup";
 
+import { NavLink } from "../../NavLink/NavLink";
+import { Social } from "../../Social/Social";
 import {
   SectionTemplate,
   SectionTemplateProps,
@@ -99,7 +101,7 @@ export const Contact: React.FC<ContactProps> = ({
       <Stack
         component="fieldset"
         disabled={isFormSubmitting}
-        direction={{ sm: "column", md: "row" }}
+        direction={{ xs: "column-reverse", md: "row" }}
         spacing={8}
         sx={{ mx: 0, border: "none" }}
         divider={
@@ -110,23 +112,55 @@ export const Contact: React.FC<ContactProps> = ({
           />
         }
       >
-        <Typography
-          sx={{ textAlign: "justify", flex: 0.5, my: 1, mb: { xs: 5, md: 0 } }}
+        <Stack
+          sx={{
+            textAlign: "justify",
+            flex: 0.5,
+            my: 1,
+            mb: { xs: 5, md: 0 },
+          }}
         >
-          <Trans>
-            Feel free to contact me through this form, I will reply to all
-            messages that originate from here in the shortest possible time.
-          </Trans>
-          <br />
-          <br />
-          <Box component="span" sx={{ color: palette.text.secondary }}>
+          <Typography>
             <Trans>
-              Note: I've stopped replying to all LinkedIn messages a few years
-              ago, since I get <strong>too many templated messages</strong> from
-              recruiters that clearly haven't read my profile.
+              Feel free to contact me through this form, I will reply to all
+              messages that originate from here in the shortest possible time.
             </Trans>
-          </Box>
-        </Typography>
+          </Typography>
+          <Typography sx={{ color: palette.text.secondary, mt: 3 }}>
+            <Trans>
+              Given the high amount of contact attempts I receive on a daily
+              basis through social media, I will <strong>exclusively </strong>
+              reply to messages that are sent from this form.
+            </Trans>
+          </Typography>
+          <Stack
+            spacing={2}
+            flexDirection="row"
+            sx={{
+              mt: 6,
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <NavLink
+              to={
+                "https://www.google.pt/maps/@38.51779,-8.8957548,7430m/data=!3m1!1e3"
+              }
+              target="_blank"
+              language="disable"
+              tooltipPlacement="bottom"
+              tooltipText={t("See in maps")}
+              sx={{ display: "flex", alignItems: "center" }}
+            >
+              <PlaceOutlinedIcon
+                fontSize="medium"
+                sx={{ color: palette.primary.main, mr: 1 }}
+              />{" "}
+              Setúbal, Portugal
+            </NavLink>
+            <Social tooltipPlacement="bottom" direction="row" size="medium" />
+          </Stack>
+        </Stack>
         <Stack
           component="form"
           sx={{
