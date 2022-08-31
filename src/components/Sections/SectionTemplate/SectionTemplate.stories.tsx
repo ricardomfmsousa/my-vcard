@@ -16,7 +16,9 @@ const Template: ComponentStory<typeof SectionTemplateComponent> = (args) => (
   <SectionTemplateComponent {...args} />
 );
 
-const children = <Box sx={{ background: "grey", p: 10 }}>Section children</Box>;
+const children = (
+  <Box sx={{ background: "#202020", p: 10 }}>Section children</Box>
+);
 
 export const Lighter = Template.bind({});
 Lighter.args = {
