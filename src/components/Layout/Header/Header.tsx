@@ -1,7 +1,6 @@
 import { Close } from "@mui/icons-material";
 import {
   Box,
-  MenuItem,
   Slide,
   SxProps,
   useMediaQuery,
@@ -14,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { IconButton } from "gatsby-theme-material-ui";
 import React from "react";
+import { useWindowScroll } from "react-use";
 
 import { useScrollBlock } from "../../../hooks/useBlockScroll";
 import { FullScreenMenu } from "../../FullScreenMenu/FullScreenMenu";
@@ -36,10 +36,11 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   const { t } = useI18next();
+  const { y: scrollY } = useWindowScroll();
   const [blockScroll, allowScroll] = useScrollBlock();
   const [isMenuOpen, setMenuOpen] = React.useState(false);
-  const theme = useTheme();
-  const hasMediumResolution = useMediaQuery(theme.breakpoints.up("md"));
+  const { breakpoints, palette } = useTheme();
+  const hasMediumResolution = useMediaQuery(breakpoints.up("md"));
 
   const handleOpenNavMenu = () => {
     setMenuOpen(true);
@@ -87,32 +88,19 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
     },
   };
 
-  const lowResLinks = React.useMemo(
-    () =>
-      links.map(({ name, href }) => (
-        <NavLink key={name} to={href} onClick={handleCloseNavMenu}>
-          <MenuItem>
-            <Typography>{name}</Typography>
-          </MenuItem>
-        </NavLink>
-      )),
-    []
-  );
-
   const highResLinks = React.useMemo(
     () =>
       links.map(({ name, href }) => (
-        <Typography key={name} sx={{ ml: 4 }}>
-          <NavLink
-            to={href}
-            onClick={handleCloseNavMenu}
-            sx={{ height: "100%", display: "flex", alignItems: "center" }}
-          >
-            {name}
-          </NavLink>
-        </Typography>
+        <NavLink
+          key={name}
+          to={href}
+          onClick={handleCloseNavMenu}
+          sx={{ height: "100%", display: "flex", alignItems: "center", ml: 4 }}
+        >
+          {name}
+        </NavLink>
       )),
-    []
+    [links]
   );
 
   return (
@@ -124,13 +112,15 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
           color="transparent"
           sx={{
             p: 1,
-            zIndex: 1500,
+            zIndex: 2000,
             ...(!isMenuOpen && { backdropFilter: "blur(20px)" }),
             ...(hasMediumResolution && {
               pt: `calc(${introPadding} - 20px)`,
               px: introPadding,
               pb: "initial",
             }),
+            ...(scrollY > 10 &&
+              !isMenuOpen && { borderBottom: `1px solid #ffffff0f` }),
             ...sx,
           }}
         >
