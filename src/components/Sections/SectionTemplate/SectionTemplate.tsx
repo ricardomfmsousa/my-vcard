@@ -6,7 +6,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 
 export interface SectionTemplateProps {
@@ -26,7 +25,6 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
   sx,
   ...rest
 }): JSX.Element => {
-  const { t, i18n } = useI18next();
   const { palette } = useTheme();
 
   return (
