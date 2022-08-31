@@ -6,6 +6,11 @@ import { FullScreenMenu as FullScreenMenuComponent } from "./FullScreenMenu";
 export default {
   title: "Design System/FullScreenMenu",
   component: FullScreenMenuComponent,
+  parameters: {
+    viewport: {
+      defaultViewport: "iphone5",
+    },
+  },
 } as ComponentMeta<typeof FullScreenMenuComponent>;
 
 export const FullScreenMenu: ComponentStory<typeof FullScreenMenuComponent> = (
