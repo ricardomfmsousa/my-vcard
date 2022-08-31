@@ -54,19 +54,21 @@ export const Social: React.FC<VerticalSocialProps> = ({
     },
   ];
 
-  const socialIcons = React.useMemo(() => {
-    return socialData.map(({ name, icon, href }) => (
-      <Tooltip
-        key={name}
-        title={tooltipPlacement ? name : ""}
-        placement={tooltipPlacement}
-      >
-        <Link to={href} target="_blank" sx={{ color: "inherit" }}>
-          {icon}
-        </Link>
-      </Tooltip>
-    ));
-  }, [socialData, size]);
+  const socialIcons = React.useMemo(
+    () =>
+      socialData.map(({ name, icon, href }) => (
+        <Tooltip
+          key={name}
+          title={tooltipPlacement ? name : ""}
+          placement={tooltipPlacement}
+        >
+          <Link to={href} target="_blank" sx={{ color: "inherit" }}>
+            {icon}
+          </Link>
+        </Tooltip>
+      )),
+    [socialData, size]
+  );
 
   const defaultSpacing: { [size: string]: number } = {
     small: 1,
