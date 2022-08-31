@@ -3,9 +3,11 @@ import "@fontsource/poppins";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { action } from "@storybook/addon-actions";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
-import theme from "../src/gatsby-theme-material-ui-top-layout/theme";
+import theme from "../src/components/theme";
 import { DocsContainer } from "./DocsContainer";
+import i18n from "./i18next.js";
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
@@ -36,6 +38,15 @@ export const parameters = {
   },
   docs: {
     container: DocsContainer,
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+  },
+  i18n,
+  locale: "en",
+  locales: {
+    en: { title: "English", left: "🇬🇧" },
+    pt: { title: "Português", left: "🇵🇹" },
   },
 };
 
