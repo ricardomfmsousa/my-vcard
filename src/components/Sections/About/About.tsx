@@ -23,8 +23,8 @@ export const About: React.FC<AboutProps> = ({
   const myAge = differenceInYears(new Date(), new Date("1985-09-24T15:00:00"));
   const myExperienceYears = differenceInYears(new Date(), new Date("2014"));
   const aboutImage = {
-    width: { xs: 200, sm: 250, md: 420 },
-    height: { xs: 200, sm: 250, md: 510 },
+    width: { xs: 200, sm: 250, md: 300, lg: 420 },
+    height: { xs: 200, sm: 250, md: 300, lg: 510 },
   };
 
   return (
@@ -36,8 +36,8 @@ export const About: React.FC<AboutProps> = ({
       {...rest}
     >
       <Stack
-        spacing={{ xs: 6, md: 10 }}
-        direction={{ xs: "column", md: "row" }}
+        spacing={{ xs: 6, lg: 10 }}
+        direction={{ xs: "column", lg: "row" }}
         sx={{ alignItems: "center" }}
       >
         <Box
@@ -46,7 +46,7 @@ export const About: React.FC<AboutProps> = ({
             height: aboutImage.height,
             minWidth: aboutImage.width,
             minHeight: aboutImage.height,
-            borderRadius: { xs: "50%", md: 1 },
+            borderRadius: { xs: "50%", lg: 1 },
             overflow: "hidden",
           }}
         >
