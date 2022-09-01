@@ -21,7 +21,7 @@ export const About: React.FC<AboutProps> = ({
 }): JSX.Element => {
   const { t } = useI18next();
   const myAge = differenceInYears(new Date(), new Date("1985-09-24T15:00:00"));
-  const experienceYears = differenceInYears(new Date(), new Date("2014"));
+  const myExperienceYears = differenceInYears(new Date(), new Date("2014"));
   const aboutImage = {
     width: { xs: 200, sm: 250, md: 420 },
     height: { xs: 200, sm: 250, md: 510 },
@@ -66,28 +66,40 @@ export const About: React.FC<AboutProps> = ({
           </Typography>
 
           <Typography color="text.secondary">
-            I'm {myAge} years old, I have {experienceYears} years of
-            professional experience in the field of IT. <br /> I love building
-            highly performant, properly tested/documented and responsive UIs (
-            <NavLink to="/storybook" language="disable">
+            I'm {myAge} years old, I have {myExperienceYears} years of
+            professional experience in the field of IT, currently employed as a
+            Front-End Software Developer Technical Lead at{" "}
+            <NavLink
+              to="https://bubble-go.ch/"
+              language="disable"
+              target="_blank"
+            >
+              bubble-go
+            </NavLink>
+            .
+            <br />
+            <br />I love building highly performant, properly tested/documented
+            and responsive UIs (
+            <NavLink to="/storybook" language="disable" target="_blank">
               see an example
             </NavLink>
             ).
-            <br /> I like to (ab)use linting/formatting tools and base my
+            <br />I like to (ab)use linting/formatting tools and base my
             implementations mostly on the principles of{" "}
             <NavLink
               to="https://gist.github.com/ricardomfmsousa/d60fe1bbde052c9521b872b3488b70e0"
               language="disable"
+              target="_blank"
             >
               Clean Code
             </NavLink>
             , by Robert C. Martin.
             <br />
             <br />
-            I'm currently based on the beautiful bay of Setúbal, Portugal. Since
-            2020 that I work in full remote mode, which translates into more
-            three hours free per day that I can use to exercise and spend with
-            my family.
+            I'm currently living on the beautiful bay of Setúbal, Portugal.
+            Since 2020 that I work in full remote mode, removing the need to
+            commute, which translates into three more hours free per day that I
+            can use to exercise and spend with my family.
           </Typography>
         </Stack>
       </Stack>
