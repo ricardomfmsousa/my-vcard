@@ -113,14 +113,16 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
           sx={{
             p: 1,
             zIndex: 2000,
-            ...(!isMenuOpen && { backdropFilter: "blur(20px)" }),
             ...(hasMediumResolution && {
               pt: `calc(${introPadding} - 20px)`,
               px: introPadding,
               pb: "initial",
             }),
-            ...(scrollY > 10 &&
-              !isMenuOpen && { borderBottom: `1px solid #ffffff0f` }),
+            ...(scrollY > 100 &&
+              !isMenuOpen && {
+                backdropFilter: "blur(20px)",
+                borderBottom: `1px solid #ffffff0f`,
+              }),
             ...sx,
           }}
         >
