@@ -56,6 +56,16 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({
                 {title}
               </Typography>
             )}
+            <Box
+              sx={{
+                mt: 4,
+                mx: "auto",
+                width: 50,
+                height: 4,
+                border: `1px solid ${palette.primary.main}`,
+                borderRadius: 1,
+              }}
+            ></Box>
           </Stack>
         )}
       </Container>
