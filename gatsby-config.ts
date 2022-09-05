@@ -15,6 +15,7 @@ const config: GatsbyConfig = {
       github: "https://github.com/ricardomfmsousa",
       strava: "https://strava.com/athletes/ricardomfmsousa",
       linkedIn: "https://www.linkedin.com/in/ricardomfmsousa",
+      discord: "https://discordapp.com/users/377100083990102016",
     },
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
