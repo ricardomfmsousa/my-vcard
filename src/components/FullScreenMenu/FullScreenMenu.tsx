@@ -16,7 +16,7 @@ import { Social } from "../Social/Social";
 export interface FullScreenMenuProps {
   links: { name: string; href: string }[];
   closeButtonPadding?: string | number;
-  onInternalNav?: (e: React.MouseEvent) => void;
+  onInternalNav?: (e?: React.MouseEvent) => void;
   sx?: SxProps;
   [rest: string]: unknown;
 }
@@ -41,7 +41,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
           </MenuItem>
         </NavLink>
       )),
-    [linkData]
+    [linkData, onInternalNav]
   );
 
   return (
@@ -59,19 +59,29 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
         overflow: "auto",
       }}
     >
-      <Container maxWidth="sm" sx={{ height: "inherit", ...sx }} {...rest}>
+      <Container
+        maxWidth="sm"
+        sx={{ pt: 10, height: "inherit", ...sx }}
+        {...rest}
+      >
         <Stack
           spacing={1}
-          sx={{ height: "inherit", justifyContent: "space-around" }}
+          sx={{
+            height: "100%",
+            justifyContent: "space-around",
+          }}
         >
           <Box>{links}</Box>
           <Stack
             spacing={2}
-            sx={{ alignSelf: "center", alignItems: "center" }}
+            sx={{ alignSelf: "center", alignItems: "center", py: 10 }}
             divider={<Divider orientation="horizontal" flexItem />}
           >
             <Typography variant="h4" component="div">
-              <LanguageSwitcher spacing={"1em"} />
+              <LanguageSwitcher
+                spacing={"1em"}
+                onLanguageSelected={onInternalNav}
+              />
             </Typography>
             <Social
               size="large"
