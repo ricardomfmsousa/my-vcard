@@ -42,26 +42,24 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   const { breakpoints, palette } = useTheme();
   const hasMediumResolution = useMediaQuery(breakpoints.up("md"));
 
-  const handleOpenNavMenu = () => {
-    setMenuOpen(true);
-    blockScroll();
-  };
-
   const handleCloseNavMenu = () => {
-    allowScroll();
     setMenuOpen(false);
+    allowScroll();
   };
 
   const handleToggleNavMenu = () => {
-    if (isMenuOpen) {
-      handleCloseNavMenu();
-      return;
-    }
-    handleOpenNavMenu();
+    setMenuOpen((prevState) => {
+      if (prevState) {
+        allowScroll();
+      } else {
+        blockScroll();
+      }
+      return !prevState;
+    });
   };
 
   React.useEffect(() => {
-    if (hasMediumResolution) {
+    if (hasMediumResolution && isMenuOpen) {
       handleCloseNavMenu();
     }
   }, [hasMediumResolution]);

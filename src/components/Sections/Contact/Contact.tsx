@@ -135,7 +135,7 @@ export const Contact: React.FC<ContactProps> = ({
           </Typography>
           <Stack
             spacing={2}
-            flexDirection="row"
+            direction="row"
             sx={{
               mt: 6,
               justifyContent: "space-between",

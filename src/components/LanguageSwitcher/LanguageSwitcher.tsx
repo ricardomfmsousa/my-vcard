@@ -8,34 +8,46 @@ import { NavLink } from "../NavLink/NavLink";
 export interface LanguageSwitcherProps {
   sx?: SxProps;
   spacing?: string | number;
+  onLanguageSelected?: () => void;
   tooltipPlacement?: TooltipProps["placement"];
 }
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   sx,
   spacing = "1.25em",
+  onLanguageSelected,
   tooltipPlacement,
 }): JSX.Element => {
   const { originalPath, i18n } = useI18next();
 
   const languages = React.useMemo(
     () =>
-      languageMetaData.map(({ name, locale, abbreviation }) => (
-        <Tooltip
-          key={name}
-          title={tooltipPlacement ? name : ""}
-          placement={tooltipPlacement}
-        >
-          <Box>
-            <NavLink
-              to={originalPath}
-              language={locale}
-              isActive={i18n.language === locale}
-            >
-              {abbreviation.toUpperCase()}
-            </NavLink>
-          </Box>
-        </Tooltip>
-      )),
+      languageMetaData.map(({ name, locale, abbreviation }) => {
+        const isActive = i18n.language === locale;
+        const handleClick = () => {
+          if (!isActive && onLanguageSelected) {
+            onLanguageSelected();
+          }
+        };
+
+        return (
+          <Tooltip
+            key={name}
+            title={tooltipPlacement ? name : ""}
+            placement={tooltipPlacement}
+          >
+            <Box>
+              <NavLink
+                to={originalPath}
+                language={locale}
+                isActive={isActive}
+                onClick={handleClick}
+              >
+                {abbreviation.toUpperCase()}
+              </NavLink>
+            </Box>
+          </Tooltip>
+        );
+      }),
     [i18n.language]
   );
 
