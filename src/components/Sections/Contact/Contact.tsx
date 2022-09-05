@@ -15,7 +15,6 @@ import fetchJsonp from "fetch-jsonp";
 import { useFormik } from "formik";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
-import * as yup from "yup";
 
 import { NavLink } from "../../NavLink/NavLink";
 import { Social } from "../../Social/Social";
@@ -23,6 +22,7 @@ import {
   SectionTemplate,
   SectionTemplateProps,
 } from "../SectionTemplate/SectionTemplate";
+import { getValidationSchema, googleFormUrl } from "./ContactConfig";
 
 export interface ContactProps {
   variant: SectionTemplateProps["variant"];
@@ -38,24 +38,9 @@ export const Contact: React.FC<ContactProps> = ({
   const [showNotification, setShowNotification] = React.useState(false);
   const [isFormSubmitting, setIsFormSubmitting] = React.useState(false);
 
-  const googleFormUrl =
-    "https://docs.google.com/forms/u/0/d/e/" +
-    "1FAIpQLSfpal1vZ6teMo55NMhUT9gdlkhysU_UGsP5e2mFWFwhEFUNzA/formResponse";
-  const contactValidationSchema = yup.object({
-    name: yup.string().required(t("Name is required")),
-    email: yup
-      .string()
-      .email(t("Enter a valid email"))
-      .required(t("Email is required")),
-    message: yup
-      .string()
-      .min(20, t("A meaningful message should have more than 20 characters :)"))
-      .required(t("Message is required")),
-  });
-
   const formik = useFormik({
     initialValues: { name: "", email: "", message: "" },
-    validationSchema: contactValidationSchema,
+    validationSchema: getValidationSchema(t),
     onSubmit: async ({ name, email, message }, { resetForm }) => {
       setIsFormSubmitting(true);
       const googleFormData = {
