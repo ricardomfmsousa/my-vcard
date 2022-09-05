@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { differenceInYears } from "date-fns";
 import { StaticImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -20,8 +20,11 @@ export const About: React.FC<AboutProps> = ({
   ...rest
 }): JSX.Element => {
   const { t } = useI18next();
+  const { breakpoints } = useTheme();
   const myAge = differenceInYears(new Date(), new Date("1985-09-24T15:00:00"));
   const myExperienceYears = differenceInYears(new Date(), new Date("2014"));
+  const isBellowLargeResolution = useMediaQuery(breakpoints.down("lg"));
+
   const aboutImage = {
     width: { xs: 200, sm: 250, md: 300, lg: 420 },
     height: { xs: 200, sm: 250, md: 300, lg: 510 },
@@ -64,11 +67,10 @@ export const About: React.FC<AboutProps> = ({
           <Typography variant="h3" sx={{ mt: 2, mb: 3 }}>
             I'm Ricardo Sousa, Senior Front-End Software Developer.
           </Typography>
-
           <Typography color="text.secondary">
-            I'm {myAge} years old, I have {myExperienceYears} years of
-            professional experience in the field of IT, currently employed as a
-            Front-End Software Developer Technical Lead at{" "}
+            <strong>I'm {myAge} years old</strong>, I have {myExperienceYears}{" "}
+            years of professional experience in the field of IT, currently
+            employed as a Front-End Software Development Technical Lead at{" "}
             <NavLink
               to="https://bubble-go.ch/"
               language="disable"
@@ -76,15 +78,17 @@ export const About: React.FC<AboutProps> = ({
             >
               bubble-go
             </NavLink>
-            .
+            .<br />
+            Here, I have interviewed, onboarded and trained many employees who
+            have become significant contributors for the company.
+            {isBellowLargeResolution && <br />}
             <br />
-            <br />I love building highly performant, properly tested/documented
-            and responsive UIs (
+            <strong>I love building</strong> highly performant, properly
+            tested/documented and responsive UIs (
             <NavLink to="/storybook" language="disable" target="_blank">
               see an example
             </NavLink>
-            ).
-            <br />I like to (ab)use linting/formatting tools and base my
+            ), I like to (ab)use linting/formatting tools and base my
             implementations mostly on the principles of{" "}
             <NavLink
               to="https://gist.github.com/ricardomfmsousa/d60fe1bbde052c9521b872b3488b70e0"
@@ -95,11 +99,21 @@ export const About: React.FC<AboutProps> = ({
             </NavLink>
             , by Robert C. Martin.
             <br />
+            I'm, always seeking to amplify my knowledge on workflows,
+            methodologies and new technologies, specially on the{" "}
+            <NavLink
+              to="https://jamstack.org/"
+              language="disable"
+              target="_blank"
+            >
+              JAM stack
+            </NavLink>
+            .{isBellowLargeResolution && <br />}
             <br />
-            I'm currently living on the beautiful bay of Setúbal, Portugal.
-            Since 2020 that I work in full remote mode, removing the need to
-            commute, which translates into three more hours free per day that I
-            can use to exercise and spend with my family.
+            <strong>I'm currently living</strong> on the beautiful bay of
+            Setúbal, Portugal. Since 2020 that I work in full remote mode,
+            removing the need to commute, which translates into three more hours
+            free per day that I can use to exercise and spend with my family.
           </Typography>
         </Stack>
       </Stack>
