@@ -54,7 +54,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
     setShouldHighlight(
       isActive !== undefined ? isActive : prefixedHref === currentRoute
     );
-  }, [location]);
+  }, [location, isActive]);
 
   const handleOnClick = React.useCallback(
     (e: React.MouseEvent) => {

@@ -31,10 +31,15 @@ const HideOnScroll: React.FC<{ children: JSX.Element }> = ({ children }) => {
 
 export interface HeaderProps {
   introPadding: string;
+  activeSectionId: string;
   sx?: SxProps;
 }
 
-export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
+export const Header: React.FC<HeaderProps> = ({
+  sx,
+  introPadding,
+  activeSectionId,
+}) => {
   const { t } = useI18next();
   const { y: scrollY } = useWindowScroll();
   const [blockScroll, allowScroll] = useScrollBlock();
@@ -65,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
   }, [hasMediumResolution]);
 
   const links = [
-    { name: t("Intro"), href: `/` },
+    { name: t("Intro"), href: `/#intro` },
     { name: t("About"), href: `/#about` },
     { name: t("Resume"), href: `/#resume` },
     { name: t("Contact"), href: `/#contact` },
@@ -92,13 +97,14 @@ export const Header: React.FC<HeaderProps> = ({ sx, introPadding }) => {
         <NavLink
           key={name}
           to={href}
+          isActive={href.endsWith(activeSectionId)}
           onClick={handleCloseNavMenu}
           sx={{ height: "100%", display: "flex", alignItems: "center", ml: 4 }}
         >
           {name}
         </NavLink>
       )),
-    [links]
+    [links, activeSectionId]
   );
 
   return (
