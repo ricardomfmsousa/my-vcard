@@ -7,7 +7,7 @@ import { ScrollTop } from "../components/ScrollTop/ScrollTop";
 import { About } from "../components/Sections/About/About";
 import { Contact } from "../components/Sections/Contact/Contact";
 import { Intro } from "../components/Sections/Intro/Intro";
-import { useScrollSpy } from "../hooks/useScrollSpy";
+import { useScrollSpy } from "../hooks/useScrollSpy/useScrollSpy";
 
 export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
   const introPadding = "50px";
@@ -26,14 +26,16 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
   return (
     <>
       <Header introPadding={introPadding} activeSectionId={activeElementId} />
-      {sections.map((section: JSX.Element, i) =>
-        React.cloneElement(section, {
-          key: `index-section-${i}`,
-          ref: sectionRefs[i],
-          // TODO: implement isOnViewport on all section components
-          // isOnViewport: activeElementId === sectionRefs[i]?.current?.id,
-        })
-      )}
+      <main>
+        {sections.map((section: JSX.Element, i) =>
+          React.cloneElement(section, {
+            key: `index-section-${i}`,
+            ref: sectionRefs[i],
+            // TODO: implement isOnViewport on all section components
+            // isOnViewport: activeElementId === sectionRefs[i]?.current?.id,
+          })
+        )}
+      </main>
       <Footer />
       <ScrollTop right={introPadding} bottom={footerPadding} />
     </>
