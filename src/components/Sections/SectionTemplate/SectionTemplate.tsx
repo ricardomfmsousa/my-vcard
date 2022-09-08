@@ -30,7 +30,8 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = React.forwardRef(
         ref={ref}
         component="section"
         sx={{
-          py: 10,
+          pt: 10,
+          pb: { xs: 10, lg: 12 },
           background: palette.background.default,
           ...(variant === "darker" && {
             background: palette.background.darker,

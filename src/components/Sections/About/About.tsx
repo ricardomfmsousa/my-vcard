@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
 import { differenceInYears } from "date-fns";
 import { StaticImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -24,11 +24,10 @@ export const About: React.FC<AboutProps> = React.forwardRef(
       new Date("1985-09-24T15:00:00")
     );
     const myExperienceYears = differenceInYears(new Date(), new Date("2014"));
-    const isBellowLargeResolution = useMediaQuery(breakpoints.down("lg"));
 
     const aboutImage = {
-      width: { xs: 200, sm: 250, md: 300, lg: 420 },
-      height: { xs: 200, sm: 250, md: 300, lg: 510 },
+      width: { xs: 200, sm: 250, md: 300, lg: 400 },
+      height: { xs: 200, sm: 250, md: 300, lg: 600 },
     };
 
     return (
@@ -47,16 +46,17 @@ export const About: React.FC<AboutProps> = React.forwardRef(
         >
           <Box
             sx={{
-              width: aboutImage.width,
-              height: aboutImage.height,
               minWidth: aboutImage.width,
               minHeight: aboutImage.height,
+              maxWidth: aboutImage.width,
+              maxHeight: aboutImage.height,
               borderRadius: { xs: "50%", lg: 1 },
+              border: "1px solid black",
               overflow: "hidden",
             }}
           >
             <StaticImage
-              src="https://placekitten.com/600/800"
+              src="https://placekitten.com/400/600"
               alt={t("About photo")}
               placeholder="blurred"
               layout="fullWidth"
@@ -72,7 +72,7 @@ export const About: React.FC<AboutProps> = React.forwardRef(
             <Typography color="text.secondary">
               <strong>I'm {myAge} years old</strong>, I have {myExperienceYears}{" "}
               years of professional experience in the field of IT, currently
-              employed as a Front-End Software Development Technical Lead at{" "}
+              employed as Front-End Software Development Technical Lead at{" "}
               <NavLink
                 to="https://bubble-go.ch/"
                 language="disable"
@@ -83,7 +83,7 @@ export const About: React.FC<AboutProps> = React.forwardRef(
               .<br />
               Here, I have interviewed, onboarded and trained many employees who
               have become significant contributors for the company.
-              {isBellowLargeResolution && <br />}
+              <br />
               <br />
               <strong>I love building</strong> highly performant, properly
               tested/documented and responsive UIs (
@@ -110,7 +110,8 @@ export const About: React.FC<AboutProps> = React.forwardRef(
               >
                 JAM stack
               </NavLink>
-              .{isBellowLargeResolution && <br />}
+              .
+              <br />
               <br />
               <strong>I'm currently living</strong> on the beautiful bay of
               Setúbal, Portugal. Since 2020 that I work in full remote mode,
