@@ -4,7 +4,7 @@ import React from "react";
 import { Footer as FooterComponent } from "./Footer";
 
 export default {
-  title: "Design System/Layout/Footer",
+  title: "UI/Layout/Footer",
   component: FooterComponent,
   parameters: {
     layout: "fullscreen",

@@ -4,7 +4,7 @@ import React from "react";
 import { NotFoundPage as NotFoundPageComponent } from "../pages/404";
 
 export default {
-  title: "Design System/Pages/NotFoundPage",
+  title: "UI/Pages/NotFoundPage",
   component: NotFoundPageComponent,
   parameters: {
     layout: "fullscreen",

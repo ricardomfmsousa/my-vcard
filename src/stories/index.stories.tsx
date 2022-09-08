@@ -4,7 +4,7 @@ import React from "react";
 import { IndexPage as IndexPageComponent } from "../pages";
 
 export default {
-  title: "Design System/Pages/IndexPage",
+  title: "UI/Pages/IndexPage",
   component: IndexPageComponent,
   parameters: {
     layout: "fullscreen",

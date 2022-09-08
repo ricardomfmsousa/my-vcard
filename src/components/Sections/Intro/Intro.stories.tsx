@@ -4,7 +4,7 @@ import React from "react";
 import { Intro as IntroComponent } from "./Intro";
 
 export default {
-  title: "Design System/Sections/Intro",
+  title: "UI/Sections/Intro",
   component: IntroComponent,
   parameters: {
     layout: "fullscreen",

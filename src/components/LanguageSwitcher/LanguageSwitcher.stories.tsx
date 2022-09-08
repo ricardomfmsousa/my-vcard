@@ -6,7 +6,7 @@ import {
 } from "./LanguageSwitcher";
 
 export default {
-  title: "Design System/LanguageSwitcher",
+  title: "UI/LanguageSwitcher",
   component: LanguageSwitcherComponent,
 } as ComponentMeta<typeof LanguageSwitcherComponent>;
 

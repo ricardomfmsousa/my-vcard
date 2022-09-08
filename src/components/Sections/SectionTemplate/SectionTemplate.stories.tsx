@@ -5,7 +5,7 @@ import React from "react";
 import { SectionTemplate as SectionTemplateComponent } from "./SectionTemplate";
 
 export default {
-  title: "Design System/Sections/SectionTemplate",
+  title: "UI/Sections/SectionTemplate",
   component: SectionTemplateComponent,
   parameters: {
     layout: "fullscreen",

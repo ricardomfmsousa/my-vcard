@@ -4,7 +4,7 @@ import React from "react";
 import { FullScreenMenu as FullScreenMenuComponent } from "./FullScreenMenu";
 
 export default {
-  title: "Design System/FullScreenMenu",
+  title: "UI/FullScreenMenu",
   component: FullScreenMenuComponent,
   parameters: {
     viewport: {

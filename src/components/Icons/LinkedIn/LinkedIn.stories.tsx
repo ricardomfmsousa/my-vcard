@@ -4,7 +4,7 @@ import React from "react";
 import { LinkedIn as LinkedInComponent } from "./LinkedIn";
 
 export default {
-  title: "Design System/Icons/LinkedIn",
+  title: "UI/Icons/LinkedIn",
   component: LinkedInComponent,
 } as ComponentMeta<typeof LinkedInComponent>;
 

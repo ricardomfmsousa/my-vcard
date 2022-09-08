@@ -4,7 +4,7 @@ import React from "react";
 import { BurgerMenu as BurgerMenuComponent } from "./BurgerMenu";
 
 export default {
-  title: "Design System/Icons/BurgerMenu",
+  title: "UI/Icons/BurgerMenu",
   component: BurgerMenuComponent,
 } as ComponentMeta<typeof BurgerMenuComponent>;
 

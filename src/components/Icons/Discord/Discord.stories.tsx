@@ -4,7 +4,7 @@ import React from "react";
 import { Discord as DiscordComponent } from "./Discord";
 
 export default {
-  title: "Design System/Icons/Discord",
+  title: "UI/Icons/Discord",
   component: DiscordComponent,
 } as ComponentMeta<typeof DiscordComponent>;
 

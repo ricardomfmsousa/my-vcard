@@ -4,7 +4,7 @@ import React from "react";
 import { Strava as StravaComponent } from "./Strava";
 
 export default {
-  title: "Design System/Icons/Strava",
+  title: "UI/Icons/Strava",
   component: StravaComponent,
 } as ComponentMeta<typeof StravaComponent>;
 

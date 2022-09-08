@@ -4,7 +4,7 @@ import React from "react";
 import { Social as SocialComponent } from "./Social";
 
 export default {
-  title: "Design System/Social",
+  title: "UI/Social",
   component: SocialComponent,
 } as ComponentMeta<typeof SocialComponent>;
 

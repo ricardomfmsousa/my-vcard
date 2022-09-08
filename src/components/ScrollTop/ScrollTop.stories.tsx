@@ -5,7 +5,7 @@ import React from "react";
 import { ScrollTop as ScrollTopComponent } from "./ScrollTop";
 
 export default {
-  title: "Design System/ScrollTop",
+  title: "UI/ScrollTop",
   component: ScrollTopComponent,
 } as ComponentMeta<typeof ScrollTopComponent>;
 

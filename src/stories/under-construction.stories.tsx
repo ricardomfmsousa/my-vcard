@@ -6,7 +6,7 @@ import {
 } from "../pages/under-construction";
 
 export default {
-  title: "Design System/Pages/UnderConstructionPage",
+  title: "UI/Pages/UnderConstructionPage",
   component: UnderConstructionPageComponent,
   parameters: {
     layout: "fullscreen",

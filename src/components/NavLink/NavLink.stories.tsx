@@ -4,7 +4,7 @@ import React from "react";
 import { NavLink as NavLinkComponent } from "./NavLink";
 
 export default {
-  title: "Design System/NavLink",
+  title: "UI/NavLink",
   component: NavLinkComponent,
 } as ComponentMeta<typeof NavLinkComponent>;
 

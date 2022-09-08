@@ -4,7 +4,7 @@ import React from "react";
 import { Contact as ContactComponent } from "./Contact";
 
 export default {
-  title: "Design System/Sections/Contact",
+  title: "UI/Sections/Contact",
   component: ContactComponent,
   parameters: {
     layout: "fullscreen",

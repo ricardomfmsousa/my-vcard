@@ -4,7 +4,7 @@ import React from "react";
 import { About as AboutComponent } from "./About";
 
 export default {
-  title: "Design System/Sections/About",
+  title: "UI/Sections/About",
   component: AboutComponent,
   parameters: {
     layout: "fullscreen",
