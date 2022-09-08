@@ -15,7 +15,7 @@ import { IconButton } from "gatsby-theme-material-ui";
 import React from "react";
 import { useWindowScroll } from "react-use";
 
-import { useScrollBlock } from "../../../hooks/useBlockScroll";
+import { useScrollBlock } from "../../../hooks/useBlockScroll/useScrollBlock";
 import { FullScreenMenu } from "../../FullScreenMenu/FullScreenMenu";
 import { BurgerMenu } from "../../Icons/BurgerMenu/BurgerMenu";
 import { NavLink } from "../../NavLink/NavLink";
