@@ -58,9 +58,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
 
   const handleOnClick = React.useCallback(
     (e: React.MouseEvent) => {
-      if (shouldHighlight) {
-        e.preventDefault();
-      }
       if (onClick) {
         onClick(e);
       }
@@ -73,7 +70,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
     color: palette.text.primary,
     cursor: "pointer",
     ...(shouldHighlight && {
-      cursor: "default",
       fontWeight: "bold",
       textShadow: `0 0 1px ${palette.text.primary}`,
     }),
