@@ -1,13 +1,16 @@
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+import SyncLockIcon from "@mui/icons-material/SyncLock";
 import {
   Alert,
   Button,
   CircularProgress,
   Divider,
   FormControl,
+  IconButton,
   Snackbar,
   Stack,
   TextField,
+  Tooltip,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -16,6 +19,7 @@ import { useFormik } from "formik";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 
+import { useBotFilter } from "../../../hooks/useBotFilter/useBotFilter";
 import { NavLink } from "../../NavLink/NavLink";
 import { Social } from "../../Social/Social";
 import {
@@ -35,12 +39,20 @@ export const Contact: React.FC<ContactProps> = React.forwardRef(
     const { palette } = useTheme();
     const [isShowingNotification, setShowNotification] = React.useState(false);
     const [isFormSubmitting, setFormSubmitting] = React.useState(false);
+    const challengeMessage =
+      "Hey!\nYou were really fast filling out this form!\n" +
+      "Are you a Bot?\nPlease enter the first letter of your name:";
+    const isBot = useBotFilter(t(challengeMessage));
 
     const formik = useFormik({
       initialValues: { name: "", email: "", message: "" },
       validationSchema: getValidationSchema(t),
       onSubmit: async ({ name, email, message }, { resetForm }) => {
         setFormSubmitting(true);
+        if (isBot((r: string) => r.toLowerCase() !== name[0].toLowerCase())) {
+          window.location.reload();
+          return;
+        }
         const googleFormData = {
           "entry.145718268": name,
           "entry.1709139572": email,
@@ -58,8 +70,8 @@ export const Contact: React.FC<ContactProps> = React.forwardRef(
           // even though the call is successful
         }
         resetForm();
-        setShowNotification(true);
         setFormSubmitting(false);
+        setShowNotification(true);
       },
     });
 
@@ -206,6 +218,13 @@ export const Contact: React.FC<ContactProps> = React.forwardRef(
               }}
             >
               {isFormSubmitting && <CircularProgress size={24} />}
+              {!isFormSubmitting && (
+                <Tooltip title={t("Protected by myCaptcha")}>
+                  <IconButton sx={{ color: "text.disabled", cursor: "help" }}>
+                    <SyncLockIcon />
+                  </IconButton>
+                </Tooltip>
+              )}
               <Button
                 type="submit"
                 variant="outlined"
@@ -219,9 +238,9 @@ export const Contact: React.FC<ContactProps> = React.forwardRef(
         </Stack>
 
         <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           open={isShowingNotification}
-          autoHideDuration={7000}
+          autoHideDuration={10000}
           onClose={handleNotificationClose}
         >
           <Alert
