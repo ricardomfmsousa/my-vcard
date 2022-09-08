@@ -7,8 +7,9 @@ import Flow from "./assets/flow.svg";
 import Plugin from "./assets/plugin.svg";
 import Repo from "./assets/repo.svg";
 import StackAlt from "./assets/stackalt.svg";
+import LinkTo from "@storybook/addon-links/react";
 
-<Meta title="Introduction" />
+<Meta title="Docs/Introduction" />
 
 <style>
   {`
@@ -118,10 +119,14 @@ import StackAlt from "./assets/stackalt.svg";
   `}
 </style>
 
-# Welcome to _my-vcard_ project Storybook
+# Welcome to _my-vcard_ Storybook
 
-[**Storybook**](https://storybook.js.org/) helps to build UI components in
-isolation from the app's business logic, data and context.  
+>
+
+## What is this?
+
+[**Storybook**](https://storybook.js.org/) is a tool that helps to build UI
+components in isolation from the app's business logic, data and context.  
 That makes it easy to develop hard-to-reach states and makes development faster
 and easier.
 
@@ -130,18 +135,26 @@ stack, force certain data into the database, or navigate around the application.
 UI states can be saved as **stories** to revisit during development, testing,
 QA or demos.
 
-**Storybook helps to document components for reuse and automatically visually
-test them to prevent bugs.**
+**Storybook also helps to document components for reuse and automatically
+visually test them to prevent bugs.**
+
+## How to use?
 
 Browse all stories from this project now by navigating to them in the sidebar.
 View their code in the `stories` directory to learn how they work.
-Building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages is recomended.
+Building UIs with a [**component-driven**](https://componentdriven.org) process
+starting with atomic components and ending with pages is recomended.
 
-Note: on the top toolbar there are several controls wich make possible to set the test canvas zoom, viewport size, etc.
-There is also a "Locale Selector" whith the languages available on the application. This selector will not apply any
-translations, its purpose is to test components that have behaviors based on the selected language.
+**On the top toolbar** there are several controls wich makes possible to set
+the test canvas zoom, viewport size, etc.
+There is also a "Locale Selector" containing the languages available on the
+application. This selector will not apply any
+translations, its purpose is to test components that have behaviors based on the
+selected language.
 
 <hr className="separator" />
+
+See the [Technical Overview](?path=/story/docs-technical-overview--page)
 
 <div className="link-list">
   <a
