@@ -39,10 +39,15 @@ export const Intro: React.FC<IntroProps> = forwardRef(
         }}
         {...rest}
       >
-        <Typography variant="h1" fontWeight="700" mb={4} mx={4}>
+        <Typography variant="h1" fontWeight="700" mb={3} mx={4}>
           Ricardo Sousa
         </Typography>
-        <Typography component="div" fontSize={30} mx={4}>
+        <Typography
+          component="div"
+          fontSize={30}
+          mx={4}
+          sx={{ color: "text.secondary" }}
+        >
           <Typewriter
             options={{ loop: true, delay: 70, deleteSpeed: 30 }}
             onInit={(typewriter) => {
