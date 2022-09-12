@@ -19,4 +19,6 @@ NavLink.args = {
   onClick: undefined,
   isActive: undefined,
   sx: undefined,
+  tooltipPlacement: "bottom",
+  tooltipText: "I'm a link tooltip",
 };
