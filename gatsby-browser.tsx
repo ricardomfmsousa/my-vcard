@@ -43,7 +43,7 @@ const consoleStyles = {
 `,
 };
 
-console.log("%cHI THERE!", consoleStyles.h1);
+console.log("%c👋 HI THERE!", consoleStyles.h1);
 console.log("%cWelcome to my vCard website.\n", consoleStyles.h2);
 console.log("%cYou can check my source code at Github:", consoleStyles.p);
 console.log("%chttps://github.com/ricardomfmsousa/my-vcard", consoleStyles.pb);
