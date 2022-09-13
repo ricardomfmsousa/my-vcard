@@ -7,6 +7,7 @@ import { ScrollTop } from "../components/ScrollTop/ScrollTop";
 import { About } from "../components/Sections/About/About";
 import { Contact } from "../components/Sections/Contact/Contact";
 import { Intro } from "../components/Sections/Intro/Intro";
+import { Resume } from "../components/Sections/Resume/Resume";
 import { useScrollSpy } from "../hooks/useScrollSpy/useScrollSpy";
 
 export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
@@ -15,7 +16,8 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
   const sections = [
     <Intro introPadding={introPadding} />,
     <About variant="lighter" />,
-    <Contact variant="darker" />,
+    <Resume variant="darker" />,
+    <Contact variant="lighter" />,
   ];
 
   const sectionRefs = sections.map(() => React.useRef<HTMLElement>(null));
