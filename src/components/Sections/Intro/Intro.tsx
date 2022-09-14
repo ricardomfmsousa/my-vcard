@@ -48,6 +48,7 @@ export const Intro: React.FC<IntroProps> = forwardRef(
           mx={4}
           sx={{ color: "text.secondary" }}
         >
+          {/* TODO: Investigate https://www.typeitjs.com/docs/react */}
           <Typewriter
             options={{ loop: true, delay: 70, deleteSpeed: 30 }}
             onInit={(typewriter) => {
