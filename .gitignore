@@ -43,3 +43,7 @@ yarn-error.log
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,yarn,gatsby
+
+# Environment variables
+.env*
+!.env.example

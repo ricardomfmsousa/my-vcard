@@ -1,6 +1,10 @@
+import * as dotenv from "dotenv";
+
 import { defaultLanguage, languages, translationPath } from "./i18n-config";
 
 import type { GatsbyConfig } from "gatsby";
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
 const siteUrl = "https://ricardomfmsousa.github.io/my-vcard/";
 
 const config: GatsbyConfig = {
@@ -99,6 +103,9 @@ const config: GatsbyConfig = {
         ],
       },
     },
+  ],
+  partytownProxiedURLs: [
+    `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GTM_ID}`,
   ],
 };
 

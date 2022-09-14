@@ -4,16 +4,47 @@ import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Script, ScriptStrategy } from "gatsby";
 import React from "react";
 
 import theme from "./src/components/theme";
 
-export const wrapPageElement = ({ element }) => {
+export const onRouteUpdate = ({ location }) => {
+  if (process.env.NODE_ENV !== "production") {
+    return null;
+  }
+  const pagePath = location
+    ? location.pathname + location.search + location.hash
+    : undefined;
+  setTimeout(() => {
+    const win = window as any;
+    if (typeof win.gtag === "function") {
+      win.gtag("event", "page_view", { page_path: pagePath });
+    }
+  }, 100);
+  return true;
+};
+
+export const wrapRootElement = ({ element }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {element}
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {element}
+      </ThemeProvider>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GTM_ID}`}
+        strategy={ScriptStrategy.offMainThread}
+      />
+      <Script id="gtag-config" strategy={ScriptStrategy.offMainThread}>
+        {`
+          window.dataLayer = window.dataLayer || []
+          window.gtag = function gtag() { window.dataLayer.push(arguments) }
+          gtag('js', new Date())
+          gtag('config', ${process.env.GATSBY_GTM_ID}, { send_page_view: false })
+        `}
+      </Script>
+    </>
   );
 };
 
