@@ -10,6 +10,11 @@ module.exports = {
     "plugin:storybook/recommended",
     "prettier",
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
