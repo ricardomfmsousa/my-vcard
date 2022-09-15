@@ -10,11 +10,10 @@ import {
 
 export interface ResumeProps {
   variant: SectionTemplateProps["variant"];
-  [rest: string]: unknown;
 }
 
-export const Resume: React.FC<ResumeProps> = React.forwardRef(
-  ({ variant, ...rest }, ref): JSX.Element => {
+export const Resume = React.forwardRef<SectionTemplateProps, ResumeProps>(
+  ({ variant }, ref): JSX.Element => {
     const { t } = useI18next();
 
     return (
@@ -24,10 +23,11 @@ export const Resume: React.FC<ResumeProps> = React.forwardRef(
         variant={variant}
         title={t("Resume")}
         subtitle={t("Check out my Resume")}
-        {...rest}
       >
         <ResumeBoard resume={{ education, experience }} />
       </SectionTemplate>
     );
   }
 );
+
+Resume.displayName = "Resume";

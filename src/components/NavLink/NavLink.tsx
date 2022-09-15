@@ -27,7 +27,6 @@ export interface NavLinkProps {
   // Overrides default route match styling
   isActive?: boolean;
   sx?: SxProps;
-  [rest: string]: unknown;
 }
 
 export const NavLink: React.FC<NavLinkProps> = ({
@@ -39,7 +38,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
   tooltipPlacement = "bottom",
   tooltipText,
   sx,
-  ...rest
 }): JSX.Element => {
   const { palette } = useTheme();
   const location = globalHistory.location;
@@ -90,7 +88,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
           href={href}
           onClick={handleOnClick}
           sx={{ ...linkStyle, ...sx }}
-          {...rest}
         >
           {children}
         </MuiLink>
@@ -100,7 +97,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
           language={language}
           onClick={handleOnClick}
           sx={sx}
-          {...rest}
         >
           {children}
         </StyledGatsbyI18nLink>

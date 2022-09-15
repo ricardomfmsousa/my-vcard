@@ -1,32 +1,34 @@
 import {
   Box,
+  BoxProps,
   Container,
   Stack,
   SxProps,
   Typography,
   useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { ReactNode } from "react";
 
 export interface SectionTemplateProps {
+  id: string;
   variant: "lighter" | "darker";
   title: string;
   subtitle: string;
   isOnViewport?: boolean;
-  children: React.ReactElement<any, any> | React.ReactElement<any, any>[];
+  children: ReactNode;
   sx?: SxProps;
-  [rest: string]: unknown;
 }
 
-export const SectionTemplate: React.FC<SectionTemplateProps> = React.forwardRef(
+export const SectionTemplate = React.forwardRef<BoxProps, SectionTemplateProps>(
   (
-    { variant, title, subtitle, isOnViewport = false, children, sx, ...rest },
+    { id, variant, title, subtitle, isOnViewport = false, children, sx },
     ref
   ): JSX.Element => {
     const { palette } = useTheme();
 
     return (
       <Box
+        id={id}
         ref={ref}
         component="section"
         sx={{
@@ -38,7 +40,6 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = React.forwardRef(
           }),
           ...sx,
         }}
-        {...rest}
       >
         <Container maxWidth="sm">
           {(title || subtitle) && (
@@ -77,3 +78,5 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = React.forwardRef(
     );
   }
 );
+
+SectionTemplate.displayName = "SectionTemplate";

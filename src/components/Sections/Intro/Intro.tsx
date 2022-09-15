@@ -1,6 +1,6 @@
-import { Stack, SxProps, Typography } from "@mui/material";
+import { Stack, StackProps, SxProps, Typography } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React, { forwardRef } from "react";
+import React from "react";
 import Typewriter from "typewriter-effect";
 
 import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
@@ -9,11 +9,10 @@ import { Social } from "../../Social/Social";
 export interface IntroProps {
   introPadding?: string;
   sx?: SxProps;
-  [rest: string]: unknown;
 }
 
-export const Intro: React.FC<IntroProps> = forwardRef(
-  ({ introPadding, sx, ...rest }, ref): JSX.Element => {
+export const Intro = React.forwardRef<StackProps, IntroProps>(
+  ({ introPadding, sx }, ref): JSX.Element => {
     const { t } = useI18next();
 
     return (
@@ -37,7 +36,6 @@ export const Intro: React.FC<IntroProps> = forwardRef(
           textAlign: "center",
           ...sx,
         }}
-        {...rest}
       >
         <Typography variant="h1" fontWeight="700" mb={3} mx={4}>
           Ricardo Sousa
@@ -113,3 +111,5 @@ export const Intro: React.FC<IntroProps> = forwardRef(
     );
   }
 );
+
+Intro.displayName = "Intro";

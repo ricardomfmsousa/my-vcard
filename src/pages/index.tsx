@@ -14,10 +14,10 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
   const introPadding = "50px";
   const footerPadding = "48px";
   const sections = [
-    <Intro introPadding={introPadding} />,
-    <About variant="lighter" />,
-    <Resume variant="darker" />,
-    <Contact variant="lighter" />,
+    <Intro key="intro" introPadding={introPadding} />,
+    <About key="about" variant="lighter" />,
+    <Resume key="resume" variant="darker" />,
+    <Contact key="contact" variant="lighter" />,
   ];
 
   const sectionRefs = sections.map(() => React.useRef<HTMLElement>(null));
@@ -31,7 +31,6 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
       <main>
         {sections.map((section: JSX.Element, i) =>
           React.cloneElement(section, {
-            key: `index-section-${i}`,
             ref: sectionRefs[i],
             // TODO: implement isOnViewport on all section components
             // isOnViewport: activeElementId === sectionRefs[i]?.current?.id,

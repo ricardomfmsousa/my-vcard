@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { differenceInYears } from "date-fns";
 import { StaticImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -12,13 +12,11 @@ import {
 
 export interface AboutProps {
   variant: SectionTemplateProps["variant"];
-  [rest: string]: unknown;
 }
 
-export const About: React.FC<AboutProps> = React.forwardRef(
-  ({ variant, ...rest }, ref): JSX.Element => {
+export const About = React.forwardRef<SectionTemplateProps, AboutProps>(
+  ({ variant }, ref): JSX.Element => {
     const { t } = useI18next();
-    const { breakpoints } = useTheme();
     const myAge = differenceInYears(
       new Date(),
       new Date("1985-09-24T15:00:00")
@@ -37,7 +35,6 @@ export const About: React.FC<AboutProps> = React.forwardRef(
         variant={variant}
         title={t("About")}
         subtitle={t("Get to know me")}
-        {...rest}
       >
         <Stack
           spacing={{ xs: 6, lg: 10 }}
@@ -67,12 +64,13 @@ export const About: React.FC<AboutProps> = React.forwardRef(
               Who am I?
             </Typography>
             <Typography variant="h3" sx={{ mt: 2, mb: 3 }}>
-              I'm Ricardo Sousa, Senior Front-End Software Developer.
+              I&apos;m Ricardo Sousa, Senior Front-End Software Developer.
             </Typography>
             <Typography color="text.secondary">
-              <strong>I'm {myAge} years old</strong>, I have {myExperienceYears}{" "}
-              years of professional experience in the field of IT, currently
-              employed as Front-End Software Development Technical Lead at{" "}
+              <strong>I&apos;m {myAge} years old</strong>, I have{" "}
+              {myExperienceYears} years of professional experience in the field
+              of IT, currently employed as Front-End Software Development
+              Technical Lead at{" "}
               <NavLink
                 to="https://bubble-go.ch/"
                 language="disable"
@@ -101,7 +99,7 @@ export const About: React.FC<AboutProps> = React.forwardRef(
               </NavLink>
               , by Robert C. Martin.
               <br />
-              I'm, always seeking to amplify my knowledge on workflows,
+              I&apos;m, always seeking to amplify my knowledge on workflows,
               methodologies and new technologies, specially on the{" "}
               <NavLink
                 to="https://jamstack.org/"
@@ -113,7 +111,7 @@ export const About: React.FC<AboutProps> = React.forwardRef(
               .
               <br />
               <br />
-              <strong>I'm currently living</strong> on the beautiful bay of
+              <strong>I&apos;m currently living</strong> on the beautiful bay of
               Setúbal, Portugal. Since 2020 that I work in full remote mode,
               removing the need to commute, which translates into three more
               hours free per day that I can use to exercise and spend with my
@@ -125,3 +123,5 @@ export const About: React.FC<AboutProps> = React.forwardRef(
     );
   }
 );
+
+About.displayName = "About";

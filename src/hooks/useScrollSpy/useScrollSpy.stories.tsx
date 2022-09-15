@@ -6,8 +6,8 @@ import { useScrollSpy as useScrollSpyHook } from "./useScrollSpy";
 export default {
   title: "Hooks/useScrollSpy",
   // component: TODO,
-} as Meta<typeof useScrollSpy>;
+} as Meta<typeof UseScrollSpy>;
 
-export const useScrollSpy: Story<typeof useScrollSpyHook> = (args) => <>TODO</>;
+export const UseScrollSpy: Story<typeof useScrollSpyHook> = () => <>TODO</>;
 
-useScrollSpy.args = {};
+UseScrollSpy.args = {};

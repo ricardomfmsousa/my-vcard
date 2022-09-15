@@ -11,21 +11,23 @@ export const useScrollSpy = (
   const observerOptions = { threshold: 0.5 };
 
   React.useEffect(() => {
-    let observer: IntersectionObserver;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target: { id }, isIntersecting }) => {
+        if (isIntersecting) {
+          setActiveElementId(id);
+          callbacks?.onActiveElement && callbacks.onActiveElement(id);
+        } else {
+          callbacks?.onInactiveElement && callbacks.onInactiveElement(id);
+        }
+      });
+    }, observerOptions);
 
-    if (spyRefs.every((r) => r.current)) {
-      observer = new IntersectionObserver((entries) => {
-        entries.forEach(({ target: { id }, isIntersecting }) => {
-          if (isIntersecting) {
-            setActiveElementId(id);
-            callbacks?.onActiveElement && callbacks.onActiveElement(id);
-          } else {
-            callbacks?.onInactiveElement && callbacks.onInactiveElement(id);
-          }
-        });
-      }, observerOptions);
-      spyRefs.forEach((ref) => observer.observe(ref.current!));
-    }
+    spyRefs.forEach(({ current }) => {
+      if (current) {
+        observer.observe(current);
+      }
+    });
+
     return () => observer.disconnect();
   }, [...spyRefs]);
 

@@ -6,10 +6,10 @@ import { useScrollBlock as useScrollBlockHook } from "./useScrollBlock";
 export default {
   title: "Hooks/useScrollBlock",
   // component: TODO,
-} as Meta<typeof useScrollBlockHook>;
+} as Meta<typeof UseScrollBlockHook>;
 
-export const useScrollBlock: Story<typeof useScrollBlockHook> = (args) => (
+export const UseScrollBlockHook: Story<typeof useScrollBlockHook> = () => (
   <>TODO</>
 );
 
-useScrollBlock.args = {};
+UseScrollBlockHook.args = {};

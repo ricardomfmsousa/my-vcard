@@ -45,6 +45,8 @@ export const Multiple: ComponentStory<typeof SectionTemplateComponent> = () => {
     <>
       {variants.map((v, i) => (
         <SectionTemplateComponent
+          id={`section-${i}`}
+          key={`variant-${i}`}
           variant={v}
           title={`Section ${i + 1}`}
           subtitle={`This is a ${v} section`}

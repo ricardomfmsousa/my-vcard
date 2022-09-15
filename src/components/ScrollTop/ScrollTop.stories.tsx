@@ -16,7 +16,7 @@ const text = Array(20)
 export const ScrollTop: ComponentStory<typeof ScrollTopComponent> = (args) => (
   <Stack>
     {text.map((t) => (
-      <Typography>
+      <Typography key={t}>
         {t}
         <br />
         <br />

@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
   const { y: scrollY } = useWindowScroll();
   const [blockScroll, allowScroll] = useScrollBlock();
   const [isMenuOpen, setMenuOpen] = React.useState(false);
-  const { breakpoints, palette } = useTheme();
+  const { breakpoints } = useTheme();
   const hasMediumResolution = useMediaQuery(breakpoints.up("md"));
 
   const handleCloseNavMenu = () => {

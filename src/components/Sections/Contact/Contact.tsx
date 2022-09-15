@@ -30,11 +30,10 @@ import { getValidationSchema, googleFormUrl } from "./ContactConfig";
 
 export interface ContactProps {
   variant: SectionTemplateProps["variant"];
-  [rest: string]: unknown;
 }
 
-export const Contact: React.FC<ContactProps> = React.forwardRef(
-  ({ variant, ...rest }, ref): JSX.Element => {
+export const Contact = React.forwardRef<SectionTemplateProps, ContactProps>(
+  ({ variant }, ref): JSX.Element => {
     const { t } = useI18next();
     const { palette } = useTheme();
     const [isShowingNotification, setShowNotification] = React.useState(false);
@@ -92,7 +91,6 @@ export const Contact: React.FC<ContactProps> = React.forwardRef(
         variant={variant}
         title={t("Contact")}
         subtitle={t("Get in touch")}
-        {...rest}
       >
         <Stack
           component="fieldset"
@@ -255,3 +253,5 @@ export const Contact: React.FC<ContactProps> = React.forwardRef(
     );
   }
 );
+
+Contact.displayName = "Contact";

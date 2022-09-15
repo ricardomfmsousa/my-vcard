@@ -9,6 +9,15 @@ import React from "react";
 
 import theme from "./src/components/theme";
 
+export const wrapPageElement = ({ element }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {element}
+    </ThemeProvider>
+  );
+};
+
 export const onRouteUpdate = ({ location }) => {
   if (process.env.NODE_ENV !== "production") {
     return null;
@@ -28,10 +37,7 @@ export const onRouteUpdate = ({ location }) => {
 export const wrapRootElement = ({ element }) => {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {element}
-      </ThemeProvider>
+      {element}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GTM_ID}`}
         strategy={ScriptStrategy.offMainThread}
@@ -41,7 +47,7 @@ export const wrapRootElement = ({ element }) => {
           window.dataLayer = window.dataLayer || []
           window.gtag = function gtag() { window.dataLayer.push(arguments) }
           gtag('js', new Date())
-          gtag('config', ${process.env.GATSBY_GTM_ID}, { send_page_view: false })
+          gtag('config', '${process.env.GATSBY_GTM_ID}', { send_page_view: false })
         `}
       </Script>
     </>

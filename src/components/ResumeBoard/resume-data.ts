@@ -7,7 +7,9 @@ export interface ResumeItem {
   tags: { name: string; url: string }[];
 }
 
-export interface Resume extends Array<ResumeItem> {}
+export interface Resume extends Array<ResumeItem> {
+  [key: number]: ResumeItem;
+}
 
 export const education: Resume = [
   {

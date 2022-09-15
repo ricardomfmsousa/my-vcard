@@ -26,10 +26,8 @@ export interface ResumeCardProps {
 }
 
 export const ResumeCard: React.FC<ResumeCardProps> = ({
-  resume: { title, institution, period, url, description, tags },
-  alignment = "left",
+  resume: { title, institution, period, description, tags },
   sx,
-  ...rest
 }): JSX.Element => {
   const { t } = useI18next();
   const { palette } = useTheme();
@@ -40,7 +38,7 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
       <Stack
         direction="row"
         spacing={1}
-        sx={{ pt: 2, pb: 1, marginTop: "auto", overflow: "auto" }}
+        sx={{ pt: 2, pb: 1, marginTop: "auto", overflow: "auto", ...sx }}
       >
         {tags.map(({ name, url }) => (
           <NavLink key={name} to={url} language="disable" target="_blank">

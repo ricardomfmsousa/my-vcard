@@ -18,13 +18,11 @@ export interface FullScreenMenuProps {
   closeButtonPadding?: string | number;
   onInternalNav?: (e?: React.MouseEvent) => void;
   sx?: SxProps;
-  [rest: string]: unknown;
 }
 export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
   links: linkData,
   onInternalNav,
   sx,
-  ...rest
 }): JSX.Element => {
   const links = React.useMemo(
     () =>
@@ -59,11 +57,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
         overflow: "auto",
       }}
     >
-      <Container
-        maxWidth="sm"
-        sx={{ pt: 10, height: "inherit", ...sx }}
-        {...rest}
-      >
+      <Container maxWidth="sm" sx={{ pt: 10, height: "inherit", ...sx }}>
         <Stack
           spacing={1}
           sx={{

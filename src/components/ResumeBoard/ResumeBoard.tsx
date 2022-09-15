@@ -13,13 +13,11 @@ export interface ResumeCardProps {
     experience: Resume;
   };
   sx?: SxProps;
-  [rest: string]: unknown;
 }
 
 export const ResumeBoard: React.FC<ResumeCardProps> = ({
   resume: { education, experience },
   sx,
-  ...rest
 }): JSX.Element => {
   const educationCards = React.useMemo(
     () =>
@@ -38,7 +36,6 @@ export const ResumeBoard: React.FC<ResumeCardProps> = ({
     <Stack
       direction={{ xs: "column-reverse", md: "row" }}
       spacing={{ xs: 8, md: 2 }}
-      {...rest}
       sx={sx}
     >
       <Stack spacing={spacing} flex={1} sx={{ overflow: "hidden" }}>

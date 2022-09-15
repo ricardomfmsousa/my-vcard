@@ -6,10 +6,8 @@ import { useBotFilter as useBotFilterkHook } from "./useBotFilter";
 export default {
   title: "Hooks/useBotFilter",
   // component: TODO,
-} as Meta<typeof useBotFilter>;
+} as Meta<typeof UseBotFilter>;
 
-export const useBotFilter: Story<typeof useBotFilterkHook> = (args) => (
-  <>TODO</>
-);
+export const UseBotFilter: Story<typeof useBotFilterkHook> = () => <>TODO</>;
 
-useBotFilter.args = {};
+UseBotFilter.args = {};
