@@ -115,12 +115,9 @@ yarn build:storybook
 - [i18next](https://www.i18next.com/) internationalization framework
 - ~~[Framer Motion](https://www.framer.com/) animation library~~
 
-<sub><p><strong>(1) Configured <em>pre-commit</em> hooks are:</strong></p>
-
-  <ul>
-    <li><strong>lint</strong> - checks for linting and accessibility issues;</li><br/>
-    <li><strong>typecheck</strong> - checks for code typing issues;</li><br/>
-    <li><strong>format</strong> - checks for code formatting issues;</li><br/>
-    <li><strong>translations</strong> - checks for empty translation values.</li>
-  </ul>
- </sub>
+> **(1) Configured `pre-commit` hooks are:**
+>
+> - `lint` - checks for linting and accessibility issues;
+> - `typecheck` - checks for code typing issues;
+> - `format` - checks for code formatting issues;
+> - `translations` - checks for empty translation values.
