@@ -5,7 +5,8 @@ pre-commit:
       glob: "*.{js,ts,jsx,tsx}"
       run: npx eslint {staged_files}
     typecheck:
-      files: "*.{ts,tsx}"
+      files: "git diff --name-only --cached"
+      glob: "*.{ts,tsx}"
       run: yarn typecheck
     format:
       glob: "*.{md,js,ts,jsx,tsx,json,yml}"
