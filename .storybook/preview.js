@@ -1,11 +1,10 @@
 import "@fontsource/over-the-rainbow";
 import "@fontsource/poppins";
 
-import { CssBaseline, ThemeProvider } from "@mui/material";
 import { action } from "@storybook/addon-actions";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
-import theme from "../src/components/theme";
+import { ThemeProvider } from "../src/context/ThemeContext";
 import { DocsContainer } from "./DocsContainer";
 import i18n from "./i18next.js";
 
@@ -52,8 +51,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeProvider>
       <Story />
     </ThemeProvider>
   ),
