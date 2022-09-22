@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx eslint {staged_files}
+    typecheck:
+      run: yarn tsc --noEmit
+    format:
+      glob: "*.{md,js,ts,jsx,tsx,json,yml}"
+      run: npx prettier --check {staged_files}
+    translations:
+      run: node scripts/verify-translations.js
