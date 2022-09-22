@@ -2,7 +2,7 @@ const {
   languages,
   defaultLanguage,
   translationPath,
-} = require("./i18n-config");
+} = require("../i18n-config");
 
 process.env.NODE_ENV = "test";
 
@@ -25,7 +25,7 @@ module.exports = {
   ],
   overrides: [
     {
-      test: [`**/*.ts`, `**/*.tsx`],
+      test: [`../**/*.ts`, `../**/*.tsx`],
       plugins: [[`@babel/plugin-transform-typescript`, { isTSX: true }]],
     },
   ],
