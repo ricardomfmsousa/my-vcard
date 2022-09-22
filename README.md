@@ -1,15 +1,56 @@
 # Ricardo Sousa's vCard Website
 
+## TODO (pre-prod):
+
+- Replace mock images and optimize all existing
+- Add SEO
+- Add GDPR compliance (through Gtag)
+- Add animations
+- Add hooks stories, review existing stories
+- Improve NavLink component
+
 ## 📖 ToC
 
+1. [Pre-requisites](#-pre-requisites)
 1. [Quick start](#-quick-start)
+1. [Production build](#-production-build)
 1. [Main technology stack](#%EF%B8%8F-main-technology-stack)
+
+## ⚙️ Pre-requisites
+
+1. **Node.js LTS runtime**
+
+   ```sh
+   # Check Node.js version
+   node --version
+
+   # recommended: v16.15.0
+   # minimum: v14.15.0
+   ```
+
+   This project was built using [asdf](https://asdf-vm.com/) runtime manager.
+
+   If you don't have a compatible Node.js runtime or if you don't have a runtime manager, follow the [install instructions](https://asdf-vm.com/guide/getting-started.html).
+
+1. **Yarn package manager**
+
+   ```sh
+   # Install yarn globally through npm
+   npm i -g yarn
+   ```
+
+1. **Gatsby command line interface (CLI)**
+
+   ```sh
+   # Install gatsby-cli globally through npm
+   npm i -g gatsby-cli
+   ```
 
 ## 🚀 Quick start
 
 1.  **Clone the project**
 
-    ```shell
+    ```sh
     git clone https://github.com/ricardomfmsousa/my-vcard.git
     ```
 
@@ -17,36 +58,55 @@
 
     Navigate into the cloned directory and install.
 
-    ```shell
+    ```sh
     cd my-vcard
+
     yarn install
     ```
 
-1.  **Start developing**
+1.  **Start development servers**
 
-    ```shell
-    # Start the development server
+    ```sh
+    # Start Gatsby development server
     yarn start
 
-    # Start Storybook server
+    # Start Storybook development server
     yarn storybook
     ```
 
 1.  **Open the source code and start editing!**
 
-    The site is now running at `http://localhost:8000`!
+    The site is now running at: `http://localhost:8000`
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_.  
+    Learn more about using this querying tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+
+## 🌍 Production build
+
+The following commands will generate a full production build.
+
+```sh
+# Clean and install dependencies
+yarn ci
+
+# Build gatsby website
+yarn build:gatsby
+
+# Build storybook project
+yarn build:storybook
+```
+
+> In order to leverage Gatsby incremental builds feature, `.cache` and `public` folders **must** be preserved between builds.
 
 ## 🕹️ Main technology stack
 
 - [Github Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) hosting
-- ~~[Github Actions](https://github.com/features/actions) continuous integration~~
-- ~~[Lefthook](https://evilmartians.com/opensource/lefthook) Git hooks manager~~
+- [Github Actions](https://github.com/features/actions) continuous integration
+- [Lefthook](https://evilmartians.com/opensource/lefthook) Git hooks manager
 - [asdf](https://asdf-vm.com/) Node.js runtime manager
 - [Yarn](https://yarnpkg.com/) package manager
 - [ESLint](https://eslint.org/) code linter
-- ~~[jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) accessibility checker~~
+- [jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) accessibility checker
 - [Prettier](https://prettier.io/) code formatter
 - [Typescript](https://www.typescriptlang.org/) main programming language
 - [Storybook](https://storybook.js.org/) development environment
