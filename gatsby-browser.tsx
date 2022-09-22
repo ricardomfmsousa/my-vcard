@@ -15,6 +15,10 @@ import React from "react";
 import { ThemeProvider } from "./src/context/ThemeContext";
 import { dark as theme } from "./src/styles/theme";
 
+interface Win extends Window {
+  gtag: (...args: unknown[]) => void;
+}
+
 export const wrapPageElement: React.FC<WrapPageElementBrowserArgs> = ({
   element,
 }) => {
@@ -31,7 +35,7 @@ export const onRouteUpdate = ({
     ? location.pathname + location.search + location.hash
     : undefined;
   setTimeout(() => {
-    const win = window as any;
+    const win = window as unknown as Win;
     if (typeof win.gtag === "function") {
       win.gtag("event", "page_view", { page_path: pagePath });
     }
@@ -87,6 +91,7 @@ const consoleStyles = {
 `,
 };
 
+/* eslint-disable no-console */
 console.log("%c👋 HI THERE!", consoleStyles.h1);
 console.log("%cWelcome to my vCard website.\n", consoleStyles.h2);
 console.log("%cYou can check my source code at Github:", consoleStyles.p);
