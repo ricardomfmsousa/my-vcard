@@ -151,6 +151,7 @@ export const Header: React.FC<HeaderProps> = ({
               </NavLink>
             </Typography>
             <ThemeSwitcher />
+
             <Box sx={{ flex: 1 }} />
 
             <Typography
