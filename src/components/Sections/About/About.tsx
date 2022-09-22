@@ -76,7 +76,7 @@ export const About = React.forwardRef<SectionTemplateProps, AboutProps>(
                 language="disable"
                 target="_blank"
               >
-                bubble-go
+                Bubble-go
               </NavLink>
               .<br />
               Here, I have interviewed, onboarded and trained many employees who
