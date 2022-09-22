@@ -44,10 +44,13 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
           <NavLink key={name} to={url} language="disable" target="_blank">
             <Chip
               variant="outlined"
-              color="primary"
               size="small"
               label={name}
-              sx={{ cursor: "pointer" }}
+              sx={{
+                cursor: "pointer",
+                color: "text.secondary",
+                borderStyle: "dashed",
+              }}
             />
           </NavLink>
         ))}
