@@ -11,7 +11,7 @@
 
 ## 📖 ToC
 
-1. [Pre-requisites](#-pre-requisites)
+1. [Pre-requisites](#%EF%B8%8F-pre-requisites)
 1. [Quick start](#-quick-start)
 1. [Production build](#-production-build)
 1. [Main technology stack](#%EF%B8%8F-main-technology-stack)
@@ -102,11 +102,10 @@ yarn build:storybook
 
 - [Github Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) hosting
 - [Github Actions](https://github.com/features/actions) continuous integration
-- [Lefthook](https://evilmartians.com/opensource/lefthook) Git hooks manager
+- [Lefthook](https://evilmartians.com/opensource/lefthook)<sup>1</sup> Git hooks manager
 - [asdf](https://asdf-vm.com/) Node.js runtime manager
 - [Yarn](https://yarnpkg.com/) package manager
 - [ESLint](https://eslint.org/) code linter
-- [jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) accessibility checker
 - [Prettier](https://prettier.io/) code formatter
 - [Typescript](https://www.typescriptlang.org/) main programming language
 - [Storybook](https://storybook.js.org/) development environment
@@ -115,3 +114,13 @@ yarn build:storybook
 - [Material UI](https://mui.com/) component library
 - [i18next](https://www.i18next.com/) internationalization framework
 - ~~[Framer Motion](https://www.framer.com/) animation library~~
+
+<sub>
+  <p><strong>(1) Configured <em>pre-commit</em> hooks are:</strong></p>
+  <ul>
+    <li><strong>lint</strong> - checks for linting and accessibility issues;</li>
+    <li><strong>typecheck</strong> - checks for code typing issues;</li>
+    <li><strong>format</strong> - checks for code formatting issues;</li>
+    <li><strong>translations</strong> - checks for empty translation values.</li>
+  </ul>
+ </sub>
