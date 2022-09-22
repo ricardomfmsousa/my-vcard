@@ -21,9 +21,10 @@
     "build": "yarn clean && yarn build:gatsby && yarn build:storybook",
     "serve": "gatsby serve --prefix-paths -H 0.0.0.0",
     "typecheck": "tsc --noEmit",
-    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src/ --fix",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx . --fix",
     "format": "npx prettier --write .",
-    "trans:extract": "yarn run babel --config-file ./babel-extract-config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp"
+    "trans:verify": "node scripts/verify-translations.js",
+    "trans:extract": "yarn run babel --config-file ./scripts/extract-translations.js -o tmp/chunk.js './src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
