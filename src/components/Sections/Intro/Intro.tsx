@@ -3,6 +3,9 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 import Typewriter from "typewriter-effect";
 
+import { useThemeContext } from "../../../context/ThemeContext";
+import darkBg from "../../../images/intro-dark-background.jpg";
+import lightBg from "../../../images/intro-light-background.jpg";
 import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
 import { Social } from "../../Social/Social";
 
@@ -14,6 +17,7 @@ export interface IntroProps {
 export const Intro = React.forwardRef<StackProps, IntroProps>(
   ({ introPadding, sx }, ref): JSX.Element => {
     const { t } = useI18next();
+    const { isDarkMode } = useThemeContext();
 
     return (
       <Stack
@@ -23,7 +27,7 @@ export const Intro = React.forwardRef<StackProps, IntroProps>(
         sx={{
           height: "100vh",
           background: `linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),
-        url(https://images.pexels.com/photos/90764/man-studio-portrait-light-90764.jpeg)`,
+        url(${isDarkMode ? darkBg : lightBg})`,
           backgroundSize: "cover",
           backgroundPosition: {
             xs: "62% center",

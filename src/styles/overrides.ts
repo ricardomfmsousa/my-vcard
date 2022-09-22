@@ -1,51 +1,6 @@
-import {
-  alpha,
-  Components,
-  createTheme,
-  responsiveFontSizes,
-  Theme,
-} from "@mui/material";
+import { alpha, Components, Theme } from "@mui/material";
 
-const theme = responsiveFontSizes(
-  createTheme({
-    typography: {
-      fontFamily: "Poppins, sans-serif",
-      fontWeightLight: 200,
-      fontWeightRegular: 400,
-      fontWeightMedium: 700,
-      body1: {
-        fontSize: 15,
-        lineHeight: 1.95,
-      },
-      h1: {
-        fontSize: "4rem",
-        fontWeight: "bold",
-      },
-      h2: {
-        fontSize: "3rem",
-        fontWeight: "bold",
-      },
-      h3: {
-        fontSize: "2rem",
-        fontWeight: "bold",
-        lineHeight: 1.6,
-      },
-      h4: {
-        fontSize: "1.55rem",
-        lineHeight: 1.2,
-      },
-    },
-    palette: {
-      mode: "dark",
-      background: {
-        default: "#121212",
-        darker: "#020202",
-      },
-    },
-  })
-);
-
-const createOverrides = (theme: Theme): Components => ({
+export const createComponentOverrides = (theme: Theme): Components => ({
   MuiCssBaseline: {
     styleOverrides: {
       "*": {
@@ -82,7 +37,3 @@ const createOverrides = (theme: Theme): Components => ({
     },
   },
 });
-
-theme.components = createOverrides(theme);
-
-export default theme;

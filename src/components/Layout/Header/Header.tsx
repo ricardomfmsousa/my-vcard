@@ -19,6 +19,7 @@ import { useScrollBlock } from "../../../hooks/useBlockScroll/useScrollBlock";
 import { FullScreenMenu } from "../../FullScreenMenu/FullScreenMenu";
 import { BurgerMenu } from "../../Icons/BurgerMenu/BurgerMenu";
 import { NavLink } from "../../NavLink/NavLink";
+import { ThemeSwitcher } from "../../ThemeSwitcher/ThemeSwitcher";
 
 const HideOnScroll: React.FC<{ children: JSX.Element }> = ({ children }) => {
   const trigger = useScrollTrigger();
@@ -135,7 +136,11 @@ export const Header: React.FC<HeaderProps> = ({
             <Typography
               variant="h6"
               noWrap
-              sx={{ ...headerLogo.sx, display: { xs: "none", md: "flex" } }}
+              sx={{
+                ...headerLogo.sx,
+                display: { xs: "none", md: "flex" },
+                flexGrow: 0,
+              }}
             >
               <NavLink
                 to="/"
@@ -145,6 +150,9 @@ export const Header: React.FC<HeaderProps> = ({
                 {headerLogo.text}
               </NavLink>
             </Typography>
+            <ThemeSwitcher />
+            <Box sx={{ flex: 1 }} />
+
             <Typography
               variant="h5"
               noWrap

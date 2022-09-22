@@ -3,22 +3,27 @@ import "@fontsource/poppins/200.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Script, ScriptStrategy } from "gatsby";
+import {
+  RouteUpdateArgs,
+  Script,
+  ScriptStrategy,
+  WrapPageElementBrowserArgs,
+  WrapRootElementBrowserArgs,
+} from "gatsby";
 import React from "react";
 
-import theme from "./src/components/theme";
+import { ThemeProvider } from "./src/context/ThemeContext";
+import { dark as theme } from "./src/styles/theme";
 
-export const wrapPageElement = ({ element }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {element}
-    </ThemeProvider>
-  );
+export const wrapPageElement: React.FC<WrapPageElementBrowserArgs> = ({
+  element,
+}) => {
+  return <ThemeProvider>{element}</ThemeProvider>;
 };
 
-export const onRouteUpdate = ({ location }) => {
+export const onRouteUpdate = ({
+  location,
+}: RouteUpdateArgs): boolean | null => {
   if (process.env.NODE_ENV !== "production") {
     return null;
   }
@@ -34,7 +39,9 @@ export const onRouteUpdate = ({ location }) => {
   return true;
 };
 
-export const wrapRootElement = ({ element }) => {
+export const wrapRootElement: React.FC<WrapRootElementBrowserArgs> = ({
+  element,
+}) => {
   return (
     <>
       {element}
