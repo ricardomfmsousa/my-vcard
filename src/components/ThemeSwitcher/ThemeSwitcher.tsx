@@ -11,7 +11,11 @@ export const ThemeSwitcher: React.FC<IconButtonProps> = (props) => {
 
   return (
     <IconButton onClick={toggleDarkMode} color="inherit" {...props}>
-      {isDarkMode ? <ModeNightIcon /> : <LightModeIcon />}
+      {isDarkMode ? (
+        <ModeNightIcon sx={{ rotate: "150deg" }} />
+      ) : (
+        <LightModeIcon />
+      )}
     </IconButton>
   );
 };
