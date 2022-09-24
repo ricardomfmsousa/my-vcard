@@ -56,11 +56,11 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
         ))}
       </Stack>
     ),
-    [tags]
+    [tags, palette]
   );
 
   const styledDescription = React.useMemo(() => {
-    const color = palette.text.secondary;
+    const color = "text.secondary";
     const lineHeight = 1.6;
     if (Array.isArray(description)) {
       const items = description.map((item) => (
@@ -79,7 +79,7 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
         {description}
       </Typography>
     );
-  }, [tags]);
+  }, [tags, palette]);
 
   return (
     <Card
@@ -130,7 +130,7 @@ export const ResumeCard: React.FC<ResumeCardProps> = ({
             </IconButton>
           </Tooltip>
         </Stack>
-        <Typography sx={{ mt: 1, mb: 2 }} color="text.disabled">
+        <Typography sx={{ mt: 1, mb: 2, color: "text.disabled" }}>
           {institution} / {period}
         </Typography>
         <Collapse in={isExpanded} timeout="auto" unmountOnExit>
