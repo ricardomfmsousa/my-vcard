@@ -15,8 +15,14 @@ interface ThemeContextType {
 export const ThemeContext = React.createContext({} as ThemeContextType);
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [isDarkMode, setDarkMode] = React.useState(true);
-  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+  const initialState = window.localStorage.getItem("dark-theme") === "true";
+  const [isDarkMode, setDarkMode] = React.useState(initialState);
+  const toggleDarkMode = () =>
+    setDarkMode((prevState) => {
+      const mode = !prevState;
+      window.localStorage.setItem("dark-theme", String(mode));
+      return mode;
+    });
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
