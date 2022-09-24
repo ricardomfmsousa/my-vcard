@@ -29,7 +29,7 @@ import {
 import { getValidationSchema, googleFormUrl } from "./ContactConfig";
 
 export interface ContactProps {
-  variant: SectionTemplateProps["variant"];
+  variant?: SectionTemplateProps["variant"];
 }
 
 export const Contact = React.forwardRef<SectionTemplateProps, ContactProps>(

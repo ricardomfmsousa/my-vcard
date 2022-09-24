@@ -11,7 +11,7 @@ import React, { ReactNode } from "react";
 
 export interface SectionTemplateProps {
   id: string;
-  variant: "lighter" | "darker";
+  variant?: "lighter" | "darker";
   title: string;
   subtitle: string;
   isOnViewport?: boolean;
@@ -21,7 +21,15 @@ export interface SectionTemplateProps {
 
 export const SectionTemplate = React.forwardRef<BoxProps, SectionTemplateProps>(
   (
-    { id, variant, title, subtitle, isOnViewport = false, children, sx },
+    {
+      id,
+      variant = "darker",
+      title,
+      subtitle,
+      isOnViewport = false,
+      children,
+      sx,
+    },
     ref
   ): JSX.Element => {
     const { palette } = useTheme();

@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { differenceInYears } from "date-fns";
 import { StaticImage } from "gatsby-plugin-image";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 
 import { NavLink } from "../../NavLink/NavLink";
@@ -11,7 +11,7 @@ import {
 } from "../SectionTemplate/SectionTemplate";
 
 export interface AboutProps {
-  variant: SectionTemplateProps["variant"];
+  variant?: SectionTemplateProps["variant"];
 }
 
 export const About = React.forwardRef<SectionTemplateProps, AboutProps>(
@@ -48,7 +48,7 @@ export const About = React.forwardRef<SectionTemplateProps, AboutProps>(
               maxWidth: aboutImage.width,
               maxHeight: aboutImage.height,
               borderRadius: { xs: "50%", lg: 1 },
-              border: "1px solid black",
+              border: ({ palette }) => `1px solid ${palette.background.darker}`,
               overflow: "hidden",
             }}
           >
@@ -61,7 +61,7 @@ export const About = React.forwardRef<SectionTemplateProps, AboutProps>(
           </Box>
           <Stack>
             <Typography variant="h4" sx={{ color: "primary.main" }}>
-              Who am I?
+              <Trans>Who am I?</Trans>
             </Typography>
             <Typography variant="h3" sx={{ mt: 2, mb: 3 }}>
               I&apos;m Ricardo Sousa, Senior Front-End Software Developer.

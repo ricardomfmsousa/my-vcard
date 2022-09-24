@@ -36,4 +36,11 @@ export const createComponentOverrides = (theme: Theme): Components => ({
       },
     },
   },
+  MuiCard: {
+    styleOverrides: {
+      root: {
+        backgroundColor: theme.palette.background.default,
+      },
+    },
+  },
 });

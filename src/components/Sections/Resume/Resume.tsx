@@ -9,7 +9,7 @@ import {
 } from "../SectionTemplate/SectionTemplate";
 
 export interface ResumeProps {
-  variant: SectionTemplateProps["variant"];
+  variant?: SectionTemplateProps["variant"];
 }
 
 export const Resume = React.forwardRef<SectionTemplateProps, ResumeProps>(
