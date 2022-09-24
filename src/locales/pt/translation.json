@@ -1,7 +1,7 @@
 {
   "A meaningful message should have more than 20 characters :)": "Uma mensagem significativa deverá conter mais de 20 caracteres",
   "About": "Sobre",
-  "About photo": "Sotografia sobre",
+  "About photo": "Fotografia sobre",
   "Check out my Resume": "Veja o meu currículo",
   "Collapse": "Fechar",
   "Contact": "Contacto",
@@ -14,7 +14,7 @@
   "Feel free to contact me through this form, I will reply to all messages that originate from here in the shortest possible time.": "Sinta-se à vontade para entrar em contacto comigo através deste formulário, responderei a todas as mensagens que se originarem daqui no menor tempo possível.",
   "Get in touch": "Entre em contacto",
   "Get to know me": "Conheça-me",
-  "Given the high amount of contact attempts I receive on a daily basis through social media, I will <strong>exclusively </strong>reply to messages that are sent from this form.": "Dado o elevado número de tentativas de contacto que eu recebo numa base diária através das redes sociais, irei responder <strong>exclusivamente </strong> às mensagens que sejam enviadas a partir deste formulário.",
+  "Given the high amount of contact attempts I receive on a daily basis through social media, I will <strong>exclusively </strong>reply to messages that are sent from this form.": "Dado o elevado número de tentativas de contacto que recebo numa base diária através das redes sociais, irei responder <strong>exclusivamente </strong> às mensagens que sejam enviadas a partir deste formulário.",
   "Go back...": "Voltar atrás",
   "Go to the Home Page...": "Ir para a página principal...",
   "Hey!\nYou were really fast filling out this form!\nAre you a Bot?\nPlease enter the first letter of your name:": "Hey!\nFoi muito rápido a preencher o formulário!\nVocê é um robot?\nPor favor insira a primeira letra do seu nome:",
@@ -36,5 +36,6 @@
   "Send": "Enviar",
   "Thank you for your contact!": "Obrigado pelo seu contacto",
   "This page is under": "Esta página está em",
+  "Who am I?": "Quem sou eu?",
   "truction": "trução"
 }
