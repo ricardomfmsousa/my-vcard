@@ -47,3 +47,6 @@ yarn-error.log
 # Environment variables
 .env*
 !.env.example
+
+# Bundle analyser stats
+/stats.json
