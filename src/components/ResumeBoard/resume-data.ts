@@ -134,8 +134,7 @@ export const experience: Resume = [
     description: [
       "Developed and maintained enterprise single page web applications;",
       "Created training documents critical to the application of development best practices;",
-      "Assigned tasks to team members according to their ability;",
-      "Supervised the completion of sprints and daily duties;",
+      "Assigned tasks to team members according to their ability, supervising the completion of sprints and daily duties;",
       "Encouraged team to work together and resolve interpersonal conflicts;",
       "Used SCRUM with all it's ceremonies for agile development.",
     ],
