@@ -15,7 +15,7 @@
     "storybook": "NODE_ENV=test start-storybook -p 6006 --no-dll -s public",
     "start": "gatsby develop -H 0.0.0.0",
     "clean": "gatsby clean",
-    "build:gatsby": "gatsby build --prefix-paths",
+    "build:gatsby": "GATSBY_BUILD_TIME=`date +'%Y-%m-%dT%H:%M:%S%z'` gatsby build --prefix-paths",
     "prebuild:storybook": "yarn prestorybook",
     "build:storybook": "NODE_ENV=test build-storybook -c .storybook -o ./public/storybook",
     "build": "yarn clean && yarn build:gatsby && yarn build:storybook",
@@ -24,7 +24,8 @@
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx . --fix",
     "format": "npx prettier --write .",
     "trans:verify": "node scripts/verify-translations.js",
-    "trans:extract": "yarn run babel --config-file ./scripts/extract-translations.js -o tmp/chunk.js './src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp"
+    "trans:extract": "node scripts/extract-translations.js",
+    "hooks": "npx lefthook run pre-commit -v"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -33,6 +34,7 @@
     "@fontsource/poppins": "^4.5.9",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.1",
+    "browser-monads-ts": "^2.0.1",
     "date-fns": "^2.29.2",
     "fetch-jsonp": "^1.2.2",
     "formik": "^2.2.9",
@@ -90,12 +92,15 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-storybook": "^0.6.4",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.27",
     "lefthook": "^1.1.1",
     "prettier": "^2.7.1",
     "storybook-addon-gatsby": "^0.0.5",
     "storybook-dark-mode": "^1.1.2",
     "storybook-react-i18next": "^1.1.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "webpack-bundle-analyzer": "^4.6.1",
+    "webpack-cli": "^4.10.0"
   },
   "repository": {
     "type": "git",
