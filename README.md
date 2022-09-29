@@ -2,12 +2,12 @@
 
 ## TODO (pre-prod):
 
-- Replace mock images and optimize all existing
 - Add SEO
-- Add GDPR compliance (through Gtag)
 - Add animations
-- Add hooks stories, review existing stories
 - Improve NavLink component
+- Add hooks stories, review existing stories
+- Replace mock images and optimize all existing
+- Add GDPR compliance (through Gtag)
 
 ## 📖 ToC
 
