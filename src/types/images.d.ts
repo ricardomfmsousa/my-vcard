@@ -21,8 +21,3 @@ declare module "*.jpg" {
   const value: unknown;
   export = value;
 }
-
-declare module "*.pdf" {
-  const value: unknown;
-  export = value;
-}
