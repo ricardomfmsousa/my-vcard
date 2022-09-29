@@ -37,6 +37,7 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-emotion",
     "gatsby-theme-material-ui",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
