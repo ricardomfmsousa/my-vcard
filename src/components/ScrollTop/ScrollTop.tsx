@@ -1,5 +1,6 @@
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Fab, Tooltip, useScrollTrigger, Zoom } from "@mui/material";
+import { window } from "browser-monads-ts";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 

@@ -1,3 +1,4 @@
+import { window } from "browser-monads-ts";
 import { differenceInSeconds } from "date-fns";
 import React from "react";
 

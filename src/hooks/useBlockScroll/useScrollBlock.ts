@@ -1,3 +1,4 @@
+import { document, window } from "browser-monads-ts";
 import { useRef } from "react";
 
 const safeDocument: Document = document;
