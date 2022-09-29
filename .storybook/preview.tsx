@@ -3,10 +3,11 @@ import "@fontsource/poppins";
 
 import { action } from "@storybook/addon-actions";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import React from "react";
 
 import { ThemeProvider } from "../src/context/ThemeContext";
 import { DocsContainer } from "./DocsContainer";
-import i18n from "./i18next.js";
+import i18n from "./i18next";
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
