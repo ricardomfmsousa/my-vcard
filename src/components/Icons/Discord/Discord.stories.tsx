@@ -13,7 +13,7 @@ export const Discord: ComponentStory<typeof DiscordComponent> = (args) => (
 );
 
 Discord.args = {
-  style: {
+  sx: {
     fontSize: "4em",
   },
 };

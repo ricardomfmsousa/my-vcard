@@ -1,11 +1,8 @@
-import { SvgIcon } from "@mui/material";
+import { SvgIcon, SvgIconProps } from "@mui/material";
 import React from "react";
 
-export const BurgerMenu = React.forwardRef(
-  (
-    props: React.ComponentPropsWithRef<"svg">,
-    ref: React.Ref<SVGSVGElement>
-  ): JSX.Element => (
+export const BurgerMenu = React.forwardRef<SVGSVGElement, SvgIconProps>(
+  (props, ref): JSX.Element => (
     <SvgIcon ref={ref} {...props} viewBox="170 195 390 390">
       <path d="m272.9 319.17h198.62c7.8477 0 14.207-6.3594 14.207-14.207s-6.3594-14.207-14.207-14.207h-198.62c-7.8477 0-14.207 6.3594-14.207 14.207s6.3594 14.207 14.207 14.207z" />
       <path d="m471.52 375.67h-87.141c-7.8438 0-14.207 6.3633-14.207 14.211 0 7.8438 6.3633 14.207 14.207 14.207h87.141c7.8477 0 14.207-6.3633 14.207-14.207 0-7.8477-6.3594-14.211-14.207-14.211z" />

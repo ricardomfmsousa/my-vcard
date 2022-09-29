@@ -1,7 +1,7 @@
-import { SvgIcon } from "@mui/material";
+import { SvgIcon, SvgIconProps } from "@mui/material";
 import React from "react";
 
-export const Strava = React.forwardRef<SVGSVGElement, typeof SVGSVGElement>(
+export const Strava = React.forwardRef<SVGSVGElement, SvgIconProps>(
   (props, ref): JSX.Element => (
     <SvgIcon ref={ref} {...props} viewBox="0 0 64 64">
       <path d="M27.898 21.944l7.564 14.928h11.124L27.898 0 9.234 36.876H20.35" />

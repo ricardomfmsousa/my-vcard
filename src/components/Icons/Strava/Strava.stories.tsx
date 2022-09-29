@@ -13,7 +13,7 @@ export const Strava: ComponentStory<typeof StravaComponent> = (args) => (
 );
 
 Strava.args = {
-  style: {
+  sx: {
     fontSize: "4em",
   },
 };

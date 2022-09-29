@@ -13,7 +13,7 @@ export const LinkedIn: ComponentStory<typeof LinkedInComponent> = (args) => (
 );
 
 LinkedIn.args = {
-  style: {
+  sx: {
     fontSize: "4em",
   },
 };

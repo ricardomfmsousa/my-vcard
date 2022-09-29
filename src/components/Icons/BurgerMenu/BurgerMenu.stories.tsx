@@ -13,7 +13,7 @@ export const BurgerMenu: ComponentStory<typeof BurgerMenuComponent> = (
 ) => <BurgerMenuComponent {...args} />;
 
 BurgerMenu.args = {
-  style: {
+  sx: {
     fontSize: "4em",
   },
 };

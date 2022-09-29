@@ -6,14 +6,20 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 import * as React from "react";
 
 import { NavLink } from "../components/NavLink/NavLink";
 
-export const NotFoundPage: React.FC<PageProps> = ({ data }): JSX.Element => {
+interface DataType {
+  desktop: { childImageSharp: { fluid: string[] } };
+}
+
+export const NotFoundPage: React.FC<PageProps<DataType>> = ({
+  data,
+}): JSX.Element => {
   const theme = useTheme();
 
   return (
@@ -87,8 +93,6 @@ export const NotFoundPage: React.FC<PageProps> = ({ data }): JSX.Element => {
 };
 
 export default NotFoundPage;
-
-export const Head: HeadFC = () => <title>Not found</title>;
 
 export const query = graphql`
   query ($language: String!) {

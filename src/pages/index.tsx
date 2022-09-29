@@ -1,4 +1,4 @@
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 
 import { Footer } from "../components/Layout/Footer/Footer";
@@ -45,8 +45,6 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
 };
 
 export default IndexPage;
-
-export const Head: HeadFC = () => <title>Home Page</title>;
 
 export const query = graphql`
   query ($language: String!) {

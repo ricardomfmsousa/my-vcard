@@ -20,6 +20,7 @@ import { languages } from "../../../i18n-config";
 export interface NavLinkProps {
   children?: ReactI18NextChild | Iterable<ReactI18NextChild>;
   to: string;
+  target?: string;
   language?: "disable" | typeof languages[number];
   onClick?: (e: React.MouseEvent) => void;
   tooltipPlacement?: TooltipProps["placement"];
@@ -38,6 +39,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
   tooltipPlacement = "bottom",
   tooltipText,
   sx,
+  target,
 }): JSX.Element => {
   const { palette } = useTheme();
   const location = globalHistory.location;
@@ -88,6 +90,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
           href={href}
           onClick={handleOnClick}
           sx={{ ...linkStyle, ...sx }}
+          target={target}
         >
           {children}
         </MuiLink>
@@ -97,6 +100,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
           language={language}
           onClick={handleOnClick}
           sx={sx}
+          target={target}
         >
           {children}
         </StyledGatsbyI18nLink>

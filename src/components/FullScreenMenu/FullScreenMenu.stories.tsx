@@ -24,5 +24,5 @@ FullScreenMenu.args = {
     { name: "Resume", href: `/#resume` },
     { name: "Contact", href: `/#contact` },
   ],
-  onClose: () => alert("This will close the menu"),
+  onInternalNav: () => alert("This will close the menu"),
 };

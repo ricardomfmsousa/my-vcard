@@ -2,7 +2,7 @@ import { createTheme, responsiveFontSizes, Theme } from "@mui/material";
 
 import { createComponentOverrides } from "./overrides";
 
-export const theme: Theme = {
+export const theme = {
   typography: {
     fontFamily: "Poppins, sans-serif",
     fontWeightLight: 200,
@@ -36,7 +36,6 @@ export const light: Theme = responsiveFontSizes(
   createTheme({
     ...theme,
     palette: {
-      ...theme.palette,
       mode: "light",
       background: { default: "#eeeeee", darker: "#dddddd" },
     },
@@ -47,7 +46,6 @@ export const dark: Theme = responsiveFontSizes(
   createTheme({
     ...theme,
     palette: {
-      ...theme.palette,
       mode: "dark",
       background: { default: "#121212", darker: "#070707" },
     },

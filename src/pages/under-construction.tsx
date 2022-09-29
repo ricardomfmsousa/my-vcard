@@ -6,14 +6,18 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 import * as React from "react";
 
 import { NavLink } from "../components/NavLink/NavLink";
 
-export const UnderConstructionPage: React.FC<PageProps> = ({
+interface DataType {
+  desktop: { childImageSharp: { fluid: string[] } };
+}
+
+export const UnderConstructionPage: React.FC<PageProps<DataType>> = ({
   data,
 }): JSX.Element => {
   const theme = useTheme();
@@ -90,8 +94,6 @@ export const UnderConstructionPage: React.FC<PageProps> = ({
 };
 
 export default UnderConstructionPage;
-
-export const Head: HeadFC = () => <title>Under Construction...</title>;
 
 export const query = graphql`
   query ($language: String!) {
