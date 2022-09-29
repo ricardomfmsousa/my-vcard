@@ -24,6 +24,7 @@
   "I'm a Proud <strong>Father</strong>": "Sou um <strong>Pai</strong> Orgulhoso",
   "I've specialized on <strong>Front-End</strong>": "Especializei-me em <strong>Front-End</strong>",
   "Intro": "Intro",
+  "Latest build": "",
   "Meaningful message": "Mensagem significativa",
   "Message": "Mensagem",
   "Message is required": "O campo Mensagem é obrigatório",
@@ -37,5 +38,6 @@
   "Thank you for your contact!": "Obrigado pelo seu contacto",
   "This page is under": "Esta página está em",
   "Who am I?": "Quem sou eu?",
-  "truction": "trução"
+  "truction": "trução",
+  "unknown": ""
 }

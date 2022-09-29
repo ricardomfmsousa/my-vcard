@@ -24,6 +24,7 @@
   "I'm a Proud <strong>Father</strong>": "I'm a Proud <strong>Father</strong>",
   "I've specialized on <strong>Front-End</strong>": "I've specialized on <strong>Front-End</strong>",
   "Intro": "Intro",
+  "Latest build": "Latest build",
   "Meaningful message": "Meaningful message",
   "Message": "Message",
   "Message is required": "Message is required",
@@ -37,5 +38,6 @@
   "Thank you for your contact!": "Thank you for your contact!",
   "This page is under": "This page is under",
   "Who am I?": "Who am I?",
-  "truction": "truction"
+  "truction": "truction",
+  "unknown": "unknown"
 }
