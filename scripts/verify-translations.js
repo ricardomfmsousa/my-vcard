@@ -7,7 +7,7 @@ const localesFolder = "./src/locales";
 const fs = require("fs");
 
 // Extract all keys
-execSync("yarn trans:extract", (error, stdout, stderr) => {
+execSync("node ./scripts/extract-translations.js", (error, stdout, stderr) => {
   if (error) {
     console.log(`error: ${error.message}`);
     return;

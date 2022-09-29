@@ -1,32 +1,26 @@
-const {
-  languages,
-  defaultLanguage,
-  translationPath,
-} = require("../i18n-config");
+/**
+ * Uses a babel preset to extract translations
+ */
+const { execSync } = require("child_process");
 
-process.env.NODE_ENV = "test";
+const commands = [
+  // Transpile i18n configuration to be used by babel preset
+  "if [ ! -f './scripts/i18n-config.js' ]; then npx tsc i18n-config.ts --outDir ./scripts; fi",
+  // Execute the extraction babel preset
+  "npx babel --config-file ./scripts/babel-i18n.js -o tmp/chunk.js './src/**/*.{js,jsx,ts,tsx}'",
+  // Remove unneeded files
+  "rm -rf tmp",
+];
 
-module.exports = {
-  presets: ["babel-preset-gatsby"],
-  plugins: [
-    [
-      "i18next-extract",
-      {
-        keySeparator: null,
-        nsSeparator: null,
-        locales: languages,
-        keyAsDefaultValue: [defaultLanguage],
-        useI18nextDefaultValue: [defaultLanguage],
-        discardOldKeys: true,
-        outputPath: `${translationPath}/{{locale}}/{{ns}}.json`,
-        customTransComponents: [["gatsby-plugin-react-i18next", "Trans"]],
-      },
-    ],
-  ],
-  overrides: [
-    {
-      test: [`../**/*.ts`, `../**/*.tsx`],
-      plugins: [[`@babel/plugin-transform-typescript`, { isTSX: true }]],
-    },
-  ],
-};
+// Execute all commands
+execSync(commands.join(" && "), (error, stdout, stderr) => {
+  if (error) {
+    console.log(`error: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    console.log(`stderr: ${stderr}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
+});
