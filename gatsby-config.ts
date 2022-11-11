@@ -22,6 +22,11 @@ const siteMetadata = {
 };
 
 const config: GatsbyConfig = {
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+    DEV_SSR: false,
+  },
   pathPrefix: "/my-vcard",
   siteMetadata,
   // More easily incorporate content into your pages through automatic
@@ -38,6 +43,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-emotion",
     "gatsby-theme-material-ui",
     "gatsby-plugin-webpack-bundle-analyser-v2",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
