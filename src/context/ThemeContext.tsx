@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
+import { window } from "browser-monads-ts";
 import React from "react";
 
 import { dark, light } from "../styles/theme";
@@ -15,7 +16,8 @@ interface ThemeContextType {
 export const ThemeContext = React.createContext({} as ThemeContextType);
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const initialState = window.localStorage.getItem("dark-theme") === "true";
+  const storedState = window.localStorage.getItem("dark-theme");
+  const initialState = storedState === null ? true : storedState === "true";
   const [isDarkMode, setDarkMode] = React.useState(initialState);
   const toggleDarkMode = () =>
     setDarkMode((prevState) => {
