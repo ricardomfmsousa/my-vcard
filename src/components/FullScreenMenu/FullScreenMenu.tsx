@@ -60,10 +60,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
       <Container maxWidth="sm" sx={{ pt: 10, height: "inherit", ...sx }}>
         <Stack
           spacing={1}
-          sx={{
-            height: "100%",
-            justifyContent: "space-around",
-          }}
+          sx={{ height: "100%", justifyContent: "space-around" }}
         >
           <Box>{links}</Box>
           <Stack

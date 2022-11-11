@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
     text: "RS",
     sx: {
       mr: 2,
-      display: { xs: "none", md: "flex" },
+      fontSize: { xs: "1.49rem", md: "1.25rem" },
       fontFamily: "Over the Rainbow",
       fontWeight: { xs: 700, md: 200 },
       letterSpacing: ".3rem",
@@ -154,15 +154,6 @@ export const Header: React.FC<HeaderProps> = ({
 
             <Box sx={{ flex: 1 }} />
 
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{ ...headerLogo.sx, display: { xs: "flex", md: "none" } }}
-            >
-              {headerLogo.text}
-            </Typography>
             <Box
               sx={{ display: { xs: "flex", md: "none" }, marginRight: "-12px" }}
             >
