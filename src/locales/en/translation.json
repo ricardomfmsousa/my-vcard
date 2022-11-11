@@ -12,6 +12,7 @@
   "Expand": "Expand",
   "Experience": "Experience",
   "Feel free to contact me through this form, I will reply to all messages that originate from here in the shortest possible time.": "Feel free to contact me through this form, I will reply to all messages that originate from here in the shortest possible time.",
+  "Feel free to open an issue if you've found the slightest bug, thanks in advance! 😉": "Feel free to open an issue if you've found the slightest bug, thanks in advance! 😉",
   "Get in touch": "Get in touch",
   "Get to know me": "Get to know me",
   "Given the high amount of contact attempts I receive on a daily basis through social media, I will <strong>exclusively </strong>reply to messages that are sent from this form.": "Given the high amount of contact attempts I receive on a daily basis through social media, I will <strong>exclusively </strong>reply to messages that are sent from this form.",
@@ -30,6 +31,7 @@
   "Message is required": "Message is required",
   "Name": "Name",
   "Name is required": "Name is required",
+  "Project documentation is also available through Storybook:": "Project documentation is also available through Storybook:",
   "Protected by myCaptcha": "Protected by myCaptcha",
   "Resume": "Resume",
   "Scroll to top": "Scroll to top",
@@ -37,7 +39,10 @@
   "Send": "Send",
   "Thank you for your contact!": "Thank you for your contact!",
   "This page is under": "This page is under",
+  "Welcome to my vCard website.\n": "Welcome to my vCard website.\n",
   "Who am I?": "Who am I?",
+  "You can check my source code at Github:": "You can check my source code at Github:",
   "truction": "truction",
-  "unknown": "unknown"
+  "unknown": "unknown",
+  "👋 HI THERE!": "👋 HI THERE!"
 }
