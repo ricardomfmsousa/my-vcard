@@ -28,5 +28,6 @@ module.exports = {
   plugins: ["react", "@typescript-eslint", "jsx-a11y"],
   rules: {
     "no-console": ["error", { allow: ["warn", "error"] }],
+    "no-warning-comments": 1,
   },
 };
