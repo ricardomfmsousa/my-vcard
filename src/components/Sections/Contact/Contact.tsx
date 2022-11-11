@@ -14,6 +14,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { window } from "browser-monads-ts";
 import fetchJsonp from "fetch-jsonp";
 import { useFormik } from "formik";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
