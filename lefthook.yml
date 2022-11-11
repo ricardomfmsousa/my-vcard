@@ -1,0 +1,17 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx eslint {staged_files}
+    typecheck:
+      files: "git diff --name-only --cached"
+      glob: "*.{ts,tsx}"
+      run: yarn typecheck
+    format:
+      glob: "*.{md,js,ts,jsx,tsx,json,yml}"
+      run: npx prettier --check {staged_files}
+    translations:
+      files: "git diff --name-only --cached"
+      glob: "*translation.json"
+      run: yarn trans:verify
