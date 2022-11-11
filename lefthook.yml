@@ -12,4 +12,6 @@ pre-commit:
       glob: "*.{md,js,ts,jsx,tsx,json,yml}"
       run: npx prettier --check {staged_files}
     translations:
+      files: "git diff --name-only --cached"
+      glob: "*translation.json"
       run: yarn trans:verify
