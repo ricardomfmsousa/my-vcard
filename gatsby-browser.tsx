@@ -3,6 +3,7 @@ import "@fontsource/poppins/200.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 
+import { window } from "browser-monads-ts";
 import {
   RouteUpdateArgs,
   Script,
@@ -12,19 +13,16 @@ import {
 } from "gatsby";
 import React from "react";
 
+import { ConsoleInfo } from "./src/components/ConsoleInfo/ConsoleInfo";
 import { ThemeProvider } from "./src/context/ThemeContext";
-import { dark as theme } from "./src/styles/theme";
 
 interface Win extends Window {
   gtag: (...args: unknown[]) => void;
 }
 
-export const wrapPageElement: React.FC<WrapPageElementBrowserArgs> = ({
-  element,
-}) => {
-  return <ThemeProvider>{element}</ThemeProvider>;
-};
-
+/**
+ * Trigger a page view event on route update
+ */
 export const onRouteUpdate = ({
   location,
 }: RouteUpdateArgs): boolean | null => {
@@ -41,6 +39,29 @@ export const onRouteUpdate = ({
     }
   }, 100);
   return true;
+};
+
+export const wrapPageElement: React.FC<WrapPageElementBrowserArgs> = ({
+  element,
+}) => {
+  // Due to `gatsby-plugin-react-i18next` plugin implementation, in order to
+  // have the translation context available inside `ConsoleInfo`,
+  // the context must wrap the component and not the other way around.
+  const newElement = React.cloneElement(
+    element, // I18nextProvider
+    element.props,
+    React.cloneElement(
+      element.props.children, // I18nextContext.Provider
+      element.props.children.props,
+      React.createElement(
+        ConsoleInfo,
+        undefined,
+        element.props.children.props.children
+      )
+    )
+  );
+
+  return <ThemeProvider>{newElement}</ThemeProvider>;
 };
 
 export const wrapRootElement: React.FC<WrapRootElementBrowserArgs> = ({
@@ -64,39 +85,3 @@ export const wrapRootElement: React.FC<WrapRootElementBrowserArgs> = ({
     </>
   );
 };
-
-const consoleStyles = {
-  h1: `
-    color: ${theme.palette.primary.main};
-    font-family: monospace;
-    font-size: 60px;
-    font-weight: bold;
-`,
-  h2: `
-    color: ${theme.palette.primary.main};
-    font-family: monospace;
-    font-size: 40px;
-    font-weight: bold;
-`,
-  p: `
-    color: ${theme.palette.primary.main};
-    font-family: monospace;
-    font-size: 15px;
-`,
-  pb: `
-    color: ${theme.palette.primary.main};
-    font-family: monospace;
-    font-size: 15px;
-    font-weight: bold;
-`,
-};
-
-/* eslint-disable no-console */
-console.log("%c👋 HI THERE!", consoleStyles.h1);
-console.log("%cWelcome to my vCard website.\n", consoleStyles.h2);
-console.log("%cYou can check my source code at Github:", consoleStyles.p);
-console.log("%chttps://github.com/ricardomfmsousa/my-vcard", consoleStyles.pb);
-console.log(
-  "%cFeel free to open an issue if you've found the slightest bug (thanks in advance :)",
-  consoleStyles.p
-);
