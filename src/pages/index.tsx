@@ -8,6 +8,7 @@ import { About } from "../components/Sections/About/About";
 import { Contact } from "../components/Sections/Contact/Contact";
 import { Intro } from "../components/Sections/Intro/Intro";
 import { Resume } from "../components/Sections/Resume/Resume";
+import { Seo } from "../components/Seo/Seo";
 import { useScrollSpy } from "../hooks/useScrollSpy/useScrollSpy";
 
 export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
@@ -27,6 +28,7 @@ export const IndexPage: React.FC<PageProps> = (): JSX.Element => {
 
   return (
     <>
+      <Seo />
       <Header introPadding={introPadding} activeSectionId={activeElementId} />
       <main>
         {sections.map((section: JSX.Element, i) =>
