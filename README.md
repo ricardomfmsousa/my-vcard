@@ -9,7 +9,7 @@
 - Replace mock images and optimize all existing
 - Add GDPR compliance (through Gtag)
 
-## 📖 ToC
+## 📖 What’s in this document
 
 1. [Pre-requisites](#%EF%B8%8F-pre-requisites)
 1. [Quick start](#-quick-start)
@@ -24,8 +24,8 @@
    # Check Node.js version
    node --version
 
-   # recommended: v16.15.0
-   # minimum: v14.15.0
+   # recommended: v18.12.0
+   # minimum: v18.2.0
    ```
 
    This project was built using [asdf](https://asdf-vm.com/) runtime manager.
