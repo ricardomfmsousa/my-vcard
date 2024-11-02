@@ -51,8 +51,8 @@ export const wrapPageElement: React.FC<WrapPageElementBrowserArgs> = ({
     element, // I18nextProvider
     element.props,
     React.cloneElement(
-      element.props.children, // I18nextContext.Provider
-      element.props.children.props,
+      element.props?.children, // I18nextContext.Provider
+      element.props?.children?.props,
       React.createElement(
         ConsoleInfo,
         undefined,
