@@ -1,0 +1,170 @@
+import { Meta } from "@storybook/addon-docs";
+import Code from "./assets/code-brackets.svg";
+import Colors from "./assets/colors.svg";
+import Comments from "./assets/comments.svg";
+import Direction from "./assets/direction.svg";
+import Flow from "./assets/flow.svg";
+import Plugin from "./assets/plugin.svg";
+import Repo from "./assets/repo.svg";
+import StackAlt from "./assets/stackalt.svg";
+import LinkTo from "@storybook/addon-links/react";
+
+<Meta title="Docs/Introduction" />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 900;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px 30px 20px 15px;
+      border: 1px solid #ffffff10;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #fff;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+
+    .separator {
+      margin: 2em 0 4em 0;
+    }
+  `}
+</style>
+
+# 👋 Welcome to _my-vcard_ Storybook
+
+>
+
+## What is this?
+
+[**Storybook**](https://storybook.js.org/) is a tool that helps to build UI
+components in isolation from the app's business logic, data and context.  
+That makes it easy to develop hard-to-reach states and makes development faster
+and easier.
+
+It's possible to develop entire UIs without needing to start up a complex dev
+stack, force certain data into the database, or navigate around the application.  
+UI states can be saved as **stories** to revisit during development, testing,
+QA or demos.
+
+**Storybook also helps to document components for reuse and automatically
+visually test them to prevent bugs.**  
+Building UIs with a [**component-driven**](https://componentdriven.org) process
+starting with atomic components and ending with pages is recomended.
+
+## How to use?
+
+Browse all stories from this project now by navigating to them in the sidebar.
+
+**On the top toolbar** there are several controls wich makes possible to set
+the test canvas zoom, viewport size, etc.
+There is also a "Locale Selector" containing the languages available on the
+application. This selector will not apply any
+translations, its purpose is to test components that have behaviors based on the
+selected language.
+
+<hr className="separator" />
+
+Jump to project [Technical Overview](?path=/story/docs-technical-overview--page)
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://github.com/ricardomfmsousa/my-vcard"
+    target="_blank"
+  >
+    <img src={Code} alt="code" />
+    <span>
+      <strong>GitHub project</strong>
+      Checkout the source code
+    </span>
+  </a>
+</div>

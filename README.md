@@ -1,36 +1,123 @@
-# Ricardo Sousa's vCard SPA implemented in Angular 6
+# Ricardo Sousa's vCard Website
 
-[![Build Status](https://travis-ci.org/ricardomfmsousa/my-vcard.svg?branch=master)](https://travis-ci.org/ricardomfmsousa/my-vcard)
-[![Coverage Status](https://coveralls.io/repos/github/ricardomfmsousa/my-vcard/badge.svg?branch=master)](https://coveralls.io/github/ricardomfmsousa/my-vcard?branch=master)
-[![dependencies Status](https://david-dm.org/ricardomfmsousa/my-vcard/status.svg)](https://david-dm.org/ricardomfmsousa/my-vcard)
-[![devDependencies Status](https://david-dm.org/ricardomfmsousa/my-vcard/dev-status.svg)](https://david-dm.org/ricardomfmsousa/my-vcard?type=dev)
+## TODO (pre-prod):
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9 and updated to 6.2.3.
+- Add SEO
+- Add animations
+- Improve NavLink component
+- Add hooks stories, review existing stories
+- Replace mock images and optimize all existing
+- Add GDPR compliance (through Gtag)
 
-## Development server
+## 📖 What’s in this document
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. [Pre-requisites](#%EF%B8%8F-pre-requisites)
+1. [Quick start](#-quick-start)
+1. [Production build](#-production-build)
+1. [Main technology stack](#%EF%B8%8F-main-technology-stack)
 
-## Code scaffolding
+## ⚙️ Pre-requisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Node.js LTS runtime**
 
-## Build
+   ```sh
+   # Check Node.js version
+   node --version
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+   # recommended: v18.12.0
+   # minimum: v18.2.0
+   ```
 
-## Deploy
+   This project was built using [asdf](https://asdf-vm.com/) runtime manager.
 
-Run `yarn deploy` to automatically deploy the project to github pages.
+   If you don't have a compatible Node.js runtime or if you don't have a runtime manager, follow the [install instructions](https://asdf-vm.com/guide/getting-started.html).
 
-## Running unit tests
+1. **Yarn package manager**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```sh
+   # Install yarn globally through npm
+   npm i -g yarn
+   ```
 
-## Running end-to-end tests
+1. **Gatsby command line interface (CLI)**
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+   ```sh
+   # Install gatsby-cli globally through npm
+   npm i -g gatsby-cli
+   ```
 
-## Further help
+## 🚀 Quick start
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1.  **Clone the project**
+
+    ```sh
+    git clone https://github.com/ricardomfmsousa/my-vcard.git
+    ```
+
+1.  **Install dependencies**
+
+    Navigate into the cloned directory and install.
+
+    ```sh
+    cd my-vcard
+
+    yarn install
+    ```
+
+1.  **Start development servers**
+
+    ```sh
+    # Start Gatsby development server
+    yarn start
+
+    # Start Storybook development server
+    yarn storybook
+    ```
+
+1.  **Open the source code and start editing!**
+
+    The site is now running at: `http://localhost:8000`
+
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_.  
+    Learn more about using this querying tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+
+## 🌍 Production build
+
+The following commands will generate a full production build.
+
+```sh
+# Clean and install dependencies
+yarn ci
+
+# Build gatsby website
+yarn build:gatsby
+
+# Build storybook project
+yarn build:storybook
+```
+
+> In order to leverage Gatsby incremental builds feature, `.cache` and `public` folders **must** be preserved between builds.
+
+## 🕹️ Main technology stack
+
+- [Github Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) hosting
+- [Github Actions](https://github.com/features/actions) continuous integration
+- [Lefthook](https://evilmartians.com/opensource/lefthook)<sup>1</sup> Git hooks manager
+- [asdf](https://asdf-vm.com/) Node.js runtime manager
+- [Yarn](https://yarnpkg.com/) package manager
+- [ESLint](https://eslint.org/) code linter
+- [Prettier](https://prettier.io/) code formatter
+- [Typescript](https://www.typescriptlang.org/) main programming language
+- [Storybook](https://storybook.js.org/) development environment
+- [React](https://reactjs.org/) UI Rendering engine
+- [GatsbyJS](https://www.gatsbyjs.com/) static site generator framework
+- [Material UI](https://mui.com/) component library
+- [i18next](https://www.i18next.com/) internationalization framework
+- ~~[Framer Motion](https://www.framer.com/) animation library~~
+
+> **(1) Configured `pre-commit` hooks are:**
+>
+> - `lint` - checks for linting and accessibility issues;
+> - `typecheck` - checks for code typing issues;
+> - `format` - checks for code formatting issues;
+> - `translations` - checks for empty translation values.

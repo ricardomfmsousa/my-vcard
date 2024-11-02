@@ -1,0 +1,38 @@
+name: Build and deploy Gatsby website
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Yarn
+        run: npm i -g yarn
+
+      - name: Install Gatsby CLI globally
+        run: npm i -g gatsby-cli@4.0.0
+
+      - name: Install Project Dependencies
+        run: yarn ci
+
+      - name: Build
+        run: yarn build
+
+      - name: Verify build
+        run: ls -la public
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
